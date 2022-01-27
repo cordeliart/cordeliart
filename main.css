@@ -32,11 +32,12 @@ h1 {
     letter-spacing: .25em;
 }
 
-h6 {
+.menu {
     font-weight: 700;
     font-size: 1em;
     margin-bottom: 0em;
-    padding: .5em 2em 1em 2em;
+    padding: 2em 2em 1em 2em;
+    letter-spacing: 0em;
 }
 
 h2 {
