@@ -6,7 +6,7 @@ html {
 body {
     color: #FFF;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 100%;
     font: 'Montserrat';
     font-weight: 300;
     line-height: 1.25;
@@ -28,7 +28,7 @@ body {
 
 h1 {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 100%;
     margin-bottom: -3.5em;
     letter-spacing: .25em;
 }
@@ -43,12 +43,12 @@ h2 {
     margin-top: 5em;
     margin-left: 2em;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 100%;
     color: #FFF;
 }
 
 h3 {
-    font-size: 12px;
+    font-size: 75%;
     font-weight: 300;
     margin-left: 2.6em;
     margin-top: -1em;
@@ -57,7 +57,7 @@ h3 {
 
 p {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 100%;
     margin-left: 2em;
     margin-bottom: 0em;
 }
@@ -109,7 +109,7 @@ a.db:hover {
 
 ul {
     list-style-type: circle;
-    font-size: 16px;
+    font-size: 100%;
     margin-left: 2em;
     margin-top: 0em;
 }
