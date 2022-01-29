@@ -6,7 +6,7 @@ html {
 body {
     color: #FFF;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
+    font-size: 16px;
     font: 'Montserrat';
     font-weight: 300;
     line-height: 1.25;
@@ -28,14 +28,12 @@ body {
 
 h1 {
     font-weight: 700;
-    font-size: 1em;
+    font-size: 16px;
     margin-bottom: -3.5em;
     letter-spacing: .25em;
 }
 
 .menu {
-    font-weight: 700;
-    font-size: 1em;
     margin-bottom: 0em;
     padding: 2em 2em 1em 2em;
     letter-spacing: 0em;
@@ -45,12 +43,12 @@ h2 {
     margin-top: 5em;
     margin-left: 2em;
     font-weight: 700;
-    font-size: 1em;
+    font-size: 16px;
     color: #FFF;
 }
 
 h3 {
-    font-size: .75em;
+    font-size: 12px;
     font-weight: 300;
     margin-left: 2.6em;
     margin-top: -1em;
@@ -59,7 +57,7 @@ h3 {
 
 p {
     font-weight: 300;
-    font-size: 1em;
+    font-size: 16px;
     margin-left: 2em;
     margin-bottom: 0em;
 }
@@ -111,7 +109,7 @@ a.db:hover {
 
 ul {
     list-style-type: circle;
-    font-size: 1em;
+    font-size: 16px;
     margin-left: 2em;
     margin-top: 0em;
 }
