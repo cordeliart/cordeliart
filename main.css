@@ -12,7 +12,7 @@ body {
     line-height: 1.25;
 }
 
-.body {
+.section {
     margin: 0 auto;
     max-width: 800px;
     padding: 10em 2em 0em 2em;
@@ -24,6 +24,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    margin-top:0em;
+    padding:0em;
 }
 
 h1 {
@@ -33,33 +35,31 @@ h1 {
     letter-spacing: .25em;
 }
 
-.menu {
+h1.nav {
     margin-bottom: 0em;
     padding: 2em 2em 1em 2em;
     letter-spacing: 0em;
 }
 
 h2 {
-    margin-top: 5em;
-    margin-left: 2em;
-    font-weight: 700;
     font-size: 100%;
+    font-weight: 700;
+    margin-top: 5em;
+    margin-bottom: 0em;
     color: #FFF;
 }
 
 h3 {
     font-size: 75%;
     font-weight: 300;
-    margin-left: 2.6em;
-    margin-top: -1em;
+    margin-top: 0em;
     color: #999999;
 }
 
 p {
     font-weight: 300;
     font-size: 100%;
-    margin-left: 2em;
-    margin-bottom: 0em;
+    margin-bottom: 1em;
 }
 
 a {
@@ -67,72 +67,68 @@ a {
     text-decoration: none;
 }
 
-a.a:hover {
-    text-decoration-color: #0000FF;
+a.blue:hover {
     background-color: #0000FF;
 }
 
-a.b:hover {
-    text-decoration: underline;
-    text-decoration-color: #F15A24;
+a.red:hover {
     background-color: #F15A24;
 }
 
-a.bb {
-    text-decoration: underline;
-    text-decoration-color: #F15A24;
-}
-
-a.bb:hover {
-    background-color: #F15A24;
-}
-
-a.c:hover {
-    text-decoration: underline;
-    text-decoration-color: #00A99D;
+a.cyan:hover {
     background-color: #00A99D;
 }
 
-a.d:hover {
-    text-decoration-color: #FBB03B;
+a.yellow:hover {
     background-color: #FBB03B;
 }
 
-a.db {
+a.red-link {
+    text-decoration: underline;
+    text-decoration-color: #F15A24;
+}
+
+a.red-link:hover {
+    background-color: #F15A24;
+}
+
+a.yellow-link {
     text-decoration: underline;
     text-decoration-color: #FBB03B;
 }
 
-a.db:hover {
+a.yellow-link:hover {
     background-color: #FBB03B;
 }
 
 ul {
     list-style-type: circle;
     font-size: 100%;
-    margin-left: 2em;
     margin-top: 0em;
 }
 
-.v1 {
+.redsec {
     border-left: 1px solid #F15A24;
     position: left;
     left: 0%;
     margin-top: 0em;
+    padding-left: 2em;
 }
 
-.v2 {
+.cyansec {
     border-left: 1px solid #00A99D;
     position: left;
     left: 0%;
     margin-top: 0em;
+    padding-left: 2em;
 }
 
-.v3 {
+.yellowsec {
     border-left: 1px solid #FBB03B;
     position: left;
     left: 0%;
     margin-top: 0em;
+    padding-left: 2em;
 }
 
 img {
@@ -140,11 +136,6 @@ img {
     background: transparent;
     display: block;
     max-width: 100%;
-}
-
-.padding {
-    margin-left: 2em;
-    margin-top: .75em;
 }
 
 .nopadding {
@@ -162,12 +153,6 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 12em;
-}
-
-.row::after {
-    content: "";   
-    clear: both;
-    display: table;
 }
 
 @keyframes colorize {
