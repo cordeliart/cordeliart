@@ -171,3 +171,12 @@ img {
 		scroll-behavior: auto;
 	}
 }
+
+@media only screen and (max-width: 600px) {
+    h1.menu {
+        font-size: 13px;
+        margin-bottom: 0em;
+        padding: 2em 2em 1em 2em;
+        letter-spacing: 0em;
+    }
+  }
