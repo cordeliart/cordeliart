@@ -17,6 +17,27 @@ body {
     max-width: 800px;
     padding: 10em 2em 0em 2em;
 }
+.section .red {
+    border-left: 1px solid #F15A24;
+    position: left;
+    left: 0%;
+    margin-top: 0em;
+    padding-left: 2em;
+}
+.section .cyan {
+    border-left: 1px solid #00A99D;
+    position: left;
+    left: 0%;
+    margin-top: 0em;
+    padding-left: 2em;
+}
+.section .yellow {
+    border-left: 1px solid #FBB03B;
+    position: left;
+    left: 0%;
+    margin-top: 0em;
+    padding-left: 2em;
+}
 
 .nav {
     overflow: hidden;
@@ -62,42 +83,48 @@ p {
     margin-bottom: 1em;
 }
 
+.red span {
+    font-weight:300;
+    color:#F15A24;
+}
+.cyan span {
+    font-weight:300;
+    color:#00A99D;
+}
+.yellow span {
+    font-weight:300;
+    color:#FBB03B;
+}
+
+.nav .blue:hover {
+    background-color: #0000FF;
+}
+.nav .red:hover {
+    background-color: #F15A24;
+}
+.nav .cyan:hover {
+    background-color: #00A99D;
+}
+.nav .yellow:hover {
+    background-color: #FBB03B;
+}
+
 a {
     color: #FFF;
     text-decoration: none;
 }
-
-a.blue:hover {
-    background-color: #0000FF;
-}
-
-a.red:hover {
-    background-color: #F15A24;
-}
-
-a.cyan:hover {
-    background-color: #00A99D;
-}
-
-a.yellow:hover {
-    background-color: #FBB03B;
-}
-
-a.red-link {
+.red a {
     text-decoration: underline;
     text-decoration-color: #F15A24;
 }
-
-a.red-link:hover {
+.red a:hover {
     background-color: #F15A24;
 }
-
-a.yellow-link {
+.yellow a {
     text-decoration: underline;
     text-decoration-color: #FBB03B;
 }
-
-a.yellow-link:hover {
+.yellow a:hover {
     background-color: #FBB03B;
 }
 
@@ -107,40 +134,11 @@ ul {
     margin-top: 0em;
 }
 
-.redsec {
-    border-left: 1px solid #F15A24;
-    position: left;
-    left: 0%;
-    margin-top: 0em;
-    padding-left: 2em;
-}
-
-.cyansec {
-    border-left: 1px solid #00A99D;
-    position: left;
-    left: 0%;
-    margin-top: 0em;
-    padding-left: 2em;
-}
-
-.yellowsec {
-    border-left: 1px solid #FBB03B;
-    position: left;
-    left: 0%;
-    margin-top: 0em;
-    padding-left: 2em;
-}
-
 img {
     animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
     background: transparent;
     display: block;
     max-width: 100%;
-}
-
-.nopadding {
-    padding: 15em 2em 0em 2em;
-    max-width: 75%;
 }
 
 .icon {
@@ -172,8 +170,8 @@ img {
 	}
 }
 
-@media only screen and (max-width: 600px) {
-    h1.menu {
+@media only screen and (max-width: 800px) {
+    h1.nav {
         font-size: 13px;
         margin-bottom: 0em;
         padding: 2em 2em 1em 2em;
