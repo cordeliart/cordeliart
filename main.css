@@ -12,150 +12,211 @@ body {
     line-height: 1.25;
 }
 
-.section {
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 10em 2em 0em 2em;
-}
-.section .red {
-    border-left: 1px solid #F15A24;
-    position: left;
-    left: 0%;
-    margin-top: 0em;
-    padding-left: 2em;
-}
-.section .cyan {
-    border-left: 1px solid #00A99D;
-    position: left;
-    left: 0%;
-    margin-top: 0em;
-    padding-left: 2em;
-}
-.section .yellow {
-    border-left: 1px solid #FBB03B;
-    position: left;
-    left: 0%;
-    margin-top: 0em;
-    padding-left: 2em;
-}
-
-.nav {
-    overflow: hidden;
-    background-color: rgba(0,0,0,.75);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    margin-top:0em;
-    padding:0em;
-}
-
-h1 {
-    font-weight: 700;
+h1 { /*page titles*/
+    font-family: 'Montserrat', sans-serif;
     font-size: 100%;
-    margin-bottom: -3.5em;
-    letter-spacing: .25em;
-}
-
-h1.nav {
-    margin-bottom: 0em;
-    padding: 2em 2em 1em 2em;
-    letter-spacing: 0em;
-}
-
-h2 {
-    font-size: 100%;
+    font: 'Montserrat';
     font-weight: 700;
-    margin-top: 5em;
-    margin-bottom: 0em;
+    line-height: 1.25;
+    letter-spacing: 3px;
+    text-align: right;
+}
+
+h2 { /*gallery title*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    font: 'Montserrat';
+    font-weight: 700;
+    line-height: 1.25;
+    margin:0;
+    margin-bottom:3px;
+}
+
+h3 { /*date and media*/
     color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1;
+    margin-top:0;
 }
 
-h3 {
-    font-size: 75%;
+h4 { /*tags*/
+    color: grey;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60%;
+    font: 'Montserrat';
     font-weight: 300;
-    margin-top: 0em;
-    color: #999999;
+    line-height: 1;
+    margin-top:1em;
+    font-style: italic;
+    letter-spacing: .5px;
+}
+
+h5 { /*see more*/
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60%;
+    font: 'Montserrat';
+    font-weight: 700;
+    line-height: 1;
+    margin-top:1em;
+    letter-spacing: 2px;
+}
+
+h6 { /*end*/
+    color: #7F7F7F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 75%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
+    margin-bottom: 5%;
+    text-align:center;
 }
 
 p {
-    font-weight: 300;
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
     font-size: 100%;
-    margin-bottom: 1em;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
 }
 
-.red span {
-    font-weight:300;
-    color:#F15A24;
-}
-.cyan span {
-    font-weight:300;
-    color:#00A99D;
-}
-.yellow span {
-    font-weight:300;
+p span {
     color:#FBB03B;
 }
 
-.nav .blue:hover {
-    background-color: #0000FF;
-}
-.nav .red:hover {
-    background-color: #F15A24;
-}
-.nav .cyan:hover {
-    background-color: #00A99D;
-}
-.nav .yellow:hover {
-    background-color: #FBB03B;
-}
-
-a {
-    color: #FFF;
-    text-decoration: none;
-    transition: .25s ease;
-}
-.red a {
-    text-decoration: underline;
-    text-decoration-color: #F15A24;
-}
-.red a:hover {
-    background-color: #F15A24;
-}
-.yellow a {
-    text-decoration: underline;
-    text-decoration-color: #FBB03B;
-}
-.yellow a:hover {
-    background-color: #FBB03B;
-}
-
-ul {
-    list-style-type: circle;
-    font-size: 100%;
-    margin-top: 0em;
-}
-
 img {
-    animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
-    background: transparent;
-    display: block;
-    max-width: 100%;
+    display:block;
+    max-width:100%;
+    max-height:100vh;
 }
 
-.icon {
-    width: 2em;
-    float: left;
-    padding: .75em;
+h1 a {
+    text-decoration: none;
+    color:inherit;
+}
+
+.blue {z-index:3}
+.blue a:hover {transition: .5s ease;color:#0000FF;}
+.yellow a:hover {transition: .5s ease;color:#FBB03B;}
+.red a:hover {transition: .5s ease;color:#F15A24;}
+.cyan a:hover {transition: .5s ease;color:#00A99D;}
+
+h5 a {
+    color: inherit;
+    text-decoration-color: #0000FF;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+h5 a:hover {
+    transition: .25s ease;
+    color: #FFF;
+    background: rgba(0,0,255,1);
+}
+
+.title {
+    position: fixed;
+    top:0%;
+    left:2%;
+    width:45%;
+    z-index:2;
+}
+
+.column {
+    margin-left:40%;
+    margin-right:0;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    animation: colorize 2s ease-in-out;
+}
+
+.gallery p {
+    font-size:75%;
+}
+
+.container {
+    position:relative;
+    background:black;
+    width:49%;
+    height:29vw;
+    box-sizing: border-box;
+}
+  
+/* Make the image to responsive */
+.image {
+    display: block;
+    width: 100%;
+    height:100%;
+}
+  
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:50;
+    width: 100%;
+    transition: .5s ease;
+    background-color: rgba(0,0,0,.87);
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20%;
+    text-align: left;
+    justify-content:center;
+    z-index:1;
+    box-sizing: border-box;
+}
+
+.container:hover .overlay {
+    opacity:1;
 }
 
 .row {
-    margin-left: auto;
-    margin-right: auto;
-    width: 12em;
+    display:flex;
+    justify-content: center;
+}
+
+.row > * {
+    width:33%;
+    max-width:40px;
+    margin:10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.15);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.3);
+    border-radius: 4px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFF;
 }
 
 @keyframes colorize {
     0% {
+        opacity:0;
         -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
     }
@@ -165,17 +226,10 @@ img {
     }
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
-}
-
 @media only screen and (max-width: 800px) {
-    .nav h1 {
-        font-size: 50%;
-        margin-bottom: 0em;
-        padding: 2em 2em 1em 2em;
-        letter-spacing: 0em;
-    }
-  }
+    .column {margin-left:0}
+    .title {position:relative;width:92%;margin-bottom:10%}
+    .container {height:49%}
+    .gallery h2 {font-size:80%;}
+    .gallery p {opacity:0;font-size:0;}
+}

@@ -1,0 +1,215 @@
+html {
+    background: black;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
+    margin:0 2% 0 0;
+}
+
+h1 { /*title*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 250%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
+    margin:0 25% 0 0%;
+}
+
+h2 { /*date and materials*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 75%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: .2em;
+    margin:0 0 10% 0;
+    color: #F15A24;
+    width:fit-content;
+}
+
+h3 { /*sections*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 170%;
+    font: 'Montserrat';
+    font-weight: 700;
+    color: #FFF;
+    margin: 10% 0 0 0;
+}
+
+h4 { /*captions*/
+    color: #7F7F7F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 75%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
+    margin: 5px 0 5% 0;
+}
+
+h6 { /*copyright*/
+    color: #7F7F7F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 75%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.25;
+    margin-bottom: 5%;
+    text-align:center;
+}
+
+p {
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    font: 'Montserrat';
+    font-weight: 300;
+    line-height: 1.5;
+    max-width:50em;
+    margin:1.5em 0 1.5em 0;
+}
+
+ol {
+    line-height: 150%;
+}
+
+p a {
+    color: inherit;
+    text-decoration-color: #F15A24;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+p a:hover {
+    transition: .25s ease;
+    background-color:#F15A24;
+}
+
+img {
+    display:block;
+    width:100%;
+    padding:2px 2px 0 0;
+    box-sizing: border-box;
+}
+
+video {
+    width: 800px;
+    height: auto;
+}
+
+.arrow {
+    position:fixed;
+    top:9.3em;
+    left:2.5em;
+    width:10%;
+}
+
+.line {
+    margin: 20.3% 85% 0 0;
+    z-index: 500;
+}
+
+.text {
+    margin:0 0 0 20%;
+    padding:0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid > * {
+    width: 50%;
+}
+
+.textgrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.textgrid > * {
+    width: 50%;
+}
+
+.textl {
+    padding-right:5%;
+    box-sizing:border-box;
+}
+.textr {
+    padding-left:5%;
+    box-sizing:border-box;
+}
+.gridflex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gridflex > img {
+    height: 27vw;
+    width:auto;
+}
+
+.grid3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid3 > * {
+    width: 33.333%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.15);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.3);
+    border-radius: 4px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFF;
+}
+
+@media only screen and (max-width: 850px) {
+    body {padding:5% 5% 5% 5%;}
+    h1 {font-size:200%}
+    h2 {line-height: 3em;}
+    h6 {margin:15% 0 7.5% 0;}
+    video {width:450px;}
+    .arrow {
+        position:relative;
+        top:0;
+        left:0;
+        margin: 5% auto 0 auto;
+        width:100px;}
+    .line {position:relative;margin: 20% 85% 0 0;}
+    .text {position:relative;margin:2%;}
+    .textgrid > * {
+        width: 100%;
+    }
+    .textl {padding:0 20% 0 0;}
+    .textr {padding:0 20% 0 0;}
+}
+
+
+@media only screen and (max-width: 600px) {
+    video {width:400px;}
+    .textl {padding:0 0 0 0;}
+    .textr {padding:0 0 0 0;}
+}
