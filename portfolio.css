@@ -212,4 +212,6 @@ video {
     video {width:400px;}
     .textl {padding:0 0 0 0;}
     .textr {padding:0 0 0 0;}
+    .grid > * {width:100%;}
+    .grid3 > * {width:100%;}
 }
