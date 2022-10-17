@@ -106,6 +106,12 @@ h1 a {
 .red a:hover {transition: .5s ease;color:#F15A24;}
 .cyan a:hover {transition: .5s ease;color:#00A99D;}
 
+h2:hover {
+    width:fit-content;
+    transition: .5s ease;
+    background: rgba(255,255,255,.25);
+}
+
 h5 a {
     color: inherit;
     text-decoration-color: #0000FF;
