@@ -46,7 +46,7 @@ h3 { /*sections*/
 h4 { /*captions*/
     color: #7F7F7F;
     font-family: 'Montserrat', sans-serif;
-    font-size: 75%;
+    font-size: 85%;
     font: 'Montserrat';
     font-weight: 300;
     line-height: 1.25;
@@ -100,7 +100,7 @@ img {
 
 video {
     width: 800px;
-    height: auto;
+    max-height: 90vh;
 }
 
 .arrow {
