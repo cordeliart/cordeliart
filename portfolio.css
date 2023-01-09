@@ -54,11 +54,11 @@ h4 { /*captions*/
 }
 
 h6 { /*copyright*/
-    color: #7F7F7F;
+    color: rgb(60,60,60);
     font-family: 'Montserrat', sans-serif;
     font-size: 75%;
     font: 'Montserrat';
-    font-weight: 300;
+    font-weight: 700;
     line-height: 1.25;
     margin-bottom: 5%;
     text-align:center;
@@ -70,7 +70,7 @@ p {
     font-size: 100%;
     font: 'Montserrat';
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.85;
     max-width:50em;
     margin:1.5em 0 1.5em 0;
 }
