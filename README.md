@@ -1,4 +1,4 @@
 - Hi, I'm @cordeliart / Lena Pang.
 - I'm interested in design (graphic, interactive, multimedia, you name it), math, learning languages (my current endeavor is Japanese), and traveling!
-- I'm currently studying for my BFA in New Media Design at the Rochester Institute of Technology in New York.
+- I'm currently studying for my BFA in New Media Design and my BS in Applied Mathematics at the Rochester Institute of Technology in New York.
 - How to reach me: www.cordeliart.com (this respository!) or lenacordeliart@gmail.com.
