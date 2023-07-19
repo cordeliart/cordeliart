@@ -238,4 +238,5 @@ h5 a:hover {
     .container {height:49%}
     .gallery h2 {font-size:80%;}
     .gallery p {opacity:0;font-size:0;}
+    .gallery h4 {opacity:0;font-size:0;}
 }
