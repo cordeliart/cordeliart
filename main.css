@@ -10,10 +10,10 @@ body {
     font: 'Montserrat';
     font-weight: 300;
     line-height: 1.25;
-    max-width: 2000px;
-    position: relative;
+    max-width:2000px;
+    position:relative;
     margin: 0 auto;
-    margin-top: 2px;
+    margin-top:2px;
 }
 
 h1 { /*page titles*/
@@ -139,6 +139,8 @@ h5 a:hover {
 .column {
     margin-left:40%;
     margin-right:0;
+    height:99.5vh;
+    overflow-y:auto;
 }
 
 .gallery {
@@ -233,7 +235,7 @@ h5 a:hover {
 }
 
 @media only screen and (max-width: 800px) {
-    .column {margin-left:0}
+    .column {margin-left:0;height:100%;}
     .title {position:relative;width:92%;margin-bottom:10%}
     .container {height:49%}
     .gallery h2 {font-size:80%;}
