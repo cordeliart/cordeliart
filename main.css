@@ -8,8 +8,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 100%;
     font: 'Montserrat';
-    font-weight: 300;
-    line-height: 1.25;
+    font-weight: 400;
+    line-height: 1.65;
     max-width:2000px;
     position:relative;
     margin: 0 auto;
@@ -17,45 +17,37 @@ body {
 }
 
 h1 { /*page titles*/
-    font-family: 'Montserrat', sans-serif;
     font-size: 100%;
-    font: 'Montserrat';
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: 3px;
     text-align: right;
 }
 
-h2 { /*gallery title*/
-    font-family: 'Montserrat', sans-serif;
-    font-size: 100%;
-    font: 'Montserrat';
+h2 { /*gallery titles*/
+    font-size: 120%;
     font-weight: 700;
-    line-height: 1.25;
-    margin:0;
-    margin-bottom:3px;
+    line-height:1.15;
+    margin:0 0 4% 0;
 }
 
 h3 { /*date and media*/
     color: #FFF;
-    font-family: 'Montserrat', sans-serif;
     font-size: 60%;
-    font: 'Montserrat';
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1;
-    margin-top:0;
+    margin:0 0 12% 0;
+    letter-spacing: 1px;
 }
 
 h4 { /*tags*/
     color: grey;
     font-family: 'Montserrat', sans-serif;
-    font-size: 60%;
+    font-size: 75%;
     font: 'Montserrat';
-    font-weight: 300;
-    line-height: 1;
+    font-weight: 400;
     margin-top:1em;
     font-style: italic;
-    letter-spacing: .5px;
 }
 
 h5 { /*see more*/
@@ -74,7 +66,7 @@ h6 { /*end*/
     font-family: 'Montserrat', sans-serif;
     font-size: 75%;
     font: 'Montserrat';
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.25;
     margin-bottom: 5%;
     text-align:center;
@@ -85,8 +77,7 @@ p {
     font-family: 'Montserrat', sans-serif;
     font-size: 75%;
     font: 'Montserrat';
-    font-weight: 300;
-    line-height: 1.25;
+    font-weight: 400;
 }
 
 p span {
@@ -175,7 +166,7 @@ h5 a:hover {
     right:50;
     width: 100%;
     transition: .5s ease;
-    background-color: rgba(0,0,0,.87);
+    background-color: rgba(0,0,0,.95);
     opacity:0;
     color: white;
     font-size: 20px;
