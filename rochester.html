@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Rochester Website Redesign | Lena Pang</title>
+        <meta name="description" content="2023, Figma.">
+        <meta name="robots" content="noindex, nofollow">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="portfolio.css">
+        <link rel="icon" href="images/tab.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <style>
+        html {background-color: #DCF1FA;}
+        body {color:#002A71}
+        .button {color:#DCF1FA;background-color:#002A71}
+        .button:hover {background-color: #006ED3;}
+        h2, h5, h6, a:hover {color:#006ED3;}
+        .section {border-top: 1.5px solid #002A71;} /*hairline*/        
+        h5::after {border-bottom: 1.5px solid #006ED3} /*subsection hairline*/
+        ::-webkit-scrollbar-track {background: rgba(0,110,211,.1);}
+        ::-webkit-scrollbar-thumb {background: rgba(0,110,211,.2);}
+        ::-webkit-scrollbar-thumb:hover {background: #006ED3}
+    </style>
+    
+    <body>
+        <div class="leftfix">
+            <div class="leftbox">
+                <div class="left">
+                    <a href="index.html"><img src="images/roc/home.png" class="home"></a>
+                    <h1>Rochester Website Redesign</h1>
+                    <h2>Fall 2023</h2>
+                    <h2>Figma</h2>
+                    <h2>1440×1024 px</h2>
+                    <div class="table">
+                        <a href="#figma"><h4>Figma</h4></a>
+                        <a href="#intro"><h4>I - Introduction</h4></a>
+                        <a href="#research"><h4>II - Research</h4></a>
+                        <a href="#redesign"><h4>III - Redesign</h4></a>
+                        <a href="#solution"><h4>IV - Solution</h4></a>
+                        <a href="images/roc/deck.pdf" target="_blank"><p style="margin:16% 0 0 0"><b>Download Project Deck 🡲</b></p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div id="figma">
+                <iframe style="border: 0px; background-color: #006ED3;" width="100%" height="800px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8cnqZ7c4Vbi1Ab0xhX17yA%2F302-p1%3Fpage-id%3D757%253A6684%26type%3Ddesign%26node-id%3D759-5039%26viewport%3D200%252C274%252C0.31%26t%3DvHFzbCZ1sOUNlrfd-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D759%253A5039%26mode%3Ddesign" allowfullscreen></iframe>
+            </div>
+            <div  id="intro" style="padding-top:10%">
+                <h4>I - Introduction</h4>
+                <p>This project focused on revitalizing the government website for the wondrous Rochester, New York. After all, a beautiful city should be reflected in a beautiful site—but the city of Rochester's website is just a bit antiquated and cluttered.</p>
+                <p>The redesign focuses on reducing redundancy in terms of both visuals and user flow, opting instead to streamline the user to their desired information, aided by simple, elegant, and unified graphics.</p>
+            </div>
+
+            <div class="section" id="research">
+                <h4>II - Research</h4>
+                <img src="images/roc/original.png">
+                <h6>A screencap of the original website design, visible <b><a href="https://cityofrochester.gov/"  target="_blank">here (cityofrochester.gov)</a></b>.</h6>
+                <h5>Identifying Problems</h5>
+                <div class="grid">
+                    <div class="grid3">
+                        <p><b>Headers</b></p>
+                        <ul>
+                            <li>navigation has no hover state/dropdown (instead leads to pages with a lists of sub-pages)</li>
+                            <li>awkward search bar: squashed icon, horizontally but not vertically centered text despite cursor being left aligned</li>
+                            <li>outdated, mis-matched social media icons</li>
+                        </ul>
+                    </div>
+                    <div class="grid3">
+                        <p><b>Cards</b></p>
+                        <ul>
+                            <li>minimal hierarchy across categories</li>
+                            <li>all information is out in the open</li>
+                            <li>takes up a lot of space; visually overwhelming yet repetitive and monotonous</li>
+                            <li>last row has only one card, strange alignment</li>
+                        </ul>
+                    </div>
+                    <div class="grid3">
+                        <p><b>Style</b></p>
+                        <uL>
+                            <li>colorful pastels read almost childish, doesn’t match content</li>
+                            <li>feels unserious; friendly but not very “professional” (almost makes you doubt whether you’re on the correct site or not)</li>
+                            <li>drop shadows appear on cards and nowhere else; inconsistent formatting</li>
+                        </uL>
+                    </div>
+                </div>
+                <h5>User Flow</h5>
+                <div class="grid">
+                    <div class="grid2">
+                        <p><b>THE TASK: find information on the business permit application process</b></p>
+                        <p>The current user flow has an overwhelming amount of ways to get from the home page to the desired page, information on business permits.</p>
+                        <p>Generally, there is a lot of repeated information in different places, and a confusing amount of redundancy in the site map pathways.</p>
+                    </div>
+                    <div class="grid2">
+                        <img src="images/roc/user.png" style="width:85%;margin-left:auto;">
+                    </div>
+                </div>
+                <h5>User Interview Takeaways</h5>
+                <div class="grid">
+                    <div class="grid2">
+                        <p><b>Visuals</b></p>
+                        <ul>
+                            <li>very boring, not very interesting</li>
+                            <li>the cards are not a fan favorite</li>
+                            <li>overwhelming to look at</li>
+                            <li>navigation is hard to see (doesn’t attract much attention relative to everything else)</li>
+                        </ul>
+                    </div>
+                    <div class="grid2">
+                        <p><b>Functionality</b></p>
+                        <ul>
+                            <li>does what it needs to do / communicates what it needs to communicate</li>
+                            <li>lots of redundant information; many different flows for the same information</li>
+                            <li>some text treatment (such as linked titles, dropdowns and navigation) do not respond as expected</li>
+                        </ul>
+                    </div>
+                </div>
+                <h5>Comparative Analysis</h5>
+                    <p><b>sanjoseca.gov</b> - The city of San Jose's website features several more images than Boston, but it remains well organized, unified, and easy to use. Their information scroll order, similarly to Boston's design, is based on resource popularity. The first thing on the home page are “top requested” resources, followed by a search services function. This search services feature is a very useful tool for users because it addresses all possible demands with an open-ended search query (in addition to an alphabetized list).</p>
+                    <p><B>sf.gov</B> - San Francisco is the most minimalistic of the three, using grouping and white space instead of colored or outlined cards. Still, the consistency in text treatment and color scheme keeps the site cohesive. There is, however, a bit of redundancy in the “Services” navigation tab, as it doesn't show anything that the home page doesn't show. SF also displays the public officials more than the other two, likely out of publicity because it's such a large city.</p>
+                <h5>UI Patterns</h5>
+                <div class="grid">
+                    <div class="grid3">
+                        <p><b>Popular Resources</b></p>
+                        <p>Having a “featured resources” or “top requests” section on the home page quickly addresses the needs of most users. Prompted search bars can similarly fulfill this function.</p>
+                    </div>
+                    <div class="grid3">
+                        <p><b>Icons</b></p>
+                        <p>Utilizing icons in addition to text labels increases scannability (isomorphic correspondence).</p>
+                    </div>
+                    <div class="grid3">
+                        <p><b>Scrolling Sections</b></p>
+                        <p>Dividing information into clear, contrasting sections with titles helps users quickly differentiate and find information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="redesign">
+            <h4>III - Redesign</h4>
+                <h5>Defining Goals</h5>
+                    <p><b>Reduce Clutter & Improve Relevance</b> - By reducing the information on the home page to disclude repetitive or generally irrelevant topics, the user will be able to more quickly find what they need. Information will be displayed on a timely need-to-know basis, as opposed to having the home page feature everything at once.</p>
+                    <p><b>Revitalize the Style</b> - Redesigning the layout, brightening up the color scheme, and increasing white space will help the page feel more unified and more inviting. It will ease the user into the information, as opposed to overwhelm them with boxes and text.</p>
+                    <p><b>Increase Scannability</b> - Separating information into clear, differentiated sections and using more images and/or icons will help the user more quickly scan the site and find the information they need.</p>
+                <h5>Sketches</h5>
+                <img src="images/roc/sketches.png">
+                <h5>Lo-Fi Wireframes</h5>
+                <p>The version on the left (<b>Version A</b> above) was a more traditional layout without fixed navigation at the top and clear sections. Still, I tested different ways of displaying information; events was especially interesting in terms of how much to display at once and how the user could interact with each card.</p>
+                <p>In the version on the right (<b>Version B</b>), I experimented with the logo and section scrolling. Despite the interesting method of scrolling, it ended up being an inefficient use of space, and was not optimal to easily and readably display image.</p>
+                <div class="imggrid">
+                    <img src="images/roc/lofi1.png" class="grid3">
+                    <img src="images/roc/lofi2.png" class="grid3">
+                    <img src="images/roc/lofi3.png" class="grid3">
+                </div>
+                <h5>Hi-Fi Wireframes</h5>
+                <p>For the home page, I refined the layout, added body copy, and differentiated the sections more through adding background with contrasting values. I also created subpages including a Business Resources informational page, as well as an interactive application form.</p>
+                <div class="imggrid">
+                    <img src="images/roc/hifi1.png" class="grid3">
+                    <img src="images/roc/hifi2.png" class="grid3">
+                    <img src="images/roc/hifi3.png" class="grid3">
+                </div>
+                <h5>Moodboards</h5>
+                    <div class="imggrid">
+                        <img src="images/roc/mist1.png" class="grid2">
+                        <img src="images/roc/poppin1.png" class="grid2">
+                    </div>
+                <h5>Above-the-Folds</h5>
+                <div class="imggrid">
+                    <div class="grid2">
+                        <img src="images/roc/mist2.png">
+                        <img src="images/roc/mist3.png">
+                        <p>For Into the Mist, I focused on the contrast between rough textures and smooth, blurry glassmorphism. The color palette was monochromatic with emphasis on Rochester's iconic blue, though it makes the overall appearance feel colder and less friendly.</p>
+                    </div>
+                    <div class="grid2">
+                        <img src="images/roc/poppin2.png">
+                        <img src="images/roc/poppin3.png">
+                        <p>Summertime Poppin is more upbeat and modern, with crisp, sloping lines, bright colors, and lots of negative space. The abstract shapes and lack of a classic hero image makes the overall appearance less traditional, but does not detract from the functionality nor visual appeal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="solution">
+                <h4>IV - Solution</h4>
+                <div class="imggrid">
+                    <img src="images/roc/scroll1.png" class="grid2">
+                    <img src="images/roc/scroll2.png" class="grid2">
+                </div>
+                <h5>First Look</h5>
+                <img src="images/roc/firstlook.png">
+                <h5>Sub-Page</h5>
+                <img src="images/roc/subpage.png">
+                <h5>New User Flow</h5>
+                <p>The old flow was overcomplicated, unfocused, and a generally confusing experience. With this new flow, the user deals with significantly less redundancy, and all the desired information is centralized in one concise, all-encompassing, easy-to-navigate page.</p>
+                <img src="images/roc/flow2.png">
+                <h5>Style Guide</h5>
+                <img src="images/roc/style.png">
+                <h5>Conclusion</h5>
+                <p>After many iterations, I opted for a final design that felt fresh, welcoming, and friendly, yet maintained both functionality and professionalism. A monochromatic color palette and gradient-faded photos create visual intrigue, while well-balanced negative space and composition of content eases the eye through the page.</p>
+                <p>While my intended user flow targeted people looking to start a business in Rochester, I created a home page that simplified and unified all resources, allowing for anyone of any background to easily navigate to their desired information.</p>
+            </div>
+
+            <a href="index.html">
+                <div class="button">
+                    <p>Back to Home Page</p>
+                </div>
+            </a>
+            <h6 style="text-align:center;">© 2022 Lena Pang<br>All rights reserved.<br>Do not copy or print without permission.</h6>
+        </div>
+    </body>
+</html>
