@@ -20,7 +20,7 @@ h1 { /*title*/
     font-size: 400%;
     font-weight: 400;
     line-height: 1;
-    margin:50% 0 10% 0;
+    margin:30% 0 10% 0;
 }
 
 h2 { /*date and materials*/
@@ -133,7 +133,8 @@ video {
 }
 
 .table { /*table of contents*/
-    margin-top:50%;
+    margin-top:24%;
+    margin-bottom:0;
 }
 
 .right {
@@ -214,7 +215,7 @@ video {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgba(28,28,28,.2);
-    border-radius: 4px;
+    border-radius: 6px;
 }
   
 /* Handle on hover */
@@ -222,18 +223,19 @@ video {
     background: rgba(28,28,28,.5);
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1270px) {
     h1 {font-size:275%;margin:5% 0 2% 0;}
     h4 {font-size:150%;}
-    .leftfix {position: relative;margin:0;width:100%;}
+    .leftfix {position: relative;margin:10% 0 0 0;width:100%;}
     .leftbox {position: relative;margin:0;width:100%;}
     .left {position: relative;margin:0;width:90%;margin:auto;padding:5% 0 5% 0}
-    .home {width:60px;}
+    .home {width:80px;}
     .table {margin-top:0; opacity:0; height:0;}
     .right {position:relative;width:90%;padding:0;margin-bottom:10%;min-width:0}
 }
 
 @media only screen and (max-width: 1000px) {
+    .home {width:60px;}
     .grid2 {width:96.4%}
     .grid3 {width:100%}
     .imggrid {width:100%}

@@ -10,8 +10,6 @@ body {
     font: 'Montserrat';
     font-weight: 400;
     line-height: 1.65;
-    max-width:2000px;
-    position:relative;
     margin: 0 auto;
     margin-top:2px;
 }
@@ -35,7 +33,7 @@ h3 { /*date and media*/
     color: #FFF;
     font-size: 60%;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.5;
     margin:0 0 12% 0;
     letter-spacing: 1px;
 }
@@ -119,26 +117,40 @@ h5 a:hover {
     background: rgba(0,0,255,1);
 }
 
-.title {
+.leftfix {
+    position:fixed;
+    width:100%;
+    z-index:10000;
+}
+
+.leftbox {
+    position:relative;
+    max-width:2000px;
+    margin: 0 auto 0 auto;
+}
+
+.left { /*left column*/
     position: absolute;
     top:0;
     left:0;
-    width:47%;
-    z-index:2;
+    width:47.5%;
 }
 
-.column {
-    margin-left:40%;
-    margin-right:0;
-    height:99.5vh;
-    overflow-y:auto;
+.right { /*right column*/
+    box-sizing: border-box;
+    max-width:2000px;
+    margin: 0 auto 0 auto;
+    z-index:-1000;
 }
 
 .gallery {
+    margin-left:auto;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     gap: 2px;
     animation: colorize 2s ease-in-out;
+    justify-content: center;
 }
 
 .container {
@@ -147,6 +159,7 @@ h5 a:hover {
     width:49%;
     height:49%;
     box-sizing: border-box;
+    object-fit:cover;
 }
   
 /* Make the image to responsive */
@@ -154,7 +167,7 @@ h5 a:hover {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:cover;
 }
   
 /* The overlay effect - lays on top of the container and over the image */
@@ -170,7 +183,7 @@ h5 a:hover {
     opacity:0;
     color: white;
     font-size: 20px;
-    padding: 20%;
+    padding: 18%;
     text-align: left;
     justify-content:center;
     z-index:1;
@@ -194,7 +207,7 @@ h5 a:hover {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 12px;
 }
   
 /* Track */
@@ -205,7 +218,7 @@ h5 a:hover {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgba(255,255,255,.3);
-    border-radius: 4px;
+    border-radius: 6px;
 }
   
 /* Handle on hover */
@@ -225,11 +238,23 @@ h5 a:hover {
     }
 }
 
-@media only screen and (max-width: 800px) {
-    .column {margin-left:0;height:100%;}
-    .title {position:relative;width:92%;margin-bottom:10%}
-    .container {height:49%}
-    .gallery h2 {font-size:80%;}
+@media only screen and (max-width: 1270px) {
+    .gallery h2 {font-size:100%;}
+    .gallery p {font-size:70%;}
+    .gallery h4 {font-size:60%}
+}
+
+@media only screen and (max-width: 1000px) {
+    .gallery h2 {font-size:90%;}
     .gallery p {opacity:0;font-size:0;}
     .gallery h4 {opacity:0;font-size:0;}
+}
+
+@media only screen and (max-width: 800px) {
+    .leftfix {position:relative;width:100%;height:100vw;}
+    .left {position:relative;width:80%;margin: 10% auto 10% auto;min-width:300px;height:100vw;}
+    .right {margin-left:0;}
+    .gallery {position:relative;width:100%;padding:0;margin:auto;}
+    .container {height:49%;}
+    .gallery h2 {font-size:80%;}
 }
