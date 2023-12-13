@@ -68,15 +68,13 @@ a {
     width:fit-content;
     padding:16px 20px 16px 24px;
     border-radius:32px;
-    outline: 2px solid #231F20;
-    outline-offset: -1px;
-    background-color: #B3D9D2;
+    background-color: #F2EADD;
     color:#231F20;
 }
 
 .button:hover {
     background-color:#231F20;
-    color:#B3D9D2;
+    color:#F2EADD;
     transition: .25s ease;
 }
 
@@ -98,15 +96,10 @@ a {
     .text {top: 60%;width:90%;max-width:55ch}
 }
 
-@media only screen and (max-aspect-ratio:2/3) {
+@media only screen and (max-aspect-ratio:.70) {
     html {background-image: url("images/landing-01.png"); background-position: top;}
-    .text {top: 60%;width:90%;min-width:0;}
-}
-
-@media only screen and (max-width:500px) {
-    html {background-image: url("images/landing-01.png"); background-position: top;}
-    .text {top: 60%;right:0;min-width:0;background-color: red;}
+    .text {top: 60%;right:0;min-width:0;}
     h1 {font-size:200%;}
     h2 {font-size:100%;}
-    .button {padding:12px 15px 12px 18px}
+    .button {padding:12px 15px 12px 18px;}
 }
