@@ -117,10 +117,38 @@ h5 a:hover {
     background: rgba(0,0,255,1);
 }
 
+@keyframes opacity {
+    0% {opacity:100%;}
+    99% {opacity:0;top:0;}
+    100% {top:-100vh;}
+}
+
+.landing {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: #f2eadc;
+    background-image: url("images/landing-02.png");
+    height:100%;
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:10000;
+    animation-name: opacity;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
 .leftfix {
     position:fixed;
     width:100%;
-    z-index:10000;
+    z-index:100;
 }
 
 .leftbox {
