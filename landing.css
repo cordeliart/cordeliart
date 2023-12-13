@@ -57,7 +57,7 @@ a {
     position:absolute;
     margin:0;
     padding: 5%;
-    top:45%;
+    top: min(45%,40vh);
     width:30%;
     min-width:400px;
     max-width: 55ch;
@@ -95,7 +95,7 @@ a {
 
 @media only screen and (max-aspect-ratio:5/3.75) {
     html {background-image: url("images/landing-03.png"); background-position: top;}
-    .text {top: 65%;width:90%;max-width:55ch}
+    .text {top: 60%;width:90%;max-width:55ch}
 }
 
 @media only screen and (max-aspect-ratio:2/3) {
@@ -103,7 +103,7 @@ a {
     .text {top: 60%;width:90%;min-width:0;}
 }
 
-@media only screen and (max-width:320px) {
+@media only screen and (max-width:500px) {
     html {background-image: url("images/landing-01.png"); background-position: top;}
     .text {top: 60%;right:0;min-width:0;background-color: red;}
     h1 {font-size:200%;}
