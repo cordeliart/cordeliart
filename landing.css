@@ -70,12 +70,13 @@ a {
     border-radius:32px;
     outline: 2px solid #231F20;
     outline-offset: -1px;
+    background-color: rgba(0,0,0,0);
     color:#231F20;
 }
 
 .button:hover {
     background-color:#231F20;
-    color:#f2eadc;
+    color:#B3D9D2;
     transition: .25s ease;
 }
 
@@ -102,7 +103,9 @@ a {
     .text {top: 60%;}
 }
 
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:432px) {
+    html {background-image: url("images/landing-01.png"); background-position: top;}
+    .text {top: 60%;max-width:90%;}
     h1 {font-size:200%;}
     h2 {font-size:100%;}
     .button {padding:12px 15px 12px 18px}
