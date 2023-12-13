@@ -100,12 +100,12 @@ a {
 
 @media only screen and (max-aspect-ratio:2/3) {
     html {background-image: url("images/landing-01.png"); background-position: top;}
-    .text {top: 60%;}
+    .text {top: 60%;min-width:0;}
 }
 
 @media only screen and (max-width:432px) {
     html {background-image: url("images/landing-01.png"); background-position: top;}
-    .text {top: 60%;max-width:90%;}
+    .text {top: 60%;max-width:90%;min-width:0;}
     h1 {font-size:200%;}
     h2 {font-size:100%;}
     .button {padding:12px 15px 12px 18px}
