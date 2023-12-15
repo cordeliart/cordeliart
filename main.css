@@ -202,7 +202,8 @@ h5 a:hover {
 }
 
 .container p {
-    line-height:normal;
+    line-height: 1.5;
+    font-size: 75%;
 }
 
 /* Make the image to responsive */
