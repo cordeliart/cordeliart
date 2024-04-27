@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>wobbl | microanimations</title>
+        <meta name="description" content="Project 2 | Interactive III">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="keywords" content="microanimations, UX, design">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="icon" href="images/tab.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <style>
+        :root {
+            --dark: #030022;
+            --mid: #BD00FF;
+            --light: #F6C0FF;
+            --text: #BADEFF;
+            --blue: #0B0088;
+        }
+
+        html {
+            background-color: var(--dark);
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5rem;
+        }
+
+        h1 { /*title*/
+            font-family: 'MuseoModerno', 'Urbanist', sans-serif;
+            color: var(--text);
+            font-size: 11rem;
+            margin: 6rem 0 3.7rem 0;
+            letter-spacing: -.5rem;
+        }
+
+        h2 { /*subtitle*/
+            font-family: 'MuseoModerno', 'Urbanist', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin: 0 0 0.2rem 0;
+            line-height: 2rem;
+        }
+
+        h3 { /*project info*/
+            font-family: 'Urbanist', sans-serif;
+            color: var(--mid);
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: .05rem;
+        }
+
+        h4 { /*section titles*/
+            font-family: 'MuseoModerno', 'Urbanist', sans-serif;
+            font-size: 2rem;
+            color: var(--text);
+            margin: 2rem 0 0 0;
+            line-height: 2rem;
+        }
+
+        h6 {/*FOOTER*/ 
+            font-family: 'Urbanist', sans-serif;
+            color: vaR(--mid);
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: .05rem;
+            text-align: center;
+            margin: 8rem 0 8rem 0;
+        }
+
+        p {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 1.25rem;
+            line-height: 2rem;
+            font-weight: 300;
+            color: var(--text);
+            letter-spacing: .05rem;
+        }
+
+        a {
+            transition: .25s ease;
+            color: var(--mid);
+            text-decoration: none;
+        }
+
+        a:hover {
+            transition: .25s ease;
+            color: var(--light);
+        }
+
+        span {
+            font-family: 'MuseoModerno', 'Urbanist', sans-serif;
+            font-weight: 700;
+        }
+
+        ul {list-style: none;}
+        li p {margin: 0;}
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto 0 auto;
+            padding: 0;
+        }
+
+        .text { /*margins*/
+            width: 90%;
+            max-width: 750px;
+            margin: 2rem auto 2rem auto;
+            padding: 0;
+        }
+
+        .title { /*title flex*/
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-end;
+            justify-content: baseline;
+            gap: 1rem;
+        }
+
+        .line { /*divider line*/
+            display: block;
+            width: 4rem;
+            background-color: var(--mid);
+            height: 1px;
+            margin: 4rem 0 0 0;
+        }
+
+        table {
+            width: 80%;
+            max-width: 1200px;
+            border: none;
+            text-align: left;
+            margin: 0 auto 0 auto;
+            table-layout: fixed;
+        }
+
+        th {padding: 0 2rem 0 2rem;}
+        td {width: 50%;}
+
+        .scroller {
+            transition: .25s ease;
+            display: block;
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            width: 4rem;
+            height: 4rem;
+            border: var(--blue) 2px solid;
+            border-radius: 4rem;
+            color: var(--light);
+            text-align: center;
+            justify-content: center;
+        }
+
+        .scroller:hover {
+            transition: .25s ease;
+            border: var(--blue) 2px solid;
+            background-color: var(--blue);
+        }
+
+        ::-webkit-scrollbar {width: 8px;}
+        ::-webkit-scrollbar-track {background: var(--blue);}
+        ::-webkit-scrollbar-thumb {background: var(--mid); border-radius: 4px;}
+        ::-webkit-scrollbar-thumb:hover {background: var(--light);}
+    </style>
+
+    <body>
+
+        <div class="text" id="top" style="margin-top:0;padding-top:6rem;">
+            <h3><b>Lena Pang</b></h3>
+            <h3>Interactive III: Project 2</h3>
+            <h3>Spring 2024</h3>
+            <div class="title">
+                <div><h1>wobbl</h1></div>
+                <div><h2>a study in<br>microanimations</h2></div>
+            </div>
+        </div>
+
+        <img src="images/wobbl/full.png">
+
+        <div class="text">
+            <p><span>wobbl</span> is an (imaginary) immersive, digital experience for DJs, music enthusiasts, and remixers of all ages and skill levels. This page is a compilation of all micro-animations in the design.</p>
+
+            <p style="margin-bottom:0;">There are three sections:</p>
+            <ul style="margin-top:0;">
+                <li><p>- &nbsp buttons & toggles <a href="#button">↓</a></p></li>
+                <li><p>- &nbsp sliders & multimodes <a href="#slider">↓</a></p></li>
+                <li><p>- &nbsp radio-ish buttons, checkboxes, & toolbars <a href="#checkbox">↓</a></p></li>
+            </ul>
+
+            <p>Each section demonstrates functionality in (somewhat crunchy, sorry) animated GIFs. For a closer, crisper look at the designs, you can view the process deck <a href="images/wobbl/deck.pdf" target="_blank">here</a>.</p>
+
+            <div class="line" id="button"></div>
+            <h4>buttons & toggles</h4>
+        </div>
+
+        <table>
+            <th><img src="images/wobbl/button.gif"></div></th>
+            <th><img src="images/wobbl/toggle.gif"></div></th>
+        </table>
+
+        <div class="text">
+            <div class="line" id="slider"></div>
+            <h4>sliders & multimodes</h4>
+        </div>
+
+        <table>
+            <th><img src="images/wobbl/slider.gif"></th>
+            <th><img src="images/wobbl/multi.gif"></th>
+        </table>
+
+        <div class="text">
+            <div class="line" id="checkbox"></div>
+            <h4>radio-ish buttons, checkboxes, & toolbar</h4>
+        </div>
+
+        <table>
+            <tr>
+                <th><img src="images/wobbl/radio.gif"></th>
+                <th>
+                    <p>These <span>"radio-ish" buttons</span> serve as an active-vs-queued system: one current song, and one queued song.</p>
+                    <p>Click once to queue (and it will start immediately if no current song; otherwise it will start playing after the current song finishes). Click another to replace the queued song. Click a queued song a second time to start playing immediately.</p>
+                </th>
+            </tr>
+            <tr>
+                <th><img src="images/wobbl/checkbox.gif"></th>
+                <th>
+                    <p>In this context, <span>checkboxes</span> function as saving tracks to—or removing tracks from—the liked songs (hearted) tab. Swipe right to add; swipe right again to remove.</p>
+                    <p>Because this is a hidden animation triggered by a gesture on a frequently interacted-with component, there are no visual queues (and will instead be discovered through something like a tips dialogue).</p>
+                </th>
+            </tr>
+            <tr>
+                <th><img src="images/wobbl/toolbar.gif"></th>
+                <th><p>The user can easily find songs by selecting a different genre tab on the <span>toolbar</span>. There is also a tab for the liked songs, as implemented in checkboxes.</p></th>
+            </tr>
+        </table>
+
+        <div class="text">
+            <div class="line" id="checkbox"></div>
+            <p>If you're interested in seeing the full designs, you can check them out in the deck <a href="images/wobbl/deck.pdf" target="_blank">here</a>!</p>
+        </div>
+
+        <div class="text">
+            <h6>Lena Pang © 2024<br>Thanks for reading! :)</h6>
+        </div>
+
+        <a href="#top">
+            <div class="scroller">
+                <p style="font-size:2rem;padding:0;margin-top:1.15rem;">↑</p>
+            </div>
+        </a>
+    </body>
+</html>
