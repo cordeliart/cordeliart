@@ -150,6 +150,20 @@
         th {padding: 0 2rem 0 2rem;}
         td {width: 50%;}
 
+        .boxes {
+            width: 80%;
+            max-width: 1200px;
+            display: flex;
+            flex-flow: row wrap;
+            margin: 0 auto 0 auto;
+        }
+
+        .boxes > * {
+            box-sizing: border-box;
+            padding: 2rem;
+            width: 50%;
+        }
+
         .scroller {
             transition: .25s ease;
             display: block;
@@ -175,6 +189,12 @@
         ::-webkit-scrollbar-track {background: var(--blue);}
         ::-webkit-scrollbar-thumb {background: var(--mid); border-radius: 4px;}
         ::-webkit-scrollbar-thumb:hover {background: var(--light);}
+
+        @media only screen and (max-width: 1000px) {
+            .boxes > * {
+                width: 100%;
+            }
+        }
     </style>
 
     <body>
@@ -207,46 +227,42 @@
             <h4>buttons & toggles</h4>
         </div>
 
-        <table>
-            <th><img src="images/wobbl/button.gif"></div></th>
-            <th><img src="images/wobbl/toggle.gif"></div></th>
-        </table>
+        <div class="boxes">
+            <img src="images/wobbl/button.gif">
+            <img src="images/wobbl/toggle.gif">
+        </div>
 
         <div class="text">
             <div class="line" id="slider"></div>
             <h4>sliders & multimodes</h4>
         </div>
 
-        <table>
-            <th><img src="images/wobbl/slider.gif"></th>
-            <th><img src="images/wobbl/multi.gif"></th>
-        </table>
+        <div class="boxes">
+            <img src="images/wobbl/slider.gif">
+            <img src="images/wobbl/multi.gif">
+        </div>
 
         <div class="text">
             <div class="line" id="checkbox"></div>
             <h4>radio-ish buttons, checkboxes, & toolbar</h4>
         </div>
 
-        <table>
-            <tr>
-                <th><img src="images/wobbl/radio.gif"></th>
-                <th>
-                    <p>These <span>"radio-ish" buttons</span> serve as an active-vs-queued system: one current song, and one queued song.</p>
-                    <p>Click once to queue (and it will start immediately if no current song; otherwise it will start playing after the current song finishes). Click another to replace the queued song. Click a queued song a second time to start playing immediately.</p>
-                </th>
-            </tr>
-            <tr>
-                <th><img src="images/wobbl/checkbox.gif"></th>
-                <th>
-                    <p>In this context, <span>checkboxes</span> function as saving tracks to—or removing tracks from—the liked songs (hearted) tab. Swipe right to add; swipe right again to remove.</p>
-                    <p>Because this is a hidden animation triggered by a gesture on a frequently interacted-with component, there are no visual queues (and will instead be discovered through something like a tips dialogue).</p>
-                </th>
-            </tr>
-            <tr>
-                <th><img src="images/wobbl/toolbar.gif"></th>
-                <th><p>The user can easily find songs by selecting a different genre tab on the <span>toolbar</span>. There is also a tab for the liked songs, as implemented in checkboxes.</p></th>
-            </tr>
-        </table>
+        <div class="boxes">
+            <img src="images/wobbl/radio.gif">
+            <div>
+                <p>These <span>"radio-ish" buttons</span> serve as an active-vs-queued system: one current song, and one queued song.</p>
+                <p>Click once to queue (and it will start immediately if no current song; otherwise it will start playing after the current song finishes). Click another to replace the queued song. Click a queued song a second time to start playing immediately.</p>
+            </div>
+            
+            <img src="images/wobbl/checkbox.gif">
+            <div>
+                <p>In this context, <span>checkboxes</span> function as saving tracks to—or removing tracks from—the liked songs (hearted) tab. Swipe right to add; swipe right again to remove.</p>
+                <p>Because this is a hidden animation triggered by a gesture on a frequently interacted-with component, there are no visual queues (and will instead be discovered through something like a tips dialogue).</p>
+            </div>
+            
+            <img src="images/wobbl/toolbar.gif">
+            <div><p>The user can easily find songs by selecting a different genre tab on the <span>toolbar</span>. There is also a tab for the liked songs, as implemented in checkboxes.</p></div>
+        </div>
 
         <div class="text">
             <div class="line" id="checkbox"></div>
