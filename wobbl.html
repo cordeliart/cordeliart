@@ -76,7 +76,8 @@
             font-weight: 300;
             letter-spacing: .05rem;
             text-align: center;
-            margin: 8rem 0 8rem 0;
+            padding: 0 0 4rem 0;
+            margin: 8rem 0 0 0;
         }
 
         p {
@@ -118,8 +119,8 @@
         .text { /*margins*/
             width: 90%;
             max-width: 750px;
-            margin: 2rem auto 2rem auto;
-            padding: 0;
+            margin: 0 auto 0 auto;
+            padding: 2rem 0 2rem 0;
         }
 
         .title { /*title flex*/
@@ -157,9 +158,9 @@
         .scroller {
             transition: .25s ease;
             display: block;
-            position: fixed;
-            right: 2rem;
-            bottom: 2rem;
+            position: sticky;
+            top: calc(100vh - 6rem);
+            margin: 0 2rem 0 auto;
             width: 4rem;
             height: 4rem;
             border: var(--blue) 2px solid;
