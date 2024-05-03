@@ -5,9 +5,9 @@ html {
 
 body {
     color: #FFF;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Syne', sans-serif;
     font-size: 100%;
-    font: 'Montserrat';
+    font: 'Syne';
     font-weight: 400;
     line-height: 1.65;
     margin: 0 auto;
@@ -16,62 +16,43 @@ body {
     overflow-x: hidden;
 }
 
-h1 {
-    /*page titles*/
-    font-size: 100%;
+h1 { /*page titles*/
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: 3px;
     text-align: right;
 }
 
-h2 {
-    /*gallery titles*/
-    font-size: 120%;
+h2 { /*gallery titles*/
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1.15;
     margin: 0 0 4% 0;
 }
 
-h3 {
-    /*date and media*/
+h3 { /*date and media*/
     color: #FFF;
-    font-size: 60%;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    margin: 0 0 12% 0;
-    letter-spacing: 1px;
+    margin: 0;
 }
 
-h4 {
-    /*tags*/
+h4 { /*tags*/
     color: grey;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 75%;
-    font: 'Montserrat';
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font: 'Syne';
     font-weight: 400;
-    margin-top: 1em;
-    font-style: italic;
+    margin: 0;
 }
 
-h5 {
-    /*see more*/
-    color: #FFF;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 60%;
-    font: 'Montserrat';
-    font-weight: 700;
-    line-height: 1;
-    margin-top: 1em;
-    letter-spacing: 2px;
-}
-
-h6 {
-    /*end*/
+h6 { /*footer*/
     color: #7F7F7F;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 75%;
-    font: 'Montserrat';
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font: 'Syne';
     font-weight: 400;
     line-height: 1.25;
     margin-bottom: 12%;
@@ -80,20 +61,17 @@ h6 {
 
 p {
     color: #FFF;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 100%;
-    font: 'Montserrat';
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font: 'Syne';
     font-weight: 400;
     line-height: 2;
 }
 
-p + p {
-    margin-top: 5%;
-}
-
-p span {
-    color: #FBB03B;
-}
+p + p {margin-top: 5%;}
+p span {color: #FBB03B;}
+p a {color:inherit;}
+p a:hover {color:#FBB03B;}
 
 img {
     display: block;
@@ -105,17 +83,7 @@ h1 a {
     color: inherit;
 }
 
-p a {
-    color:inherit;
-}
-
-p a:hover {
-    color:#FBB03B;
-}
-
-.blue {
-    z-index: 3
-}
+.blue {z-index: 3}
 
 .blue a:hover {
     transition: .5s ease;
@@ -137,25 +105,6 @@ p a:hover {
     color: #00A99D;
 }
 
-h2:hover {
-    width: fit-content;
-    transition: .5s ease;
-    background: rgba(255, 255, 255, .25);
-}
-
-h5 a {
-    color: inherit;
-    text-decoration-color: #0000FF;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-}
-
-h5 a:hover {
-    transition: .25s ease;
-    color: #FFF;
-    background: rgba(0, 0, 255, 1);
-}
-
 .leftfix {
     position: fixed;
     width: 100%;
@@ -170,16 +119,14 @@ h5 a:hover {
     margin: 0 auto 0 auto;
 }
 
-.left {
-    /*left column*/
+.left { /*left column*/
     position: absolute;
     top: 0;
     left: 0;
     width: 47.5%;
 }
 
-.right {
-    /*right column*/
+.right { /*right column*/
     box-sizing: border-box;
     width: min(150vh,99vw);
     min-width: 50vw;
@@ -188,7 +135,7 @@ h5 a:hover {
     z-index: -1000;
 }
 
-.gallery {
+.gallery { /*card holder*/
     margin-left: auto;
     width: 60%;
     display: flex;
@@ -211,16 +158,14 @@ h5 a:hover {
     font-size: 75%;
 }
 
-/* Make the image to responsive */
-.image {
+.image { /*cards*/
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* The overlay effect - lays on top of the container and over the image */
-.overlay {
+.overlay { /*card overlay*/
     position: absolute;
     top: 0;
     bottom: 0;
@@ -237,6 +182,9 @@ h5 a:hover {
     justify-content: center;
     z-index: 1;
     box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 .container:hover .overlay {
@@ -286,36 +234,6 @@ h5 a:hover {
     100% {
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
-    }
-}
-
-@media only screen and (max-width: 1270px) {
-    .gallery h2 {
-        font-size: 100%;
-    }
-
-    .gallery p {
-        font-size: 70%;
-    }
-
-    .gallery h4 {
-        font-size: 60%
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .gallery h2 {
-        font-size: 90%;
-    }
-
-    .gallery p {
-        opacity: 0;
-        font-size: 0;
-    }
-
-    .gallery h4 {
-        opacity: 0;
-        font-size: 0;
     }
 }
 

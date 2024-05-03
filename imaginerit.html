@@ -7,109 +7,89 @@
         <meta name="robots" content="noindex, nofollow">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/zhb6oji.css">
         <link rel="stylesheet" href="portfolio.css">
         <link rel="icon" href="images/tab.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <style>
-        html {background-color: #F2F1EE;}
-        body {color:#1C1B36}
-        .button {color:#F2F1EE;background-color:#1C1B36}
-        .button:hover {background-color: #FD0D00;}
-        h2, h5, h6, a:hover {color:#FD0D00;}
-        .section {border-top: 1.5px solid #1C1B36;} /*hairline*/        
-        h5::after {border-bottom: 1.5px solid #FD0D00} /*subsection hairline ED1C24 C15329*/
-        ::-webkit-scrollbar-track {background: rgba(212,60,46,.1);}
-        ::-webkit-scrollbar-thumb {background: rgba(212,60,46,.2);}
-        ::-webkit-scrollbar-thumb:hover {background: #FD0D00;}
+        :root {
+            --bg: #F2F1EE;
+            --accent: #d82000;
+            --light: #ff4339;
+            --text: #12112d;
+            --dark: #cfcbc5;
+            --title: "Syne";
+            --body: 'Syne';
+        }
+        h1, h4 {font-weight:400;}
+        h1 {max-width: 20ch;}
+        h2 {font-family: var(--body);}
+        h4 {font-size: 2.5rem;}
     </style>
     
     <body>
 
-        <div class="homefix">
-            <div class="homebox">
-                <a href="index.html"><img src="images/imagine/home.png" alt="portfolio" class="home"></a>
-            </div>
+        <a href="index.html">
+            <div class="home"></div>
+        </a>
+
+        <div class="text" id="top" style="padding-top: 12rem;">
+            <h1>Imagine RIT Poster Compilation</h1>
+            <h2>Spring 2022, 2023</h2>
+            <h2>Various Media</h2>
+            <h2>13 × 18"</h2>
         </div>
 
-        <div class="leftfix">
-            <div class="leftbox">
-                <div class="left">
-                    <h1>Imagine RIT Poster Compilation</h1>
-                    <h2>Spring 2022, 2023</h2>
-                    <h2>Various Media</h2>
-                    <h2>13×18"</h2>
-                    <div class="table">
-                        <a href="#intro"><h4>I - Introduction</h4></a>
-                        <a href="#2022"><h4>II - 2022</h4></a>
-                        <a href="#2023"><h4>III - 2023</h4></a>
-                    </div>
-                </div>
-            </div>
+        <div class="boxes">
+            <img src="images/imagine/22-3.jpg" alt="2022 entry">
+            <img src="images/imagine/23-1.png" alt="2024 entry">
         </div>
-        
-        
-        <div class="right">
 
-            <div id="intro">
-                <div class="grid">
-                    <div class="grid2">
-                        <img src="images/imagine/22-3.jpg" alt="2022 entry">
-                        <h6>2022 entry</h6>
-                    </div>
-                    <div class="grid2">
-                        <img src="images/imagine/23-1.png" alt="2023 entry">
-                        <h6>2023 entry</h6>
-                    </div>
-                </div>
-                <h4>I - Introduction</h4>
-                <p>Imagine RIT is an annual festival held during spring at the Rochester Institute of Technology, celebrating technological advancements by demonstrating cool gadgets and gizmos. It typically caters to the local Rochester crowd—students, families, children—as well as to potential incoming students.</p>
-                <p>Every year, the university opens a poster competition to students to advertise the event. And every year, I've created a poster.</p>
-            </div>
-
-            <div class="section" id="2022">
-                <h4>II - 2022</h4>
-                <h2>Adobe Illustrator</h2>
-
-                <h5>Passion Project...</h5>
-                <p>My freshman year at RIT, I entered independently. I went through several layouts and eventually came up with a striking visual of a tiger's eye, reflective of the iconic RIT tiger mascot. The dramatic colors and composition make for an overall captivating poster.</p>
-                <div class="grid" style="margin-top:4%">
-                    <img src="images/imagine/22-2.png" alt="rough sketch" class="grid2">
-                    <img src="images/imagine/22-3.jpg" alt="final 2022 poster" class="grid2">
-                </div>
-                <h6>The sketch versus the final vector illustration.</h6>
-            </div>
-
-            <div class="section" id="2023">
-                <h4>III - 2023</h4>
-                <h2>Cinema 4D and After Effects (6 seconds)</h2>
-
-                <h5>...turned Class Project</h5>
-                <p>While I had planned to independently enter the annual poster design competition again, my 3D class made it mandatory. I took inspiration from holograms and augmented-reality animations in movies, utilizing Cinema 4D's physical renderer in combination with luminated materials to create realisitic, glowing stills and a short animated movie.</p>
+        <div class="text">
+            <p>Imagine RIT is an annual festival held during spring at the Rochester Institute of Technology, celebrating technological advancements by demonstrating cool gadgets and gizmos. It typically caters to the local Rochester crowd—students, families, children—as well as to potential incoming students.</p>
+            <p>Every year, the university opens a poster competition to students to advertise the event. And every year, I've created a poster.</p>
             
-                <div class="grid" style="margin-top:4%">
-                    <img src="images/imagine/23-2.png" alt="unedited C4D render" class="grid2">
-                    <img src="images/imagine/23-1.png" alt="final 2023 poster" class="grid2">
-                </div>
-                <h6>The unedited render (left) versus final poster (right).</h6>
+            <div class="line"></div>
+            <h4>2022</h4>
+            <h5>Adobe Illustrator, 13 × 18" 300ppi</h5>
+            <p>During my freshman year at RIT, I entered independently. I went through several layouts and eventually came up with a striking visual of a tiger's eye, reflective of the iconic RIT tiger mascot. The dramatic colors and composition make for an overall captivating poster.</p>
+        </div>
 
-                <div style="text-align:left; margin:10% 0 10% 0">
-                    <video autoplay muted controls loop>
-                        <source src="images/imagine/23.mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <h6>Cinema4D, 13x18" 150ppi, 6s (180 frames @ 30fps).</h6>
-                </div>
+        <a href="#top">
+            <div class="scroller">
+                <p>↑</p>
             </div>
-            
-            <a href="index.html">
-                <div class="button">
-                    <p>Back to Portfolio</p>
-                </div>
-            </a>
-            <h6 style="text-align:center;">© 2023 Lena Pang<br>All rights reserved.<br>Do not copy or print without permission.</h6>
+        </a>
+
+        <div class="boxes">
+            <img src="images/imagine/22-2.png" alt="rough sketch">
+            <img src="images/imagine/22-3.jpg" alt="final 2022 poster">
+        </div>
+
+        <div class="text">
+            <div class="line"></div>
+            <h4>2023</h4>
+            <h5>Cinema4D & After Effects, 13x18" 150ppi, 6s (180 frames @ 30fps)</h5>
+            <p>While I had planned to independently enter the annual poster design competition again, my 3D class made it mandatory. I took inspiration from holograms and augmented-reality animations in movies, utilizing Cinema 4D's physical renderer in combination with luminated materials to create realisitic, glowing stills and a short animated movie.</p>
+        </div>
+
+        <div class="boxes">
+            <img src="images/imagine/23-2.png" alt="unedited C4D render">
+            <img src="images/imagine/23-1.png" alt="final 2023 poster">
+        </div>
+
+        <div class="text">
+            <video autoplay muted controls loop>
+                <source src="images/imagine/23.mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="text">
+            <h6>Lena Pang © 2024<br>Thanks for reading! :)</h6>
         </div>
     </body>
 </html>
