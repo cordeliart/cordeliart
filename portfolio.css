@@ -192,6 +192,7 @@ video {
     background-color: var(--accent);
     mask-image: url(https://www.cordeliart.com/images/home.svg);
     mask-mode: alpha;
+    z-index: 100;
 }
 
 .button {
