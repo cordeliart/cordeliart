@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>wobbl | Lena Pang</title>
+        <meta name="description" content="2024, Figma.">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="keywords" content="microanimations, UX, design">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="portfolio.css">
+        <link rel="icon" href="images/tab.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <style>
+        :root {
+            --bg: #F9F3EB;
+            --accent: #A60913;
+            --light: #bb202b;
+            --text: #1A2125;
+            --dark: #AE9B97;
+            --title: 'Syne';
+            --body: 'Syne';
+        }
+    </style>
+
+    <body>
+        <a href="index.html">
+            <div class="home"></div>
+        </a>
+
+        <div class="text" id="top" style="padding-top: 12rem;">
+            <h1>Porsche 911:<br>An Interactive Archive</h1>
+            <h2>Spring 2024</h2>
+            <h2>Blender, Figma, After Effects, Premiere Pro</h2>
+            
+            <a href="images/porsche/deck.pdf" target="_blank">
+                <div class="button">
+                    <p>View the Project Deck</p>
+                </div>
+            </a>
+        </div>
+
+        <video autoplay muted style="background-color: var(--dark);">
+            <source src="https://drive.google.com/file/d/1-EjmP72VJ0aS_wH_hgaqdCw7vnm5j95r/view?usp=sharing">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="text">
+            <p>This project, while for school, was intended to be a passion project: create an interactive experience for a big screen. Any topic.</p>
+            <p>So I picked the Porsche 911. It's an iconic car, but the history and the many, many variants are a bit convoluted, so I thought: let's make it simple. Put it all in one place. All on one big, <i>big</i> screen.</p>
+
+            <div class="line" id="button"></div>
+            <h4>Go Big or Go Home</h4>
+            <p>I took inspiration from the Porsche Museum in Stuttgart, Germany. As shown below, they have a massive touch-screen exhibit.</p>
+        </div>
+
+        <a href="#top">
+            <div class="scroller">
+                <p>↑</p>
+            </div>
+        </a>
+
+        <div class="boxes">
+            <img src="images/porsche/screen1.png">
+            <img src="images/porsche/screen2.png">
+        </div>
+
+        <div class="text">
+            <p>But rather than just display the cars on a screen, my idea was to have the cars appear life-sized. Have the screen go floor-to-ceiling; really immerse the user. So naturally, one of my first obstacles was <b>scale</b>. Having cars to-scale made other elements tricky—how big should text be? How far apart should interactive areas be?</p>
+
+            <p>After some experimentation, I ended up with a system that puts interactive elements at eye- or chest-level with text large enough to read from an arm's length away. Gesture-based navigation keeps it accessible from any part of the screen, but there is explicit navigation along the left side at all times.</p>
+            
+            <img src="images/porsche/scale.png" style="max-width:100%;" alt="scaled screen">
+        </div>
+
+        <div class="text">
+            <div class="line" id="slider"></div>
+            <h4>Frames</h4>
+        </div>
+
+        <div class="boxes" style="row-gap: 2rem;">
+            
+            <img src="images/porsche/idle.png" alt="idle screen">
+            <p style="width: 40%;">The <b>idle screen</b> displays eye-catching footage (video credit to Porsche) and preview content from the experience.</p>
+
+            <img src="images/porsche/story.png" alt="story screen">
+            <p style="width: 40%;">The <b>story screen</b> allows the user to navigate through the many Porsche 911s, with information about each respective variant's design and story.</p>
+
+            <img src="images/porsche/menu.png" alt="menu">
+            <p style="width: 40%;">The <b>menu</b> provides the user with various ways to navigate through the variants: scroll through time, group by generation, and group by model.</p>
+            
+            <img src="images/porsche/variant.png" alt="variant screen">
+            <p style="width: 40%;">The <b>variant screen</b> displays specifications and features of the selected (sub)variant, with tags on inspectable parts.</p>
+
+            <img src="images/porsche/inspect.png" alt="inspect screen">
+            <p style="width: 40%;">The <b>inspect screen</b> provides more detail and lets users interact with the part in 3D.</p>
+        </div>
+
+        <div class="text">
+            <div class="line" id="slider"></div>
+            <h4>Takeaways</h4>
+            <p>3D modeling is a lot of work.</p>
+            <p>As such, this was one of my first large projects that, despite the affordable timeline, required heavy descoping. I had intended to 3D model every car that was featured, but the steep learning curve of Blender (a completely new software for me) forced a significant change in plans. Still, I'm proud of the 3D that I did complete; especially, the material (with a thousand mix shaders) was a feat.</p>
+        </div>
+        
+        <div class="text">
+            <h6>Lena Pang © 2024<br>Thanks for reading! :)</h6>
+        </div>
+    </body>
+</html>
