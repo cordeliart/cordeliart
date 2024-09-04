@@ -12,6 +12,7 @@ html {
     background-color: var(--bg);
     margin: 0;
     scroll-behavior: smooth;
+    padding: 0;
 }
 
 body {
@@ -67,9 +68,8 @@ h5 { /*section subtitles*/
 
 h6 {/*FOOTER*/ 
     font-family: var(--body), sans-serif;
-    color: vaR(--accent);
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     padding: 0 0 4rem 0;
     margin: 4rem 0 0 0;
@@ -165,6 +165,7 @@ video {
     width: 4rem;
     height: 4rem;
     border: var(--dark) 2px solid;
+    background-color: var(--dark);
     border-radius: 4rem;
     color: var(--bg);
     text-align: center;
@@ -173,8 +174,8 @@ video {
 
 .scroller:hover {
     transition: .25s ease;
-    border: var(--dark) 2px solid;
-    background-color: var(--dark);
+    /**border: var(--dark) 2px solid;**/
+    background-color: var(--bg);
 }
 
 .scroller p {
@@ -215,6 +216,34 @@ video {
     color: var(--bg);
 }
 
+.next {
+    margin: 7rem 0 0 0;
+    background-image: var(--image);
+    background-size: cover;
+    background-position: center;
+    color: var(--bg);
+    padding: 2rem;
+    text-align: left;
+}
+
+.next h2 {
+    color:var(--bg);
+    font-weight:700;
+}
+
+.next p {
+    color: var(--bg);
+    font-weight:400;
+}
+
+.next a {
+    color: inherit;
+}
+
+.next a:hover {
+    color: var(--accent);
+}
+
 ::-webkit-scrollbar {width: 8px;}
 ::-webkit-scrollbar-track {background: var(--dark);}
 ::-webkit-scrollbar-thumb {background: var(--accent); border-radius: 4px;}
@@ -232,8 +261,10 @@ video {
         gap: 0;
     }
     .boxes {width: 90%}
-    .boxes > * {width: 100%;padding:0;}
+    .boxes > * {width: 100%;padding:0 0 .5rem 0;}
     .boxes > img {max-width: 600px;margin:auto;}
+    .next {margin-left:-1rem;margin-right:-1rem;padding-right:10rem;}
+    .next h2 {max-width:20ch;}
 }
 
 @media only screen and (max-width: 500px) {

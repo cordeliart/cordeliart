@@ -12,7 +12,6 @@ body {
     line-height: 1.65;
     margin: 0 auto;
     margin-top: 2px;
-    animation: colorize 2s ease-in-out;
     overflow-x: hidden;
 }
 
@@ -25,7 +24,7 @@ h1 { /*page titles*/
 }
 
 h2 { /*gallery titles*/
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.15;
     margin: 0 0 4% 0;
@@ -133,6 +132,7 @@ h1 a {
     max-width: 2000px;
     margin: 0 auto 0 auto;
     z-index: -1000;
+    animation: colorize 2s ease-in-out;
 }
 
 .gallery { /*card holder*/
