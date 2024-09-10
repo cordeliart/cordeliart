@@ -7,7 +7,7 @@
         <meta name="robots" content="noindex, nofollow">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="portfolio.css">
         <link rel="icon" href="images/tab.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +20,10 @@
             --light: #3a99f1;
             --text: #002A71;
             --dark: #bcd1de;
-            --title: "DM Serif Display";
-            --body: 'Montserrat';
         }
-        h1, h4 {font-weight:400;}
-        h1 {line-height: 5rem;}
-        h2 {font-family: var(--body);}
-        @media only screen and (max-width: 500px) {
-            h1 {font-size: 3rem;line-height:3.5rem;}
-        }
+        .next h2 {color:var(--text);}
+        .next h6 {color:var(--text);}
+        .next p {color:var(--text);}
     </style>
     
     <body>
@@ -39,8 +34,9 @@
 
         <div class="text" id="top" style="padding-top: 12rem;">
             <h1>Rochester Website Redesign</h1>
-            <h2>Fall 2023 (9 weeks)</h2>
-            <h2>Figma</h2>
+            <h2><span>Year</span> — Fall 2023 (9 weeks)</h2>
+            <h2><span>Tools</span> — Figma<br><br></h2>
+            <p><span>Synopsis</span> — An exploration of user interface and interaction micro-animations through a vibrantly glowing DJ setup.</p>
             <div class="button">
                 <a href="images/roc/deck.pdf" target="_blank">
                     <p style="margin:0;">View Project Deck</p>
@@ -60,6 +56,12 @@
             <img src="images/roc/sketches.png" alt="sketches">
         </div>
 
+        <a href="#top">
+            <div class="scroller">
+                <p>↑</p>
+            </div>
+        </a>
+
         <div class="boxes">
             <img src="images/roc/mist1.png" alt="moodboard 1: into the mist">
             <img src="images/roc/poppin1.png" alt="moodboard 2: summertime poppin">
@@ -77,24 +79,34 @@
             <h4>The Final Design</h4>
             <p>After many iterations, I opted for a final design that felt fresh, welcoming, and friendly, yet maintained both functionality and professionalism. A monochromatic color palette and gradient-faded photos create visual intrigue, while well-balanced negative space and composition of content eases the eye through the page.</p>
         </div>
-
-        <a href="#top">
-            <div class="scroller">
-                <p>↑</p>
-            </div>
-        </a>
         
         <div class="boxes">
             <img src="images/roc/scroll1.png" alt="final design top half">
             <img src="images/roc/scroll2.png" alt="final design bottom half">
         </div>
 
-        <div class="next" style="background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0) 100%),url(images/imagine/banner.PNG);">
+        <div class="next" style="background-image: url(images/circles/banner.png);">
             <div class="text">
-                <a href="imaginerit.html"><h2>Click here to continue to the next work →</h2></a>
+                <a href="circles.html"><h2>Click here to continue to the next work →</h2></a>
                 <p>Interested in working together?<br>Send an email to <a href="mailto:lena@cordeliart.com">lena@cordeliart.com</a>!</p>
-                <h6 style="padding-bottom:0;">Lena Pang © 2024<br>Thanks for reading :)</h6>
+                <div class="footer">
+                    <div>
+                        <h6>Lena Pang © 2024</h6>
+                        <h6>Thanks for reading :)</h6>
+                    </div>
+                    <div>
+                        <h6><a href="https://github.com/cordeliart/cordeliart" target="_blank">GitHub</a></h6>
+                        <h6><a href="about.html">About</a></h6>
+                        <h6><a href="resume.html" target="_blank">Resume</a></h6>
+                    </div>
+                    <div>
+                        <h6><a href="https://www.linkedin.com/in/lenacordelia/" target="_blank">LinkedIn</a></h6>
+                        <h6><a href="https://www.behance.net/cordeliart" target="_blank">Behance</a></h6>
+                        <h6><a href="https://www.instagram.com/lena_cordeliart/" target="_blank">Instagram</a></h6>
+                    </div>
+                </div>
             </div>
         </div>
+
     </body>
 </html>
