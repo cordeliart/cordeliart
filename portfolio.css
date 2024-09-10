@@ -111,7 +111,7 @@ li p {margin: 0;}
 img {
     display: block;
     width: 100%;
-    max-width: min(1600px,90%);
+    max-width: min(1400px,90%);
     margin: 0 auto 0 auto;
     padding: 0;
 }
@@ -141,8 +141,8 @@ video {
 }
 
 .boxes { /*flex with two equal columns*/
-    width: 80%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: min(1400px,90%);
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto 0 auto;
