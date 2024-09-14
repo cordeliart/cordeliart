@@ -11,8 +11,8 @@
 html {
     background-color: var(--bg);
     margin: 0;
-    scroll-behavior: smooth;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -130,6 +130,7 @@ video {
     max-width: 750px;
     margin: 0 auto 0 auto;
     padding: 2rem 0 2rem 0;
+    box-sizing: border-box;
 }
 
 .line { /*divider line*/
@@ -146,6 +147,7 @@ video {
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto 0 auto;
+    padding: 0;
     justify-content: center;
     align-items: center;
 }
@@ -210,6 +212,7 @@ video {
     width: fit-content;
     padding: 12px 18px 12px 18px;
     margin: 2rem 0 4rem 0;
+    transition: .25s ease;
 }
 
 .button:hover {
@@ -223,13 +226,15 @@ video {
 }
 
 .next {
+    width: 100%;
     margin: 7rem 0 0 0;
     background-image: var(--image);
     background-size: cover;
     background-position: center;
     color: var(--bg);
-    padding: 2rem;
+    padding: 2rem 0 2rem 0;
     text-align: left;
+    box-sizing: border-box;
 }
 
 .next h2 {
@@ -254,10 +259,10 @@ video {
     max-width: 1200px;
     display: flex;
     flex-flow: row wrap;
-    margin: 0;
     justify-content: left;
     align-items: left;
     margin: 6rem 0 1rem 0;
+    box-sizing: border-box;
 }
 
 .footer > * {
@@ -270,7 +275,7 @@ video {
 ::-webkit-scrollbar-thumb:hover {background: var(--light);}
 
 @media only screen and (max-width: 1000px) {
-    body {margin:0 1rem 0 1rem;}
+    body {margin:0;}
     h1 {
         letter-spacing: normal;
     }
@@ -280,19 +285,35 @@ video {
         justify-content: baseline;
         gap: 0;
     }
-    .boxes {width: 90%}
-    .boxes > * {width: 100%;padding:0 0 .5rem 0;}
+    .boxes {width: 90%; max-width: 750px;}
+    .boxes > * {width: 100%; max-width: 750px;padding:0 0 2px 0;}
     .boxes > img {max-width: 600px;margin:auto;}
-    .next {margin-left:-1rem;margin-right:-1rem;padding-right:10rem;}
     .next h2 {max-width:20ch;}
+    .footer {margin-top:2rem;}
+}
+
+@media only screen and (max-width:700px) {
+    .text{
+        margin: 0 2rem 0 2rem;
+        width: auto;
+    }
+    .boxes {
+        margin: 0 2rem 0 2rem;
+        padding: 0;
+        width: auto;
+        max-width: 100%;
+    }
+    .boxes div {
+        margin: 0;
+        padding: 0;
+    }
+    .footer > *:first-child {width: 100%;padding-bottom:1rem;}
 }
 
 @media only screen and (max-width: 500px) {
     h1 {font-size: 3rem;line-height:3.5rem;}
     h2 {font-size: 1.1rem;}
-    p {font-size: 1rem;}
-    img {max-width: 100%;}
-    .boxes {width: 100%;}
-    .boxes > * {width: 100%;padding:1px;}
+    img {max-width: 90%;}
     .scroller {display: none;}
+    .next h2 {width:100%;max-width:100%;}
 }
