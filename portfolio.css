@@ -22,6 +22,8 @@ body {
     padding: 0;
     line-height: 1.5rem;
     font-optical-sizing: auto;
+    animation-delay: .5s;
+    animation: fade 2s ease-in-out;
 }
 
 h1 { /*title*/
@@ -267,6 +269,11 @@ video {
 
 .footer > * {
     padding-right: 4rem;
+}
+
+@keyframes fade {
+    0% {opacity:0%;}
+    100% {opacity:100%;}
 }
 
 ::-webkit-scrollbar {width: 8px;}
