@@ -128,6 +128,16 @@ video {
     padding: 0;
 }
 
+iframe {
+    width: 100%;
+    height: unset;
+    max-width: 1400px;
+    max-height: 90vh;
+    aspect-ratio: 560 / 315;
+    margin: 0 auto 0 auto;
+    padding: 0;
+}
+
 .text { /*margins*/
     width: 90%;
     max-width: 750px;
@@ -205,10 +215,12 @@ video {
     position: fixed;
     top: 2rem;
     left: calc(calc(100% - min(90%, 750px)) / 2);
+    box-sizing: border-box;
     width: 80px;
     height: 80px;
     background-color: var(--accent);
-    mask-image: url(https://www.cordeliart.com/images/home.svg);
+    mask-image: url(https://www.cordeliart.com/images/portfolio.svg);
+    mask-size: 100%;
     mask-mode: alpha;
     z-index: 100;
 }

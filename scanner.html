@@ -32,11 +32,11 @@
         </a>
 
         <div class="text" id="top" style="padding-top: 12rem;">
-            <h1>Scanner</h1>
-            <h2><span>Year</span> — Fall 2024</h2>
+            <h1>Scanner: a UX Project</h1>
+            <h2><span>Year</span> — Spring 2024 (9 weeks)</h2>
             <h2><span>Tools</span> — Figma, After Effects<br><br></h2>
             <p><span>Synopsis</span> — User experience, research, and prototyping-heavy case study on improving the in-person shopping experience.</p>
-            <div class="button">
+            <div class="button" id="vid">
                 <a href="images/scanner/deck.pdf" target="_blank">
                     <p style="margin:0;">View Project Deck</p>
                 </a>
@@ -44,9 +44,8 @@
         </div>
 
         <div style="background-color: var(--accent);">
-            <div style="padding:45% 0 0 0;position:relative;width:100%;margin:0;z-index:0;">
-                <iframe src="https://player.vimeo.com/video/930105960?autoplay=1&loop=1&autopause=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="NMDE-301 P2 Prototype"></iframe>
-                <script src="https://player.vimeo.com/api/player.js"></script>
+            <div style="margin:0 auto 0 auto;width:min(1400px,100%);">
+                <iframe src="https://www.youtube.com/embed/98VrkQKS-3w?si=Oi1Ybty4EQ-fmV5a&#038;autoplay=1&#038;mute=1;&controls=0;&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -72,18 +71,30 @@
                 <li>Help Users Recognize, Diagnose, and Recover from Errors</li>
                 <li>Help and Documentation</li>
             </ol>
+        </div>
+        
+        <div class="boxes">
+            <img src="images/scanner/wegmans3.JPG" alt="wegmans cart picture 1">
+            <img src="images/scanner/wegmans2.JPG" alt="wegmans cart picture 2">
+        </div>
+
+        <div class="text">
             <p>For a more the full evaluation, you can take a look at the <a href="images/scanner/deck.pdf" target="_blank">product deck</a>—but overall, the cart didn't perform well. It was more effort than it was worth, easy to misuse (and abuse), and .</p>
+            <p>With these evaluations in mind, we set out to make our own products in effort to improve the shopping experience.</p>
         </div>
 
         <div style="background-color: var(--dark);">
             <div class="text">
-                <p>With these evaluations in mind, we set out to make our own products in effort to improve the shopping experience.</p>
+                <div class="line"></div>
+                <h4>Concept</h4>
+                <p>A mobile app where you:</p>
+                <ol style="font-size: 1.25rem;line-height:2rem;">
+                    <li><span style="background-color: var(--light);font-weight:400;">input your food preferences</span> (allergies, diets, macro goals, et cetera), then...</li>
+                    <li><span style="background-color: var(--light);font-weight:400;">scan 1 item</span>: the app tells you how well it meets your preferences</li>
+                    <li><span style="background-color: var(--light);font-weight:400;">scan 2 items</span>: the app tells you which one <u>better</u> meets your preferences</li>
+                </ol>
+                <p>The app reduces the user's mental load by instantly highlighting user-relevant factors in clear data visualizations, thereby eliminating the need for manual nutrition fact and ingredient list comparison.</p>
             </div>
-        </div>
-
-        <div class="text">
-            <div class="line"></div>
-            <h4>Concept</h4>
         </div>
 
         <div class="text">
@@ -94,78 +105,80 @@
             <p><span>(A) Scan/Compare</span> and <span>(B) Account</span> are daily use flows, which do include access to go back and change any preferences or settings that were declared in the previous two setup flows.</p>
         </div>
 
-        <img src="images/scanner/workflow.png">
+        <img src="images/scanner/workflow.png" alt="workflow">
 
         <div class="text">
             <div class="line"></div>
             <h4>Wireframes</h4>
-            <p>The </p>
-            <p><b>(A) Scanning</b>: </p>
+            <p><b>(A) Scanning</b>: Upon opening the app (for daily use), the user is taken directly to the scan screen. There is access to the (B) Account, and further interaction buttons pop up as the user scans items.</p>
         </div>
 
         <div class="boxes" style="max-width:850px;">
-            <img src="images/scanner/wireframe-a1.png" class="box3">
-            <img src="images/scanner/wireframe-a2.png" class="box3">
-            <img src="images/scanner/wireframe-a3.png" class="box3">
+            <img src="images/scanner/wireframe-a1.png" class="box3" alt="wireframes">
+            <img src="images/scanner/wireframe-a2.png" class="box3" alt="wireframes">
+            <img src="images/scanner/wireframe-a3.png" class="box3" alt="wireframes">
         </div>
 
         <div class="text">
-            <p><b>(A) Analysis</b>: </p>
+            <p><b>(A) Analysis</b>: There are two versions of analysis: pictured below is the Compare feature. The user can see macronutrient distribution and ingredients by serving size, by weight, and by package.</p>
+            <p> The top of the tab has a collapsible compare-to-preferences feature, where a full opacity dot means the product meets the priority, and the filled dot means the product meets the priority better than the other.</p>
         </div>
 
         <div class="boxes" style="max-width:850px;">
-            <img src="images/scanner/wireframe-a4.png" class="box3">
-            <img src="images/scanner/wireframe-a5.png" class="box3">
-            <img src="images/scanner/wireframe-a6.png" class="box3">
+            <img src="images/scanner/wireframe-a4.png" class="box3" alt="wireframes">
+            <img src="images/scanner/wireframe-a5.png" class="box3" alt="wireframes">
+            <img src="images/scanner/wireframe-a6.png" class="box3" alt="wireframes">
         </div>
 
         <div class="text">
-            <p><b>(0,1,B) Personalization</b>: </p>
+            <p><b>(0,1,B) Personalization</b>: This sections lets users set and update their account information and Nutrition Profile, which includes priorities and restrictions. Priorities have editable ranges, whereas restrictions act as a blacklist and will be flagged if found in a product.</p>
         </div>
 
         <div class="boxes" style="max-width:850px;">
-            <img src="images/scanner/wireframe-b1.png" class="box3">
-            <img src="images/scanner/wireframe-b2.png" class="box3">
-            <img src="images/scanner/wireframe-b3.png" class="box3">
+            <img src="images/scanner/wireframe-b1.png" class="box3" alt="wireframes">
+            <img src="images/scanner/wireframe-b2.png" class="box3" alt="wireframes">
+            <img src="images/scanner/wireframe-b3.png" class="box3" alt="wireframes">
         </div>
 
         <div class="text">
             <div class="line"></div>
             <h4>Style Guide</h4>
-            <p>The </p>
+            <p>I went for a clean look with crisp blues and greys (along with a pop of red for when a restriction warning pops up). I also picked a sans serif typeface for readability.</p>
         </div>
 
-        <img src="images/scanner/style-color.png" style="max-width:900px;">
-
-        <div class="text">
-            <p>The </p>
-        </div>
-
-        <img src="images/scanner/style-type.png" style="max-width:900px;">
+        <img src="images/scanner/style-color.png" style="max-width:900px;" alt="style guide colors">
+        <img src="images/scanner/style-type.png" style="max-width:900px;margin-top:4rem;" alt="style guide typography">
 
         <div class="text">
             <div class="line"></div>
             <h4>Final Comps</h4>
-            <p>The </p>
+            <p>Finally, I implemented my style guides and prototyped the animation in Figma. (Click <a href="#vid">here</a> to jump back to the animated video.)</p>
         </div>
 
         <div class="boxes">
-            <img src="images/scanner/comp-1.png" class="box4">
-            <img src="images/scanner/comp-2.png" class="box4">
-            <img src="images/scanner/comp-3.png" class="box4">
-            <img src="images/scanner/comp-4.png" class="box4">
+            <img src="images/scanner/comp-1.png" class="box4" alt="final composition">
+            <img src="images/scanner/comp-2.png" class="box4" alt="final composition">
+            <img src="images/scanner/comp-3.png" class="box4" alt="final composition">
+            <img src="images/scanner/comp-4.png" class="box4" alt="final composition">
         </div>
+
+        <div class="text">
+            <p>The structure is built on a 4-pixel base grid, with a generally symmetric layout that flows from top to bottom, with padding between elements to visually group and separate sections.</p>
+        </div>
+
+        <img src="images/scanner/structure.png" alt="grid structure">
 
         <div class="text">
             <div class="line"></div>
             <h4>Takeaways</h4>
-            <p>The </p>
+            <p>Diving deeper into the UX side of concept developmenthas been a delight. I had never spent so long considering and defining functionality before beginning the visual designs. But with every minuscule detail, interaction, and state planned out, there is no room left for redundancy or ambiguity. Everything has a purpose—and with intent so clear, the visuals almost design themselves.</p>
+            <p>Overall, the process served as a great first look into UX design, and it gave me a plethora of opportunities to really sit down, think hard, and solve problems</p>
         </div>
 
-        <div class="next" style="background-image: url(images/wobbl/banner.png);">
+        <div class="next" style="background-image: url(images/roc/banner.png);color:var(--text)">
             <div class="text">
-                <a href="wobbl.html"><h2>Click here to continue to the next work →</h2></a>
-                <p>Interested in working together?<br>Send an email to <a href="mailto:lena@cordeliart.com">lena@cordeliart.com</a>!</p>
+                <a href="rochester.html"><h2 style="color:var(--text)">Click here to continue to the next work →</h2></a>
+                <p style="color:var(--text)">Interested in working together?<br>Send an email to <a href="mailto:lena@cordeliart.com">lena@cordeliart.com</a>!</p>
                 <div class="footer">
                     <div>
                         <h6>Lena Pang © 2024</h6>
@@ -184,5 +197,6 @@
                 </div>
             </div>
         </div>
+
     </body>
 </html>
