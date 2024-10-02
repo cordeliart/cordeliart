@@ -121,8 +121,8 @@ img {
 
 video {
     display: block;
-    width: 100%;
-    max-width: 1600px;
+    width: 90%;
+    max-width: 1400px;
     max-height: 90vh;
     margin: 0 auto 0 auto;
     padding: 0;
@@ -163,24 +163,22 @@ iframe {
     padding: 0;
     justify-content: center;
     align-items: center;
+    row-gap: 2px;
 }
 
 .boxes > * {
     box-sizing: border-box;
     width: calc(50% - 2px);
-    margin-bottom: 2px;
 }
 
 .box3 { /*makes three equal columns*/
     box-sizing: border-box;
     width: calc(33.333333% - 2px);
-    margin-bottom: 2px;
 }
 
 .box4 { /*makes four equal columns*/
     box-sizing: border-box;
     width: calc(25% - 2px);
-    margin-bottom: 2px;
 }
 
 .scroller {

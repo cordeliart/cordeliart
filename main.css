@@ -19,7 +19,6 @@ h1 { /*page titles*/
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: 3px;
     text-align: right;
 }
 
@@ -243,14 +242,15 @@ h1 a {
         box-sizing: border-box;
         position: relative;
         width: 100%;
+        overflow-x: hidden;
     }
 
     .left {
         position: relative;
-        width: 80%;
+        width: 100%;
         margin: 5% auto 15% auto;
         min-width: 300px;
-        padding-left: 10%;
+        padding-left:6%;
     }
 
     .right {
