@@ -32,10 +32,10 @@
         </a>
 
         <div class="text" id="top" style="padding-top: 12rem;">
-            <h1>Scanner: a UX Project</h1>
+            <h1>Scanner: a UX Case Study</h1>
             <h2><span>Year</span> — Spring 2024 (9 weeks)</h2>
             <h2><span>Tools</span> — Figma, After Effects<br><br></h2>
-            <p><span>Synopsis</span> — User experience, research, and prototyping-heavy case study on improving the in-person shopping experience.</p>
+            <p style="max-width:50ch;"><span>Synopsis</span> — User experience, research, and prototyping-heavy case study on improving the in-person shopping experience.</p>
             <div class="button" id="vid">
                 <a href="images/scanner/deck.pdf" target="_blank">
                     <p style="margin:0;">View Project Deck</p>
@@ -44,7 +44,7 @@
         </div>
 
         <div style="background-color: var(--accent);">
-            <div style="margin:0 auto 0 auto;width:min(1400px,100%);">
+            <div style="margin:0 auto 0 auto;width:min(var(--width),100%);">
                 <iframe src="https://www.youtube.com/embed/98VrkQKS-3w?si=Oi1Ybty4EQ-fmV5a&#038;autoplay=1&#038;mute=1;&controls=0;&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="text">
             <div class="line"></div>
             <h4>Smart Cart Heuristic Evaluation</h4>
-            <p>As an introduction to the project, we conducted a heuristic evaluation on the new Wegman's smart carts (essentially a self-checkout in your cart that constantly updates while you shop) based on Jakob Nielsen's 10 usability heuristics:</p>
+            <p>As an introduction to the project, we went to Wegmans and conducted a heuristic evaluation on their new smart carts—essentially a built-in self-checkout that constantly updates while you shop—based on Jakob Nielsen's 10 usability heuristics:</p>
             <ol>
                 <li>Visibility of System Status</li>
                 <li>Match Between the System and the Real World</li>
@@ -79,13 +79,13 @@
         </div>
 
         <div class="text">
-            <p>For a more the full evaluation, you can take a look at the <a href="images/scanner/deck.pdf" target="_blank">product deck</a>—but overall, the cart didn't perform well. It was more effort than it was worth, easy to misuse (and abuse), and .</p>
+            <p>For a more the full evaluation, you can take a look at the <a href="images/scanner/deck.pdf" target="_blank">product deck</a>—but overall, the cart didn't test well. It was more work than it was worth, easy to misuse (and abuse), and prone to error (although that last one is because it is still being user tested). The smart cart performed the worst in the heuristics related to error recovery, prevention, and help.</p>
             <p>With these evaluations in mind, we set out to make our own products in effort to improve the shopping experience.</p>
         </div>
 
         <div style="background-color: var(--dark);">
             <div class="text">
-                <div class="line"></div>
+                <div class="line" style="margin-top:2rem;"></div>
                 <h4>Concept</h4>
                 <p>A mobile app where you:</p>
                 <ol style="font-size: 1.25rem;line-height:2rem;">
@@ -102,7 +102,7 @@
             <h4>Workflow</h4>
             <p>This workflow consists of four main flows. Flows and sub-flows labels are consistent throughout the project (as well as in the project deck).</p>
             <p><span>(0) Onboarding</span> and <span>(1) Nutrition Profile</span> are setup process, where the user logs in or signs up and creates their personalized profile.</p>
-            <p><span>(A) Scan/Compare</span> and <span>(B) Account</span> are daily use flows, which do include access to go back and change any preferences or settings that were declared in the previous two setup flows.</p>
+            <p><span>(A) Scan/Compare</span> and <span>(B) Account</span> are daily use flows, which do include access to go back and change any preferences that were declared in the previous two setup flows.</p>
         </div>
 
         <img src="images/scanner/workflow.png" alt="workflow">
@@ -113,7 +113,7 @@
             <p><b>(A) Scanning</b>: Upon opening the app (for daily use), the user is taken directly to the scan screen. There is access to the (B) Account, and further interaction buttons pop up as the user scans items.</p>
         </div>
 
-        <div class="boxes" style="max-width:850px;">
+        <div class="boxes">
             <img src="images/scanner/wireframe-a1.png" class="box3" alt="wireframes">
             <img src="images/scanner/wireframe-a2.png" class="box3" alt="wireframes">
             <img src="images/scanner/wireframe-a3.png" class="box3" alt="wireframes">
@@ -124,7 +124,7 @@
             <p> The top of the tab has a collapsible compare-to-preferences feature, where a full opacity dot means the product meets the priority, and the filled dot means the product meets the priority better than the other.</p>
         </div>
 
-        <div class="boxes" style="max-width:850px;">
+        <div class="boxes">
             <img src="images/scanner/wireframe-a4.png" class="box3" alt="wireframes">
             <img src="images/scanner/wireframe-a5.png" class="box3" alt="wireframes">
             <img src="images/scanner/wireframe-a6.png" class="box3" alt="wireframes">
@@ -134,7 +134,7 @@
             <p><b>(0,1,B) Personalization</b>: This sections lets users set and update their account information and Nutrition Profile, which includes priorities and restrictions. Priorities have editable ranges, whereas restrictions act as a blacklist and will be flagged if found in a product.</p>
         </div>
 
-        <div class="boxes" style="max-width:850px;">
+        <div class="boxes">
             <img src="images/scanner/wireframe-b1.png" class="box3" alt="wireframes">
             <img src="images/scanner/wireframe-b2.png" class="box3" alt="wireframes">
             <img src="images/scanner/wireframe-b3.png" class="box3" alt="wireframes">
@@ -146,8 +146,8 @@
             <p>I went for a clean look with crisp blues and greys (along with a pop of red for when a restriction warning pops up). I also picked a sans serif typeface for readability.</p>
         </div>
 
-        <img src="images/scanner/style-color.png" style="max-width:900px;" alt="style guide colors">
-        <img src="images/scanner/style-type.png" style="max-width:900px;margin-top:4rem;" alt="style guide typography">
+        <img src="images/scanner/style-color.png" alt="style guide colors">
+        <img src="images/scanner/style-type.png" style="margin-top:4rem;" alt="style guide typography">
 
         <div class="text">
             <div class="line"></div>

@@ -6,6 +6,7 @@
     --dark: #353535;
     --title: "Syne";
     --body: 'Syne';
+    --width: 850px;
 }
 
 html {
@@ -79,7 +80,7 @@ h6 {/*FOOTER*/
 
 p {
     font-family: var(--body), sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     font-weight: 300;
     color: var(--text);
@@ -99,6 +100,7 @@ a:hover {
 span {
     font-family: var(--title), var(--body), sans-serif;
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 h2 span {
@@ -109,12 +111,16 @@ h2 span {
 
 ul {list-style: none;}
 li p {margin: 0;}
-ol li {padding-left:1rem;}
+ol li {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    padding-left: 1rem;
+}
 
 img {
     display: block;
     width: 100%;
-    max-width: min(1400px,90%);
+    max-width: min(var(--width),90%);
     margin: 0 auto 0 auto;
     padding: 0;
 }
@@ -122,7 +128,7 @@ img {
 video {
     display: block;
     width: 90%;
-    max-width: 1400px;
+    max-width: var(--width);
     max-height: 90vh;
     margin: 0 auto 0 auto;
     padding: 0;
@@ -131,7 +137,7 @@ video {
 iframe {
     width: 100%;
     height: unset;
-    max-width: 1400px;
+    max-width: var(--width);
     max-height: 90vh;
     aspect-ratio: 560 / 315;
     margin: 0 auto 0 auto;
@@ -140,7 +146,7 @@ iframe {
 
 .text { /*margins*/
     width: 90%;
-    max-width: 750px;
+    max-width: var(--width);
     margin: 0 auto 0 auto;
     padding: 2rem 0 2rem 0;
     box-sizing: border-box;
@@ -156,7 +162,7 @@ iframe {
 
 .boxes { /*flex with two equal columns*/
     width: 100%;
-    max-width: min(1400px,90%);
+    max-width: min(var(--width),90%);
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto 0 auto;
@@ -212,7 +218,7 @@ iframe {
 .home { /**/
     position: fixed;
     top: 2rem;
-    left: calc(calc(100% - min(90%, 750px)) / 2);
+    left: calc(calc(100% - min(90%, var(--width))) / 2);
     box-sizing: border-box;
     width: 80px;
     height: 80px;
@@ -275,7 +281,7 @@ iframe {
 }
 
 .footer {
-    max-width: 1200px;
+    max-width: var(--width);
     display: flex;
     flex-flow: row wrap;
     justify-content: left;
@@ -331,6 +337,7 @@ iframe {
         margin: 0;
         padding: 0;
     }
+    .home {left: 2rem;}
     .footer > *:first-child {width: 100%;padding-bottom:1rem;}
 }
 
