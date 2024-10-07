@@ -43,7 +43,8 @@ h4 { /*tags*/
     font-size: 1rem;
     font: 'Syne';
     font-weight: 400;
-    margin: 0;
+    line-height: 1.5;
+    margin: .5rem 0 0 0;
 }
 
 h6 { /*footer*/
