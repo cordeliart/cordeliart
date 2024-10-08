@@ -199,16 +199,16 @@ a:hover {
 
 .boxes > * {
     box-sizing: border-box;
-    height: calc(.35 * min(90vw, 1200px));
+    height: calc(.35 * min(89vw, 1200px));
 }
 
 .box2 {
-    width: calc(calc(.5 * min(90vw, 1200px)) - 4px);
+    width: calc(calc(.5 * min(89vw, 1200px)) - 4px);
     height:auto;
 }
 
 .box3 {
-    width: calc(calc(min(90vw, 1200px) / 3) - 4px);
+    width: calc(calc(min(89vw, 1200px) / 3) - 4px);
     height: auto;
 }
 
@@ -230,3 +230,35 @@ a:hover {
 ::-webkit-scrollbar-track {background: var(--light);}
 ::-webkit-scrollbar-thumb {background: var(--dark); border-radius: 4px;}
 ::-webkit-scrollbar-thumb:hover {background: var(--accent);}
+
+@media only screen and (max-width:700px) {
+    h1 {font-size: 2.5rem;line-height:2.75rem;margin-top:3rem;}
+
+    h4 {display:none;}
+
+    .nav {background-color: rgba(234, 234, 241,.5);}
+
+    .project {display:block;}
+
+    .project p {display:none;}
+
+    .text {
+        margin: 0 2rem 0 2rem;
+        width: auto;
+    }
+    .boxes > * {
+        width: 100%;
+        height:auto;
+    }
+    
+    .box2, .box3 {
+        width: 100%;
+        height:auto;
+    }
+
+    .footer {display:block;}
+
+    .footer > * {padding:0 0 1rem 0;}
+
+    pre code {font-size:.6rem;}
+}
