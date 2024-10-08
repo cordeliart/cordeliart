@@ -1,0 +1,232 @@
+:root {
+    --bg: rgb(234, 234, 241);
+    --accent: rgb(0,119,255);
+    --light: rgb(208, 212, 227);
+    --red: rgb(220,10,20);
+    --text: #141420;
+    --dark: #353535;
+    --title: "Syne";
+    --body: 'Syne';
+}
+
+html {
+    background: var(--bg);
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: var(--text);
+    font-family: var(--title), sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0;
+    margin-top: 2px;
+    overflow-x: hidden;
+    font-variant-numeric: lining-nums;
+}
+
+h1 { /*big text*/
+    font-family: var(--title), sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    max-width: 20ch;
+    line-height: 4rem;
+    letter-spacing: -.1rem;
+}
+
+h2 { /*sub-nav options*/
+    font-family: var(--title), sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    line-height: 2rem;
+    text-align: right;
+}
+
+h3 { /*project titles*/
+    font-family: var(--title), sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 2rem;
+    padding: 0;
+}
+
+h4 { /*project subtitles*/
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+h6 {/*footer*/ 
+    font-family: var(--body), sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    font-family:  var(--title), sans-serif;
+    font-size: 1.25rem;
+    margin: 1rem 0 1rem 0;
+    padding: 0;
+    line-height: 2rem;
+    max-width: 75ch;
+}
+
+span {
+    color: var(--accent);
+    font-variant-numeric: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: .25s ease-in-out;
+}
+
+pre code {
+    background-color: var(--light);
+    display: block;
+    padding: 2rem;
+    width:fit-content;
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0 0 4rem 0;
+}
+
+sub {
+    vertical-align: top;
+    position: relative;
+    top: .5rem;
+}
+
+sup {
+    vertical-align: top;
+    position: relative;
+    top: -.5rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+video {
+    display: block;
+    width: 100%;
+    max-height: 90vh;
+    margin: 0 auto 0 auto;
+    padding: 0;
+}
+
+a:hover {
+    color: var(--accent);
+    transition: .25s ease-in-out;
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    padding: .5rem 0 4rem 0;
+    margin: -2px 0 0 0;
+    backdrop-filter: blur(12px);
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.leftright {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    padding: 0;
+}
+
+.text {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    padding: 4rem 0rem 4rem 0rem;
+}
+
+.project {
+    background-color: var(--bg);
+    width: 90%;
+    max-width: 1200px;
+    margin: -2px max(calc(calc(100vw - 1220px) / 2),5%) -2px max(calc(calc(100vw - 1220px) / 2),5%);
+    border-top: 2px var(--accent) solid;
+    border-bottom: 2px var(--accent) solid;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+    gap: 2%;
+    padding: 1.5rem 2% 1.5rem 2%;
+    box-sizing: border-box;
+}
+
+.project:hover {
+    background-color: var(--accent);
+    color: var(--light);
+}
+
+.project:hover h4 {
+    color: var(--light);
+}
+
+.boxes { /*flex with two equal columns*/
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4rem 0 4rem 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.boxes > * {
+    box-sizing: border-box;
+    height: calc(.35 * min(90vw, 1200px));
+}
+
+.box2 {
+    width: calc(calc(.5 * min(90vw, 1200px)) - 4px);
+    height:auto;
+}
+
+.box3 {
+    width: calc(calc(min(90vw, 1200px) / 3) - 4px);
+    height: auto;
+}
+
+.footer {
+    max-width: 1200px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0;
+    justify-content: left;
+    align-items: left;
+    margin: 6rem 0 6rem 0;
+}
+
+.footer > * {
+    padding-right: 4rem;
+}
+
+::-webkit-scrollbar {width: 8px;}
+::-webkit-scrollbar-track {background: var(--light);}
+::-webkit-scrollbar-thumb {background: var(--dark); border-radius: 4px;}
+::-webkit-scrollbar-thumb:hover {background: var(--accent);}

@@ -84,11 +84,6 @@ h1 a {
 
 .blue {z-index: 3}
 
-.blue a:hover {
-    transition: .5s ease;
-    color: #0000FF;
-}
-
 .yellow a:hover {
     transition: .5s ease;
     color: #FBB03B;
@@ -101,7 +96,7 @@ h1 a {
 
 .cyan a:hover {
     transition: .5s ease;
-    color: #00A99D;
+    color: rgb(0,119,255);
 }
 
 .leftfix {

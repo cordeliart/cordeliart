@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Numerical Analysis | Lena Pang</title>
+        <meta name="description" content="2024">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="keywords" content="python,numerical analysis,notes,code">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="bside.css">
+        <link rel="icon" href="../images/tab.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <style>
+        .text span {
+            font-family: georgia, 'Times New Roman', serif;
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: .1rem;
+            color: var(--text)
+        }
+    </style>
+
+    <body>
+        <div class="nav">
+            <div class="leftright">
+                <div><a href="../bside.html"><h2 style="font-weight:700;">Lena Pang — <span>B SIDE</span></h2></a></div>
+                <div>
+                    <h2><a href="../lena-pang-resume.pdf" target="_blank">Resume</a></h2>
+                    <h2><a href="../index.html">Portfolio</a></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="text" style="padding: 30vh 0 0 0;">
+            <p style="color:var(--accent);font-weight:700;">01 — Fall 2024</p>
+            <h1>Numerical Analysis</h1>
+
+            <p style="margin-bottom:4rem;">These are notes & functions from <span style="letter-spacing: unset;">Numerical Analysis, 10th Edition</span> by Richard L. Burden, Douglas J. Faires, and Annette M. Burden. Some functions are slightly altered for functionality (and use numpy imported as np).</p>
+
+            <h3>Lagrange Interpolation</h3>
+
+            <p><span style="color:var(--accent);">P<sub>n</sub> = L<sub>0 </sub>f(x<sub>0</sub>) + L<sub>1 </sub>f(x<sub>1</sub>) + ... + L<sub>n </sub>f(x<sub>n</sub>)</span></p>
+
+            <p>The Langrange polynomial interpolates the given nodes, because the structure makes it such that when calculating the polynomial at any node <span>x<sub>i</sub></span>, all <span>L</span> become <span>0</span> except <span>L<sub>i </sub></span>, which becomes <span>1</span>.</p>
+
+            <p><span style="color:var(--red);">f(x) = P<sub>n</sub> + <sup>1</sup>/<sub>(n+1)!</sub> f<sup> (n+1)</sup>(ζ) Π(x-x<sub>i</sub>)</span></p>
+
+            <h3 style="margin-top:4rem;">Newton's Divided Differences</h3>
+
+            <p><span style="color:var(--accent);">P<sub>n</sub> = f(x<sub>0</sub>) + Δ<sup>k</sup>f(x<sub>1</sub>) + ... + Δ<sup>n</sup>f(x<sub>n</sub>)</span></p>
+
+            <p>This is another method of calculating interpolating polynomials, using a system of divided differences.</p>
+
+
+            <pre><code>def divdiff(x, f):
+    '''
+    returns the coefficients Δ^0, Δ^1, ... Δ^n
+    '''
+    n = len(f)
+    delta = np.zeros([n, n])
+    delta[:,0] = f
+
+    for j in range(1,n):
+    for i in range(n-j):
+        delta[i][j] = (delta[i+1][j-1] - delta[i][j-1]) / (x[i+j]-x[i])
+
+    return delta</code></pre>
+
+            <h3>Hermite Interpolation</h3>
+
+            <p><span style="color:var(--accent);">H<sub>2n+1</sub> = H<sub>i,i</sub> + H<sub>1,1</sub>(x-x<sub>0</sub>) + ... +</span></p>
+
+            <p>The Hermite polynomial osculates the given points, meaning it matches the function value and the first derivative value at each node. Therefore it has smaller error than the previous interpolating polynomials:</p>
+
+            <p><span style="color:var(--red);">f(x) = H<sub>2n+1</sub> + <sup>1</sup>/<sub>(2n+1)!</sub> f<sup> (2n+1)</sup>(ζ) Π(x-x<sub>i</sub>)<sup>2</sup></span></p>
+
+            <p>These essentially act as the coefficients in the Divided Difference method, only accounting for <span>2n+1</span>th degree of accuracy considering the use of known derivatives.</p>
+            <pre><code>def hermite(x,f,d):
+    '''
+    prints the coefficients H_(i,i)
+    '''
+    n = len(f)
+    q = np.zeros([2*n + 1, 2*n + 1])
+    z = np.zeros(2*n + 1)
+    
+    for i in range(0, n):
+        z[2*i] = x[i]
+        z[2*i + 1] = x[i]
+        q[2*i][0] = f[i]
+        q[2*i + 1][0] = f[i]
+        q[2*i + 1][1] = d[i]
+        if i!=0:
+        q[2*i][1] = (q[2*i][0] - q[2*i - 1][0]) / (z[2*i] - z[2*i - 1])
+    
+    for i in range(2, 2*n + 1):
+        for j in range(2,i+1):
+        q[i][j] = (q[i][j - 1] - q[i - 1][j -1]) / (z[i] - z[i - j])
+    
+    for i in range(0, 2*n):
+        print(q[i][i])</code></pre>
+
+        <h3>Cubic Splines</h3>
+
+            <p><span style="color:var(--accent);">S<sub>i</sub>(x) = a<sub>i</sub> + b<sub>i</sub>x + c<sub>i</sub>x<sup>2</sup> + d<sub>i</sub>x<sup>3</sup></span></p>
+
+            <p>Cubic splines are a piecewise solution: one third-degree polynomial for each pair of neighbor nodes, where the function value, first derivative value, and second derivative value all match at each node. This is used more in computer graphics rather than to approximate actual functions.</p>
+
+            <pre><code>def natspline(x,a):
+    n = len(x)
+    i = np.zeros(2*n)
+    u = np.zeros(2*n)
+    z = np.zeros(2*n)
+    h = np.zeros(2*n)
+    alph = np.zeros(2*n)
+    
+    b = np.zeros(n+1)
+    c = np.zeros(n+1)
+    d = np.zeros(n+1)
+    
+    for j in range(0,n-1):
+        h[j] = x[j+1] - x[j]
+    
+    for j in range(1,n-1):
+        alph[j] = (3/h[j]) * (a[j+1] - a[j]) - (3/h[j-1]) * (a[j] - a[j-1])
+    
+    i[0] = 1
+    u[0] = 0
+    z[0] = 0
+    
+    for j in range(1,n-1):
+        i[j] = 2*(x[j+1] - x[j-1]) - h[j-1] * u [j-1]
+        u[j] = h[j] / i[j]
+        z[j] = (alph[j] - h[j-1]*z[j-1])/i[j]
+    
+    i[n] = 1
+    z[n] = 0
+    c[n] = 0
+    
+    for j in reversed(range(0,n-1)):
+        c[j] = z[j] - u[j]*c[j+1]
+        b[j] = (a[j+1] - a[j])/h[j] - h[j]*(c[j+1] + 2*c[j])/3
+        # d[j] = (a[j+1] - a[j])/h[j] - h[j]*(c[j+1] + 2*c[j])/3
+        d[j] = (c[j+1]-c[j])/(3*h[j])
+    
+    for j in range(0,n-1):
+        print(a[j],b[j],c[j],d[j])</code></pre>
+
+
+            <h3>Bezier Curves</h3>
+
+            <p><span style="color:var(--accent);">x(t) = a<sub>0</sub> + a<sub>1</sub>t + a<sub>2</sub>t<sup>2</sup> + a<sub>3</sub>t<sup>3</sup></span></p>
+            <p><span style="color:var(--accent);">y(t) = b<sub>0</sub> + b<sub>1</sub>t + b<sub>2</sub>t<sup>2</sup> + b<sub>3</sub>t<sup>3</sup></span></p>
+
+            <p>Bezier curves parameterize lines in order to bypass the one-to-one limits of functions (allowing for shapes like loops and circles).</p>
+
+            <pre><code>def bezier(n,x,y,left,right):
+    a = np.zeros([n,4])
+    b = np.zeros([n,4])
+    
+    i=0
+    while i < n:
+        a[i][0] = x[i]
+        a[i][1] = 3*(left[i][0] - x[i])
+        a[i][2] = 3*(x[i] + right[i][0] - 2*left[i][0])
+        a[i][3] = x[i+1] - x[i] + 3*left[i][0] - 3*right[i][0]
+    
+        b[i][0] = y[i]
+        b[i][1] = 3*(left[i][1] - y[i])
+        b[i][2] = 3*(y[i] + right[i][1] - 2*left[i][1])
+        b[i][3] = y[i+1] - y[i] + 3*left[i][1] - 3*right[i][1]
+    
+        print(i, a[i], b[i])
+        i += 1</code></pre>
+
+        </div>
+
+        <div class="text" style="margin-top:-6rem;">
+            <div class="footer">
+                <div>
+                    <h6>Lena Pang © 2024</h6>
+                    <h6>Thanks for reading :)</h6>
+                </div>
+                <div>
+                    <h6><a href="../index.html">Portfolio</a></h6>
+                    <h6><a href="../about.html">About</a></h6>
+                    <h6><a href="../lena-pang-resume.pdf" target="_blank">Resume</a></h6>
+                </div>
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/lenacordelia/" target="_blank">LinkedIn</a></h6>
+                    <h6><a href="https://www.behance.net/cordeliart" target="_blank">Behance</a></h6>
+                    <h6><a href="https://www.instagram.com/lena_cordeliart/" target="_blank">Instagram</a></h6>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
