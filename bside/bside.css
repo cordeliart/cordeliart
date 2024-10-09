@@ -145,6 +145,11 @@ a:hover {
     z-index: 100;
 }
 
+.hero {
+    width:120%;
+    margin:-40px auto -50% auto;
+}
+
 .leftright {
     display: flex;
     flex-flow: row nowrap;
@@ -236,7 +241,9 @@ a:hover {
 
     h4 {display:none;}
 
-    .nav {background-color: rgba(234, 234, 241,.5);}
+    .nav {background-color: rgba(234, 234, 241,.85); padding-bottom:1rem;}
+
+    .hero {height: 90vh;margin-bottom:-75vh;}
 
     .project {display:block;}
 
@@ -256,7 +263,7 @@ a:hover {
         height:auto;
     }
 
-    .footer {display:block;}
+    .footer {display:block; margin: 1rem 0 1rem 0;}
 
     .footer > * {padding:0 0 1rem 0;}
 
