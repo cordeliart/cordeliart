@@ -146,8 +146,9 @@ a:hover {
 }
 
 .hero {
-    width:120%;
-    margin:-40px auto -50% auto;
+    width: max(140%,110vh);
+    height: auto;
+    margin: -40px auto -35% auto;
 }
 
 .leftright {
@@ -184,11 +185,11 @@ a:hover {
 
 .project:hover {
     background-color: var(--accent);
-    color: var(--light);
+    color: var(--bg);
 }
 
 .project:hover h4 {
-    color: var(--light);
+    color: var(--bg);
 }
 
 .boxes { /*flex with two equal columns*/
