@@ -164,7 +164,7 @@ h1 a {
     z-index: -1000;
     opacity: 0;
     animation: colorize 2s ease-in-out;
-    animation-delay: 4s;
+    animation-delay: 3.5s;
     animation-fill-mode: forwards;
 }
 
