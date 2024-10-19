@@ -158,7 +158,10 @@ h1 a {
     max-width: 2000px;
     margin: 0 auto 0 auto;
     z-index: -1000;
+    opacity: 0;
     animation: colorize 2s ease-in-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
 }
 
 .gallery { /*card holder*/
@@ -252,12 +255,13 @@ h1 a {
 
 @keyframes colorize {
     0% {
-        opacity: 0;
+        opacity: 0%;
         -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
     }
 
     100% {
+        opacity: 100%;
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
     }
