@@ -1,3 +1,9 @@
+:root {
+    --yellow: #FBB03B;
+    --blue: rgb(0,119,255);
+    --red: #F15A24;
+}
+
 html {
     background: black;
     scroll-behavior: smooth;
@@ -68,9 +74,9 @@ p {
 }
 
 p + p {margin-top: 5%;}
-p span {color: #FBB03B;}
+p span {color: var(--yellow);}
 p a {color:inherit;}
-p a:hover {color:#FBB03B;}
+p a:hover {color:var(--yellow);}
 
 img {
     display: block;
@@ -82,21 +88,46 @@ h1 a {
     color: inherit;
 }
 
+.loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: center / contain no-repeat linear-gradient(#41A8BB, #B9E0DE), url("images/landing.png");
+    background-size: auto;
+    z-index: 1200000;
+    animation: left 2s ease-in-out;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    text-align: center;
+    overflow: hidden;
+}
+
+.looper {
+    font-size: 20vmin;
+    margin: 30vh 0 0 -10%;
+    padding: 0;
+    white-space: nowrap;
+    animation: loop 5s linear;
+}
+
 .blue {z-index: 3}
 
 .yellow a:hover {
     transition: .5s ease;
-    color: #FBB03B;
+    color: var(--yellow);
 }
 
 .red a:hover {
     transition: .5s ease;
-    color: #F15A24;
+    color: var(--red);
 }
 
 .cyan a:hover {
     transition: .5s ease;
-    color: rgb(0,119,255);
+    color: var(--blue);
 }
 
 .leftfix {
@@ -229,6 +260,28 @@ h1 a {
     100% {
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
+    }
+}
+
+@keyframes left {
+    0% {
+        top: 0;
+        bottom: 0;
+    }
+
+    100% {
+        top: -100vh;
+        bottom: 100vh;
+    }
+}
+
+@keyframes loop {
+    0% {
+        margin-left: -10%;
+    }
+
+    100% {
+        margin-left: -150vmin;
     }
 }
 
