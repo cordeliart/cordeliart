@@ -8,10 +8,15 @@
         <meta name="keywords" content="UX design, information design">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="portfolio.css">
         <link rel="icon" href="images/tab.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="https://www.cordeliart.com/images/scanner.png"/>
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="400">
+        <meta property="og:image:height" content="400">
     </head>
 
     <style>
@@ -23,7 +28,9 @@
             --dark: #eee;
             --title: 'Syne';
             --body: 'Syne';
+            --hero: url("images/scanner/hero.png")
         }
+        .home {background-color: var(--light);}
     </style>
 
     <body>
@@ -31,7 +38,9 @@
             <div class="home"></div>
         </a>
 
-        <div class="text" id="top" style="padding-top: 12rem;">
+        <div class="hero" id="top"></div>
+
+        <div class="text">
             <h1>Scanner: a UX Case Study</h1>
             <h2><span>Year</span> — Spring 2024 (9 weeks)</h2>
             <h2><span>Tools</span> — Figma, After Effects<br><br></h2>

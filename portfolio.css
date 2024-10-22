@@ -7,6 +7,7 @@
     --title: "Syne";
     --body: 'Syne';
     --width: 850px;
+    --hero: url("images/hero.png");
 }
 
 html {
@@ -32,7 +33,7 @@ h1 { /*title*/
     color: var(--text);
     font-size: 5rem;
     line-height: 5rem;
-    margin: 0 0 .75rem 0;
+    margin: 4rem 0 .75rem 0;
     max-width: 12ch;
     font-weight: 700;
 }
@@ -120,7 +121,7 @@ ol li {
 img {
     display: block;
     width: 100%;
-    max-width: min(var(--width),90%);
+    max-width: min(var(--width),90vw);
     margin: 0 auto 0 auto;
     padding: 0;
 }
@@ -144,8 +145,18 @@ iframe {
     padding: 0;
 }
 
+.hero {
+    width: 100%;
+    max-width: 100%;
+    height: 60vh;
+    background-image: var(--hero);
+    background-size: max(100vw, 120vh);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .text { /*margins*/
-    width: 90%;
+    width: 90vw;
     max-width: var(--width);
     margin: 0 auto 0 auto;
     padding: 2rem 0 2rem 0;
@@ -162,14 +173,14 @@ iframe {
 
 .boxes { /*flex with two equal columns*/
     width: 100%;
-    max-width: min(var(--width),90%);
+    max-width: min(var(--width),90vw);
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto 0 auto;
     padding: 0;
     justify-content: center;
     align-items: center;
-    row-gap: 2px;
+    gap: 2px;
 }
 
 .boxes > * {
@@ -185,6 +196,13 @@ iframe {
 .box4 { /*makes four equal columns*/
     box-sizing: border-box;
     width: calc(25% - 2px);
+}
+
+.boxn {
+    height: calc(min(32.3vw, 305px) * .98);
+    width: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .scroller {
@@ -218,7 +236,7 @@ iframe {
 .home { /**/
     position: fixed;
     top: 2rem;
-    left: calc(calc(100% - min(90%, var(--width))) / 2);
+    left: calc(calc(100% - min(90vw, var(--width))) / 2);
     box-sizing: border-box;
     width: 80px;
     height: 80px;
@@ -304,7 +322,7 @@ iframe {
 ::-webkit-scrollbar-thumb {background: var(--accent); border-radius: 4px;}
 ::-webkit-scrollbar-thumb:hover {background: var(--light);}
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 700px) {
     body {margin:0;}
     h1 {
         letter-spacing: normal;
@@ -315,27 +333,26 @@ iframe {
         justify-content: baseline;
         gap: 0;
     }
-    .boxes {width: 90%; max-width: 750px;}
-    .boxes > * {width: 100%; max-width: 750px;padding:0 0 2px 0;}
+    .boxes {
+        width: 90vw;
+        max-width: 750px;
+        margin: 0 2rem 0 2rem;
+        padding: 0;
+    }
+    .boxes > * {
+        width: 100%;
+        max-width: 750px;
+        padding:0 0 2px 0;
+        margin: 0;
+        height: auto;
+    }
     .boxes > img {max-width: 600px;margin:auto;}
     .next h2 {max-width:20ch;}
     .footer {margin-top:2rem;}
-}
 
-@media only screen and (max-width:700px) {
     .text{
         margin: 0 2rem 0 2rem;
         width: auto;
-    }
-    .boxes {
-        margin: 0 2rem 0 2rem;
-        padding: 0;
-        width: auto;
-        max-width: 100%;
-    }
-    .boxes div {
-        margin: 0;
-        padding: 0;
     }
     .home {left: 2rem;}
     .footer > *:first-child {width: 100%;padding-bottom:1rem;}
@@ -344,7 +361,7 @@ iframe {
 @media only screen and (max-width: 500px) {
     h1 {font-size: 3rem;line-height:3.5rem;}
     h2 {font-size: 1.1rem;}
-    img {max-width: 90%;}
+    img {max-width: 90vw;}
     .scroller {display: none;}
     .next h2 {width:100%;max-width:100%;}
 }
