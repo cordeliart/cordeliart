@@ -64,14 +64,15 @@ h4 { /*section titles*/
     line-height: 2rem;
 }
 
-h5 { /*section subtitles*/
+h5 { /*subsection titles*/
     font-family: var(--body), sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-top: 1rem;
+    margin: 3rem 0 1.5rem 0;
+    color: var(--accent);
 }
 
-h6 {/*FOOTER*/ 
+h6 { /*footer*/ 
     font-family: var(--body), sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -163,6 +164,18 @@ iframe {
     box-sizing: border-box;
 }
 
+.subtitle {
+    margin-top: 0;
+    color: var(--accent);
+    font-style: italic;
+}
+
+.caption {
+    font-size: 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
 .line { /*divider line*/
     display: block;
     width: 4rem;
@@ -196,13 +209,6 @@ iframe {
 .box4 { /*makes four equal columns*/
     box-sizing: border-box;
     width: calc(25% - 2px);
-}
-
-.boxn {
-    height: calc(min(32.3vw, 305px) * .98);
-    width: auto;
-    margin: 0;
-    padding: 0;
 }
 
 .scroller {
