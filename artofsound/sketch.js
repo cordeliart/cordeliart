@@ -8,15 +8,10 @@ let spectrum;
 let rainbow;
 let imgGreen;
 let imgRainbow;
-// let cols;
-// let rows;
-// let current;
-// let previous;
-// let damping;
 
 function preload() {
   displayFont = loadFont('RubikPixels-Regular.ttf');
-  logo = loadImage('https://www.cordeliart.com/artofsound/logo.png');
+  logo = loadImage('logo.png');
   imgGreen = loadImage('https://www.cordeliart.com/artofsound/green.png');
   imgRainbow = loadImage('https://www.cordeliart.com/artofsound/rainbow.png');
 }
@@ -30,13 +25,6 @@ function setup() {
   mic = new p5.AudioIn();
   mic.connect();
 
-  // pixelDensity(1);
-  // damping = .99;
-  // cols = windowWidth;
-  // rows = windowHeight;
-  // current = new Array(cols).fill(0).map(n => new Array(rows).fill(0));
-  // previous = new Array(cols).fill(0).map(n => new Array(rows).fill(0));
-
   spectrum = 73;
   myFill = color(spectrum,63,100);
   myBg = color(0,0,0,.5);
@@ -44,15 +32,12 @@ function setup() {
   rainbow = false;
   angleMode(DEGREES);
 
-  fit = min(windowHeight,windowWidth);
-  image(logo,24,fit/2 - (fit-48)*.8/2,fit-48,(fit-48)*.8);
-
-  // fill(myFill);
-  // textAlign(CENTER,CENTER);
-  // textSize(windowWidth/8);
-  // text('ART OF SOUND',windowWidth/2,windowHeight*.51);
-  // textSize(windowWidth/50);
-  // text('Click anywhere to begin.',windowWidth/2,windowHeight*.6);
+  let k = 1250/900; // logo w/h = 1250/900
+  if(windowWidth < windowHeight) {
+    image(logo,0,windowWidth/2 - windowWidth/k/2,windowWidth,windowWidth/k);
+  } else {
+    image(logo,windowWidth/2 - windowHeight*k/2,0,windowHeight*k,windowHeight);
+  }
 }
 
 function draw() {
@@ -154,19 +139,7 @@ function draw() {
       pop();
     }
 
-    // push();
-    // stroke(myFill);
-    // strokeWeight(2);
-    // fill(0);
-    // if ((mouseX < 24+36) && (mouseX > 24) && (mouseY > 24) && (mouseY < 24+36)) {
-    //   ellipse(24+18,24+18,44,44);
-    //   console.log("hovering idl");
-    // }
-    // else if ((mouseX < 24+36+12+36) && (mouseX > 24+36+12) && (mouseY > 24) && (mouseY < 24+36)) {
-    //   ellipse(24+36+12+18,24+18,44,44);
-    // }
-    // pop();
-
+    // TOGGLES
     image(imgGreen, 24, 24, 36, 36);
     image(imgRainbow, 24+36+12, 24, 36, 36);
   }
@@ -180,6 +153,7 @@ function touchStarted() {
 }
 
 function mouseClicked() {
+  // toggle between versions
   if (mouseX < 24+36 && mouseX > 24 && mouseY > 24 && mouseY < 24+36) {
     rainbow = false;
   }
@@ -189,7 +163,7 @@ function mouseClicked() {
 }
 
 function squares(x,y,n,squareWidth,parity) {
-  // generates subdivided grid
+  // generates subdivided (recursive) square grid
   if(n==1) {
     if(parity == "even") {
       rect(x,y,squareWidth/2,squareWidth/2);
@@ -207,6 +181,7 @@ function squares(x,y,n,squareWidth,parity) {
 }
 
 function star(x,y,r,k) {
+  // displays star
   k = 360/k;
   r -= 2;
   push();
