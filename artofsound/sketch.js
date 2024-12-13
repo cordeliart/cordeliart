@@ -1,19 +1,29 @@
-let logo;
-var mic;
-var displayFont;
+// SOUND
+let mic;
+let fft;
+let fourier;
+let spectrum = [];
+
+// COLORS
 let myFill;
 let myBg;
+
+// VARIABLES
 let started;
-let spectrum;
-let rainbow;
+let selection;
+
+// IMAGES
+let logo;
 let imgGreen;
 let imgRainbow;
+let imgWhite;
 
 function preload() {
-  displayFont = loadFont('RubikPixels-Regular.ttf');
+  // load images
   logo = loadImage('logo.png');
   imgGreen = loadImage('https://www.cordeliart.com/artofsound/green.png');
   imgRainbow = loadImage('https://www.cordeliart.com/artofsound/rainbow.png');
+  imgWhite = loadImage('https://www.cordeliart.com/artofsound/white.png');
 }
 
 function setup() {
@@ -21,17 +31,23 @@ function setup() {
   colorMode(HSB);
   background(0);
   frameRate(60);
+  angleMode(DEGREES);
 
+  // set up sound stuff
+  fft = new p5.FFT(0.8,512);
   mic = new p5.AudioIn();
   mic.connect();
 
+  // set colors
   spectrum = 73;
   myFill = color(spectrum,63,100);
   myBg = color(0,0,0,.5);
   started = false;
-  rainbow = false;
-  angleMode(DEGREES);
 
+  // set mode variables
+  selection = "green";
+
+  // display title
   let k = 1250/900; // logo w/h = 1250/900
   if(windowWidth < windowHeight) {
     image(logo,0,windowWidth/2 - windowWidth/k/2,windowWidth,windowWidth/k);
@@ -41,17 +57,34 @@ function setup() {
 }
 
 function draw() {
+  // only launches upon click
   if(started) {
     noStroke();
     fill(myBg);
     rect(0, 0, windowWidth, windowHeight);
     var vol = mic.getLevel();
   
-    if(rainbow) { // RAINBOW FLEXY OPTION
+    if(selection == "rainbow") {
+      // RAINBOW FFT MODE
       frameRate(60);
-      spectrum = (spectrum + .2) % 349
-      myFill = color(spectrum,63,100);
-      myFill.setAlpha(max(20,min(255,vol*1000)));
+      background(0);
+      fourier = fft.analyze();
+      ellipseMode(CENTER);
+      strokeWeight(2);
+      fill(0);
+      for (let i=0; i < fourier.length; i += 1) {
+        let r = 0.8*min(windowWidth,windowHeight)-3*i;
+        myFill = color((20+i)%255,63,100);
+        myFill.setAlpha(map(fourier[i],0,255,0,1));
+        stroke(myFill);
+        ellipse(windowWidth/2, windowHeight/2, r, r);
+      }
+    }
+
+    else if(selection == "white") {
+      // WHITE MODE
+      frameRate(60);
+      myFill = color(255);
 
       push();
       fill(myFill);
@@ -106,7 +139,8 @@ function draw() {
       endShape();
     }
 
-    else { // GREEN GRID OPTION
+    else if(selection == "green") {
+      // GREEN GRID MODE
       let volmod = round(1000*vol)%3;
       console.log(1000*vol,volmod);
       frameRate(4);
@@ -139,9 +173,10 @@ function draw() {
       pop();
     }
 
-    // TOGGLES
+    // TOGGLE ICONS
     image(imgGreen, 24, 24, 36, 36);
     image(imgRainbow, 24+36+12, 24, 36, 36);
+    image(imgWhite, 24+36+12+36+12, 24, 36, 36);
   }
 }
 
@@ -153,12 +188,15 @@ function touchStarted() {
 }
 
 function mouseClicked() {
-  // toggle between versions
+  // check position and toggle between versions
   if (mouseX < 24+36 && mouseX > 24 && mouseY > 24 && mouseY < 24+36) {
-    rainbow = false;
+    selection = "green";
   }
   else if (mouseX < 24+36+12+36 && mouseX > 24+36+12 && mouseY > 24 && mouseY < 24+36) {
-    rainbow = true;
+    selection = "rainbow";
+  }
+  else if (mouseX < 24+36+12+36+12+36 && mouseX > 24+36+12+12+36 && mouseY > 24 && mouseY < 24+36) {
+    selection = "white";
   }
 }
 
