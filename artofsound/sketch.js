@@ -73,7 +73,7 @@ function draw() {
       strokeWeight(2);
       fill(0);
       for (let i=0; i < fourier.length; i ++) {
-        let r = 0.8*min(windowWidth,windowHeight)-4*i;
+        let r = 0.8*min(windowWidth,windowHeight)-2*i;
         myFill = color((10+2*i)%255,63,100);
         myFill.setAlpha(map(fourier[i],0,255,0,1));
         stroke(myFill);
