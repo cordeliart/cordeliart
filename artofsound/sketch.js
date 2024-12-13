@@ -143,7 +143,7 @@ function draw() {
       // GREEN GRID MODE
       let volmod = round(1000*vol)%3;
       console.log(1000*vol,volmod);
-      frameRate(4);
+      frameRate(25);
 
       let sq = max(windowHeight,windowWidth);
       fill(73,63,100);
