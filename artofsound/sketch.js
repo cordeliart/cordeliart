@@ -34,17 +34,17 @@ function setup() {
   angleMode(DEGREES);
 
   // set up sound stuff
-  fft = new p5.FFT(0.8,512);
   mic = new p5.AudioIn();
   mic.connect();
+  fft = new p5.FFT(0.8,512);
 
   // set colors
   spectrum = 73;
   myFill = color(spectrum,63,100);
   myBg = color(0,0,0,.5);
-  started = false;
 
-  // set mode variables
+  // set mode
+  started = false;
   selection = "green";
 
   // display title
@@ -62,7 +62,7 @@ function draw() {
     noStroke();
     fill(myBg);
     rect(0, 0, windowWidth, windowHeight);
-    var vol = mic.getLevel();
+    let vol = mic.getLevel();
   
     if(selection == "rainbow") {
       // RAINBOW FFT MODE
@@ -72,9 +72,9 @@ function draw() {
       ellipseMode(CENTER);
       strokeWeight(2);
       fill(0);
-      for (let i=0; i < fourier.length; i += 1) {
-        let r = 0.8*min(windowWidth,windowHeight)-3*i;
-        myFill = color((20+i)%255,63,100);
+      for (let i=0; i < fourier.length; i ++) {
+        let r = 0.8*min(windowWidth,windowHeight)-4*i;
+        myFill = color((10+2*i)%255,63,100);
         myFill.setAlpha(map(fourier[i],0,255,0,1));
         stroke(myFill);
         ellipse(windowWidth/2, windowHeight/2, r, r);
@@ -92,7 +92,7 @@ function draw() {
       pop();
 
       push();
-      var gradient = this.drawingContext.createLinearGradient(0, 2 * height, 0, height / 3, 0);
+      let gradient = this.drawingContext.createLinearGradient(0, 2 * height, 0, height / 3, 0);
       gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
       gradient.addColorStop(1, 'rgba(0, 0, 0, 1)');
       this.drawingContext.fillStyle = gradient;
