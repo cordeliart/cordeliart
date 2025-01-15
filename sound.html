@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Art of Sound</title>
+        <meta name="description" content="Algorithm-based art.">
+        <meta name="keywords" content="art, music, cymatics">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.cordeliart.com/portfolio.css">
+        <link rel="icon" href="https://www.cordeliart.com/images/tab.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <script src="images/sound/p5.min.js"></script>
+        <script src="images/sound/addons/p5.sound.js"></script>
+        <script src="images/sound/addons/p5.sound.min.js"></script>
+        <script src="images/sound/sketch2.js"></script>
+    </head>
+
+    <style>
+        :root {
+            --bg: black;
+            --accent: rgb(170,220,50);
+            --light: #52982f;
+            --text: rgb(230,230,200);
+            --dark: #45414a;
+            --title: 'Syne';
+            --body: 'Syne';
+        }
+        /* html, body {padding: 0; margin: 0; width: 100%; height: 100%;} */
+        html {overflow-x: hidden;}
+        #box {
+            width: 80vmin;
+            height: 80vmin;
+            background-color: black;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -4;
+            margin: 0;
+        }
+    </style>
+
+    <body>
+        <a href="index.html">
+            <div class="home"></div>
+        </a>
+
+        <div id="box" id="top"></div>
+
+        <!-- <div class="hero" id="top"></div> -->
+
+        <div class="text" style="padding-top: 86vmin;">
+            <h1>Art of Sound</h1>
+            <h2><span>Year</span> — Fall 2024</h2>
+            <h2><span>Tools</span> — HTML, CSS, JavaScript (p5js.Sound)<br><br></h2>
+            <p style="max-width:65ch;"><span>Synopsis</span> — An interactive sound visualization experience that generates real-time graphics with fast Fourier transforms.</p>
+            <div style="display:flex; flex-flow: row wrap; gap: 1rem;">
+                <div class="button">
+                    <a href="artofsound/index.html" target="_blank">
+                        <p style="margin:0;">Interact</p>
+                    </a>
+                </div>
+                <div class="button">
+                    <a href="images/sound/deck.pdf" target="_blank">
+                        <p style="margin:0;">View Project Deck</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="line" id="button"></div>
+            <h4>Scoping ...and Descoping</h4>
+            <p>For this project, I wanted to transform sound into visuals through creative and experimental coding. I originally intended to make this an app(let) that could run in the background and listen to Spotify or YouTube on the user's computer. Consider it the visual equivalent of lofi study music.</p>
+            <p>However, I quickly discovered that browsers are fickle things. At my level of programming ability, browser security would immediately mute any other tabs.</p>
+            <p>So I changed the scope to microphone input. If need be, you can play the music on another device and use the original device's microphone and display.</p>
+
+            <div class="line" id="button"></div>
+            <h4>Three Final Variants</h4>
+        </div>
+
+        <a href="#top">
+            <div class="scroller">
+                <p>↑</p>
+            </div>
+        </a>
+
+        <div class="boxes">
+            <img src="images/sound/rainbow.png" style="padding: 2rem;">
+            <p>The rainbow one, as displayed on this page, uses Fourier transforms to decompose waves into frequencies. Lower frequenceies appear towards the edge of the circle, whereas higher frequencies show towards the center.</p>
+
+            <img src="images/sound/white.png" style="padding: 2rem;">
+            <p>The white one acts almost like a voice character, fluctuating with bezier curves based on amplitude of the sound waves (AKA volume).</p>
+            
+            <img src="images/sound/green.png" style="padding: 2rem;">
+            <p>The green one uses recursively generating functions based on the modular equivalence class of the volume.</p>
+        </div>
+
+        <div class="text">
+            <p>You can visit the complete sight <a href="artofsound/index.html">here</a>!</p>
+        </div>
+
+        <div class="next" style="background-image: url(images/digitalid/banner.png); background-color: grey;">
+            <div class="text">
+                <a href="digitalid.html"><h2>Click here to continue to the next work →</h2></a>
+                <p>Interested in working together?<br>Send an email to <a href="mailto:lena@cordeliart.com">lena@cordeliart.com</a>!</p>
+                <div class="footer">
+                    <div>
+                        <h6>Lena Pang © 2024</h6>
+                        <h6>Thanks for reading :)</h6>
+                    </div>
+                    <div>
+                        <h6><a href="https://github.com/cordeliart/cordeliart" target="_blank">GitHub</a></h6>
+                        <h6><a href="about.html">About</a></h6>
+                        <h6><a href="resume.html" target="_blank">Resume</a></h6>
+                    </div>
+                    <div>
+                        <h6><a href="https://www.linkedin.com/in/lenacordelia/" target="_blank">LinkedIn</a></h6>
+                        <h6><a href="https://www.behance.net/cordeliart" target="_blank">Behance</a></h6>
+                        <h6><a href="https://www.instagram.com/lena_cordeliart/" target="_blank">Instagram</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
