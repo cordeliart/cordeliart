@@ -6,7 +6,7 @@ let fourier;
 let spectrum = [];
 let vmin;
 let isPaused;
-let started = false;
+let started;
 
 // COLORS
 let myFill;
@@ -20,6 +20,7 @@ function preload() {
 function setup() {
   vmin = min(windowWidth,windowHeight);
   shifter = 5;
+  started = false;
   isPaused = true;
   textFont('Syne');
 
@@ -29,11 +30,7 @@ function setup() {
   background(0);
   frameRate(60);
   angleMode(DEGREES);
-
-  // set up sound stuff
-  amplitude = new p5.Amplitude();
-  amplitude.setInput(song);
-  fft = new p5.FFT(0.8,512);
+  ellipseMode(CENTER);
 
   // set colors
   spectrum = 73;
@@ -46,13 +43,11 @@ function draw() {
   noStroke();
   fill(myBg);
   rect(0, 0, vmin, vmin);
-  // let vol = amplitude.getLevel();
+  frameRate(30);
+  background(0);
 
   if (started) {
-    frameRate(30);
-    background(0);
     fourier = fft.analyze();
-    ellipseMode(CENTER);
     strokeWeight(3);
     fill(0);
     shifter += 1;
@@ -78,20 +73,32 @@ function draw() {
   pop();
 }
 
-function touchStarted() {
-  started = true;
-  song.loop();
-  song.pause();
-  getAudioContext();
-}
+// function touchStarted() {
+
+// }
 
 function mousePressed() {
-  if (isPaused == true) {
-    song.play();
-    isPaused = false;
+  if (!started) {
+    console.log('line 1');
+    song.loop();
+    console.log('line 2');
+    song.pause();
+    console.log('line 3');
+    amplitude = new p5.Amplitude();
+    console.log('line 4');
+    amplitude.setInput(song);
+    console.log('line 5');
+    fft = new p5.FFT(0.8,512);
+    started = true;
   }
   else {
-    song.pause();
-    isPaused = true;
+    if (isPaused == true) {
+      song.play();
+      isPaused = false;
+    }
+    else {
+      song.pause();
+      isPaused = true;
+    }
   }
 }
