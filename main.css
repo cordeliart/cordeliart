@@ -2,15 +2,18 @@
     --yellow: #FBB03B;
     --blue: rgb(0,119,255);
     --red: #F15A24;
+    --text: #FFF;
+    --subtext: grey;
+    --bg: black;
 }
 
 html {
-    background: black;
+    background: var(--bg);
     scroll-behavior: smooth;
 }
 
 body {
-    color: #FFF;
+    color: var(--text);
     font-family: 'Syne', sans-serif;
     font-size: 100%;
     font: 'Syne';
@@ -36,7 +39,7 @@ h2 { /*gallery titles*/
 }
 
 h3 { /*date and media*/
-    color: #FFF;
+    color: var(--text);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5rem;
@@ -44,7 +47,7 @@ h3 { /*date and media*/
 }
 
 h4 { /*tags*/
-    color: grey;
+    color: var(--subtext);
     font-family: 'Syne', sans-serif;
     font-size: 1rem;
     font: 'Syne';
@@ -54,7 +57,7 @@ h4 { /*tags*/
 }
 
 h6 { /*footer*/
-    color: #7F7F7F;
+    color: var(--subtext);
     font-family: 'Syne', sans-serif;
     font-size: 1rem;
     font: 'Syne';
@@ -65,9 +68,9 @@ h6 { /*footer*/
 }
 
 p {
-    color: #FFF;
+    color: var(--text);
     font-family: 'Syne', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font: 'Syne';
     font-weight: 400;
     line-height: 2;
@@ -83,7 +86,7 @@ img {
     max-width: 100%;
 }
 
-h1 a {
+a {
     text-decoration: none;
     color: inherit;
 }
@@ -134,10 +137,6 @@ h1 a {
     position: fixed;
     width: 100%;
     z-index: 100;
-    opacity: 0%;
-    animation: colorize 2s ease-in-out;
-    animation-delay: 1.7s;
-    animation-fill-mode: forwards;
 }
 
 .leftbox {
@@ -162,13 +161,9 @@ h1 a {
     max-width: 2000px;
     margin: 0 auto 0 auto;
     z-index: -1000;
-    opacity: 0;
-    animation: colorize 2s ease-in-out;
-    animation-delay: 2.5s;
-    animation-fill-mode: forwards;
 }
 
-.gallery { /*card holder*/
+.gallery { /*right hand card holder*/
     margin-left: auto;
     width: 60%;
     display: flex;
@@ -177,9 +172,18 @@ h1 a {
     justify-content: center;
 }
 
+.text { /*right hand text holder*/
+    margin-left: auto;
+    width: 50%;
+    gap: 2px;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12rem 5% 0 0;
+}
+
 .container {
     position: relative;
-    background: black;
+    background: var(--bg);
     width: 49%;
     height: 49%;
     box-sizing: border-box;
@@ -208,7 +212,7 @@ h1 a {
     transition: .5s ease;
     background-color: rgba(0, 0, 0, .95);
     opacity: 0;
-    color: white;
+    color: var(--text);
     font-size: 20px;
     padding: 15%;
     text-align: left;
@@ -234,6 +238,21 @@ h1 a {
     width: 33%;
     max-width: 40px;
     margin: 10px;
+}
+
+.project {
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+    box-sizing: border-box;
+    border-top: solid 2px rgb(208, 212, 227);
+    margin: 1rem 0 2rem 0;
+    transition: 0.5s ease;
+}
+
+a .project:hover {
+    color: var(--subtext);
+    border-top: solid 2px var(--subtext);
+    transition: 0.5s ease;
 }
 
 /* width */
@@ -320,6 +339,16 @@ h1 a {
         width: 100%;
         padding: 0;
         margin: auto;
+    }
+
+    .text {
+        padding: 0 0 2rem 0;
+        width: 80%;
+        margin: 0 auto 0 auto;
+    }
+
+    .project {
+        width: 100%;
     }
 
     .container {
