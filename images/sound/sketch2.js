@@ -6,6 +6,7 @@ let fourier;
 let spectrum = [];
 let vmin;
 let isPaused;
+let started = false;
 
 // COLORS
 let myFill;
@@ -31,8 +32,6 @@ function setup() {
 
   // set up sound stuff
   amplitude = new p5.Amplitude();
-  song.loop();
-  song.pause();
   amplitude.setInput(song);
   fft = new p5.FFT(0.8,512);
 
@@ -49,19 +48,21 @@ function draw() {
   rect(0, 0, vmin, vmin);
   // let vol = amplitude.getLevel();
 
-  frameRate(30);
-  background(0);
-  fourier = fft.analyze();
-  ellipseMode(CENTER);
-  strokeWeight(3);
-  fill(0);
-  shifter += 1;
-  for (let i=0; i < fourier.length/2; i += 2) {
-    let r = 0.8*vmin-4*i;
-    myFill = color((shifter+i)%350,63,100);
-    myFill.setAlpha(map(fourier[i],0,255,0,1));
-    stroke(myFill);
-    ellipse(vmin/2, vmin/2, r, r);
+  if (started) {
+    frameRate(30);
+    background(0);
+    fourier = fft.analyze();
+    ellipseMode(CENTER);
+    strokeWeight(3);
+    fill(0);
+    shifter += 1;
+    for (let i=0; i < fourier.length/2; i += 2) {
+      let r = 0.8*vmin-4*i;
+      myFill = color((shifter+i)%350,63,100);
+      myFill.setAlpha(map(fourier[i],0,255,0,1));
+      stroke(myFill);
+      ellipse(vmin/2, vmin/2, r, r);
+    }
   }
 
   push();
@@ -75,6 +76,13 @@ function draw() {
     text("click anywhere to pause", vmin/2, vmin/2);
   }
   pop();
+}
+
+function touchStarted() {
+  started = true;
+  song.loop();
+  song.pause();
+  getAudioContext();
 }
 
 function mousePressed() {
