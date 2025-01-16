@@ -14,7 +14,7 @@ let myBg;
 let shifter;
 
 function preload() {
-  song = loadSound('sad.mp3');
+  song = loadSound('images/sound/sad.mp3');
 }
 
 function setup() {
