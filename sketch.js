@@ -79,17 +79,14 @@ function draw() {
 
 function mousePressed() {
   if (!started) {
-    console.log('line 1');
     song.loop();
-    console.log('line 2');
     song.pause();
-    console.log('line 3');
     amplitude = new p5.Amplitude();
-    console.log('line 4');
     amplitude.setInput(song);
-    console.log('line 5');
     fft = new p5.FFT(0.8,512);
     started = true;
+    song.play();
+    isPaused = false;
   }
   else {
     if (isPaused == true) {
