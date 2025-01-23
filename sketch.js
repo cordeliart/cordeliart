@@ -24,7 +24,7 @@ function setup() {
   isPaused = true;
   textFont('Syne');
 
-  let myCanvas = createCanvas(vmin, vmin);
+  let myCanvas = createCanvas(windowWidth,windowHeight);
   myCanvas.parent("box");
   colorMode(HSB);
   background(0);
@@ -56,7 +56,7 @@ function draw() {
       myFill = color((shifter+i)%350,63,100);
       myFill.setAlpha(map(fourier[i],0,255,0,1));
       stroke(myFill);
-      ellipse(vmin/2, vmin/2, r, r);
+      ellipse(windowWidth/2, windowHeight/2, r, r);
     }
   }
 
@@ -65,10 +65,10 @@ function draw() {
     textSize(20);
     textAlign(CENTER, CENTER);
   if (isPaused == true) {
-    text("click anywhere to play", vmin/2, vmin/2);
+    text("click anywhere to play", windowWidth/2, windowHeight/2);
   }
   else {
-    text("click anywhere to pause", vmin/2, vmin/2);
+    text("click anywhere to pause", windowWidth/2, windowHeight/2);
   }
   pop();
 }
@@ -121,5 +121,5 @@ function touchStarted() {
 
 function windowResized() {
   vmin = min(windowWidth,windowHeight);
-  resizeCanvas(vmin, vmin);
+  resizeCanvas(windowWidth,windowHeight);
 }
