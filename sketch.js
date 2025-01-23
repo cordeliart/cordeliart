@@ -118,3 +118,8 @@ function touchStarted() {
     }
   }
 }
+
+function windowResized() {
+  vmin = min(windowWidth,windowHeight);
+  resizeCanvas(vmin, vmin);
+}
