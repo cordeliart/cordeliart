@@ -283,6 +283,7 @@ iframe {
     background-image: var(--image);
     background-size: cover;
     background-position: center;
+    background-color: var(--accent);
     color: var(--bg);
     padding: 2rem 0 2rem 0;
     text-align: left;
@@ -315,7 +316,6 @@ iframe {
     align-items: left;
     margin: 6rem 0 1rem 0;
     box-sizing: border-box;
-    background-color: var(--accent);
 }
 
 .footer > * {
