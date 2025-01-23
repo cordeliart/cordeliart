@@ -156,6 +156,7 @@ iframe {
     background-size: max(100vw, 120vh);
     background-position: center;
     background-repeat: no-repeat;
+    background-color: var(--accent);
 }
 
 .text { /*margins*/
@@ -314,6 +315,7 @@ iframe {
     align-items: left;
     margin: 6rem 0 1rem 0;
     box-sizing: border-box;
+    background-color: var(--accent);
 }
 
 .footer > * {
