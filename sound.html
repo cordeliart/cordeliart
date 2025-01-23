@@ -42,7 +42,7 @@
                 display: block;
                 position: fixed;
                 top: 0;
-                left: max(0,calc(50vw - 50vmin));
+                left: 0; /*max(0,calc(50vw - 50vmin));*/
                 z-index: -4;
                 margin: 0;
             }
@@ -54,8 +54,10 @@
             <div class="home"></div>
         </a>
 
-        <div id="box" id="top"></div>
-
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div id="box" id="top"></div>
+        </div>
+        
         <!-- <div class="hero" id="top"></div> -->
 
         <div class="text" style="padding-top: 86vmin;">
