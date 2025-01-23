@@ -42,23 +42,18 @@
                 display: block;
                 position: fixed;
                 top: 0;
-                left: 0; /*max(0,calc(50vw - 50vmin));*/
+                left: max(0,calc(50vw - 50vmin));
                 z-index: -4;
-                margin: 0;
             }
         </style>
     </head>
 
     <body>
         <a href="index.html">
-            <div class="home"></div>
+            <div class="home" id="top"></div>
         </a>
 
-        <div style="display: flex; justify-content: center; align-items: center; position: fixed; left:0;right:0;top:0;">
-            <div id="box" id="top"></div>
-        </div>
-        
-        <!-- <div class="hero" id="top"></div> -->
+        <div id="box"></div>
 
         <div class="text" style="padding-top: 86vmin;">
             <h1>Art of Sound</h1>
