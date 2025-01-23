@@ -11,40 +11,45 @@
         <link rel="stylesheet" href="https://www.cordeliart.com/portfolio.css">
         <link rel="icon" href="https://www.cordeliart.com/images/tab.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="https://www.cordeliart.com/images/sound/og.png"/>
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="400">
+        <meta property="og:image:height" content="400">
       
         <script src="p5.min.js"></script>
         <script src="addons/p5.sound.js"></script>
         <script src="addons/p5.sound.min.js"></script>
         <script src="sketch.js"></script>
-    </head>
 
-    <style>
-        :root {
-            --bg: black;
-            --accent: rgb(170,220,50);
-            --light: #52982f;
-            --text: rgb(230,230,200);
-            --dark: #45414a;
-            --title: 'Syne';
-            --body: 'Syne';
-        }
-        /* html, body {padding: 0; margin: 0; width: 100%; height: 100%;} */
-        html {overflow-x: hidden;}
-        #box {
-            width: 80vmin;
-            height: 80vmin;
-            background-color: black;
-            display: block;
-            position: fixed;
-            top: 0;
-            left: calc(50vw - 40vmin);
-            z-index: -4;
-            margin: 0;
-        }
-        .next h2 {color:var(--text);}
-        .next h6 {color:var(--text);}
-        .next p {color:var(--text);}
-    </style>
+        <style>
+            :root {
+                --bg: black;
+                --accent: rgb(170,220,50);
+                --light: #52982f;
+                --text: rgb(230,230,200);
+                --dark: #45414a;
+                --title: 'Syne';
+                --body: 'Syne';
+            }
+            .next h2 {color:var(--text);}
+            .next h6 {color:var(--text);}
+            .next p {color:var(--text);}
+            /* html, body {padding: 0; margin: 0; width: 100%; height: 100%;} */
+            html {overflow-x: hidden;}
+            #box {
+                width: 80vmin;
+                height: 80vmin;
+                background-color: black;
+                display: block;
+                position: fixed;
+                top: 0;
+                left: calc(50vw - 40vmin);
+                z-index: -4;
+                margin: 0;
+            }
+        </style>
+    </head>
 
     <body>
         <a href="index.html">
