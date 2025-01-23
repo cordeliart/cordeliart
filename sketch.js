@@ -73,11 +73,30 @@ function draw() {
   pop();
 }
 
-// function touchStarted() {
-
-// }
-
 function mousePressed() {
+  if (!started) {
+    song.loop();
+    song.pause();
+    amplitude = new p5.Amplitude();
+    amplitude.setInput(song);
+    fft = new p5.FFT(0.8,512);
+    started = true;
+    song.play();
+    isPaused = false;
+  }
+  else {
+    if (isPaused == true) {
+      song.play();
+      isPaused = false;
+    }
+    else {
+      song.pause();
+      isPaused = true;
+    }
+  }
+}
+
+function touchStarted() {
   if (!started) {
     song.loop();
     song.pause();
