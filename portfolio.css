@@ -64,12 +64,14 @@ h4 { /*section titles*/
     line-height: 2rem;
 }
 
-h5 { /*subsection titles*/
+h5 { /*captions, goes INSIDE .boxes if applicable*/
     font-family: var(--body), sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 3rem 0 1.5rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
     color: var(--accent);
+    margin-top: .5rem;
+    font-style: italic;
 }
 
 h6 { /*footer*/ 

@@ -62,8 +62,8 @@
         <div style="color:var(--bg);background-color: var(--text);margin-top:4rem;">
             <div class="text">
                 <div class="line" style="margin-top:2rem;"></div>
-                <h4 style="color:var(--bg);">Goals</h4>
-                <p style="color:var(--bg);">This Digital ID prototype serves as an Age Verification tool and as a Full License. Throughout the development process, I kept two goals in mind:</p>
+                <h4 style="color:var(--bg);">Goals: Age Verification & Full License</h4>
+                <p style="color:var(--bg);">This Digital ID prototype has two purposes, age verification and a complete drivers license replacement. Throughout the development process, I kept two goals in mind:</p>
                 <ol>
                     <li style="color:var(--bg);margin-bottom:1rem;"><b>Functionality</b>: maintain the security and authenticity of physical IDs, while keeping the app intuitive and easy to use.</li>
                     <li style="color:var(--bg);"><b>Personality</b>: create a beautiful and memorable experience that is representative of California.</li>
@@ -89,51 +89,37 @@
 
             <div class="line"></div>
             <h4>Sketches: Exploring Movement</h4>
-            <p>The process was very exploration-heavy, and that began with aesthetic development in two distinct moodboards, each of which I implemented in my structural wireframes.</p>
+            <p>Flow was very important to me in this project. We had to heavily consider information hierarchy and visibility, and how to switch between different levels of privacy. In my initial brainstorming sketches, I explored the concept of one main screen with stretching and collapsing components that would reveal and hide more sensitive information.</p>
         </div>
 
         <img src="images/digitalid/wire1.png" style="margin-top:4px;mix-blend-mode: multiply;" alt="wireframes 1">
         <img src="images/digitalid/wire2.png" style="margin-top:4px;mix-blend-mode: multiply;" alt="wireframes 2">
-
-        <div class="text">
-            <div class="line"></div>
-            <h4>Style</h4>
-            <p>The process was very exploration-heavy, and that began with aesthetic development in two distinct moodboards, each of which I implemented in my structural wireframes.</p>
-
-            <h5>Moodboard 1 — Peaceful Poppies</h5>
-            <p class="subtitle">keywords: muted, floral, illustrative, calming</p>
-
-            <p>Inspired by the state flower, a stylized, floral design offers more personality and a friendly touch—true to the California spirit.</p>
-        </div>
-
-        <img src="images/digitalid/mood1.png" alt="moodboard 1">
-
-        <div class="text">
-            <h5>Moodboard 2 — City Nights</h5>
-            <p class="subtitle">keywords: modern, night life, vibrant, moody</p>
-
-            <p>Dark, crisp graphics with vibrant accents represent the liveliness of city, echoing the app's purpose of identity verification via the night-life color palette.</p>
-        </div>
-
-        <img src="images/digitalid/mood2.png" alt="moodboard 2">
         
         <div class="text">
             <div class="line"></div>
             <h4>Development</h4>
-            <p>Using my moodboards, I implemented each visual direction into my wireframes to create my first round of prototype compositions.</p>
-        </div>
-        
-        <div class="boxes">
-            <!-- <img src="images/digitalid/v1a-age.png" alt="moodboard 1" class="box4">
-            <img src="images/digitalid/v1a-full.png" alt="moodboard 1" class="box4"> -->
-            <img src="images/digitalid/wire1a.png" alt="wireframe 1 with style 1" class="box4">
-            <img src="images/digitalid/wire1b.png" alt="wireframe 2 with style 1" class="box4">
-            <img src="images/digitalid/v1b-age.png" alt="wireframe 1 with style 2" class="box4">
-            <img src="images/digitalid/v1b-full.png" alt="wireframe 2 with style 2" class="box4">
+            <p>This project had rounds upon rounds of iteration, filled with everything from complete remakes to the subtlest of gradient changes.</p>
         </div>
 
+        <img src="images/digitalid/process.png" alt="Figma process screenshot">
+        <h5>Screenshot of my variants over time.</h5>
+
         <div class="text">
-            <p>Then I consolidated the best aspects of both designs into my second draft. I decided to lean into the floral concept of my first style, combined with the rich vibrancy and smoothness of my second style.</p>
+            <p>I began by creating two distinct moodboards, and implemented each direction into my wireframes.</p>
+
+            <p>My first direction was called <b>Peaceful Poppies</b>, which was a more muted and illustrative style that references the state flower. The prototype moved smoothly, but was not very natural to test users, and overall just a little visually uneventful.</p>
+        </div>
+
+        <img src="images/digitalid/direction1.png" alt="moodboard 1">
+
+        <div class="text">
+            <p>My second direction, <b>City Nights</b>, focused on using darker, crisp graphics with vibrant accents to reflect more of the night-life uses for age verification. This was more intuitive than the first direction, but not very California.</p>
+        </div>
+
+        <img src="images/digitalid/direction2.png" alt="moodboard 2">
+
+        <div class="text">
+            <p>In the next round, I consolidated the best aspects of both designs—specifically, I took the theme of poppies from the first direction, and the vibrant gradients and smooth shapes from the directions.</p>
         </div>
 
         <div class="boxes">
@@ -160,14 +146,14 @@
 
         <div class="text">
             <p>The final design contains one title screen and one detail screen for each of Age Verification and Full License. I opted a warmer color scheme of orange and green, with a focus on one color in each section to keep them visually distinct but unified.</p>
-
-            <h5>Style Guide</h5>
         </div>
 
         <img src="images/digitalid/style.png" alt="style guide">
+        <h5>Style Guide</h5>
 
         <div class="text">
-            <h5>Navigation & Privacy</h5>
+            <div class="line"></div>
+            <h4>Navigation & Privacy</h4>
             <p>One of the main considerations throughout this project was at what point to reveal sensitive information. How many layers of interaction between launch and the user's age? The user's address?</p> 
             <p>I decided to have the app launch to the Age Verification title screen, with horizontal swiping between title screens and vertical swiping to open the more private information.</p>
         </div>
