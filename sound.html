@@ -32,6 +32,7 @@
                 --title: 'Syne';
                 --body: 'Syne';
             }
+            h1 {padding-top: 80vh;}
             .next h2 {color:var(--text);}
             .next h6 {color:var(--text);}
             .next p {color:var(--text);}
@@ -44,6 +45,10 @@
                 top: 0;
                 left: 0;
                 z-index: -4;
+            }
+            @media only screen and (max-width: 550px) {
+                h1 {padding-top:8rem;}
+                #demo {display:none;}
             }
         </style>
     </head>
