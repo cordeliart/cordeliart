@@ -25,7 +25,7 @@ function setup() {
   textFont('Syne');
 
   let myCanvas = createCanvas(windowWidth,windowHeight);
-  myCanvas.parent("box");
+  myCanvas.parent("demo");
   colorMode(HSB);
   background(0);
   frameRate(60);
