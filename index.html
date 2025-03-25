@@ -21,13 +21,13 @@
         .leftfix {
             opacity: 0%;
             animation: colorize 2s ease-in-out;
-            animation-delay: 1.7s;
+            /* animation-delay: 1.7s; */
             animation-fill-mode: forwards;
         }
         .right {
             opacity: 0;
             animation: colorize 2s ease-in-out;
-            animation-delay: 2.5s;
+            /* animation-delay: 2.5s; */
             animation-fill-mode: forwards;
         }
     </style>
@@ -186,5 +186,25 @@
                 <h6>Lena Pang © 2025<br>Thanks for reading :)</h6>
             </div>
         </div>
+
+        <script>
+            const loader = document.querySelector('.loader');
+            const left = document.querySelector('.leftfix');
+            const right = document.querySelector('.right');
+            window.onload = function () {
+                if (!('firstLoad' in localStorage)) {
+                    loader.style.display = 'block';
+                    localStorage.setItem("firstLoad", true);
+                    
+                    left.style.animationDelay = 1.7;
+                    right.style.animationDelay = 2.5;
+                } else {
+                    loader.style.display = 'none';
+
+                    left.style.animationDelay = 0;
+                    right.style.animationDelay = 0;
+                }
+            }
+        </script>
     </body>
 </html>
