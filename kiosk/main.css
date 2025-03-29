@@ -1,0 +1,270 @@
+:root {
+    /* colors */
+    --bg: #031822;
+    --text: #faf0ca;
+    --accent: #fa8d26;
+    --blue: #00d4b4;
+    --container: 400px;
+    /* section positioning */
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+}
+
+img {
+    /* transition: .5s ease; */
+    justify-content: center;
+    align-content: center;
+}
+
+body {
+    font-family: "caraque-melted", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--bg);
+}
+
+h1 {
+    font-family: "walnut", sans-serif;
+    font-size: 6rem;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    line-height: 5rem;
+    position: fixed;
+    top: -2rem;
+    left: 2rem;
+    z-index: 10;
+    transform:rotate(-10deg);
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+input {
+    /* only used in sender */
+    font-family: "caraque-melted", sans-serif;
+    font-size: 1.5rem;
+    border: none;
+    background-color: var(--bg);
+    border-bottom: solid 2px var(--text);
+    width: 80%;
+    color: var(--text);
+    padding: 0.5rem;
+}
+
+#capture {
+    /* div that gets captured (screenshot) */
+    /* background-color: var(--bg);
+    background-image: url('bg.png'); */
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: visible;
+}
+
+.exit {
+    /* back button on zoom-in */
+    position: fixed;
+    left: 48px;
+    bottom: 48px;
+    width: fit-content;
+    height: 2rem;
+    opacity: 0%;
+    transition: 0.5s ease;
+    z-index: 10000000000000;
+    background-image: url('exit.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size:2rem;
+    color:var(--blue);
+}
+
+/* EMAILING */
+
+.camera {
+    /* button to take sreenshot and open sender */
+    background-image: url('button.png');
+    opacity: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    bottom: 0vh;
+    right: 4vh;
+    z-index: 10000;
+    transition: 0.5s ease;
+}
+
+.hidden {
+    opacity: 0%;
+    transition: 0.5s ease;
+}
+
+.sender {
+    /* emailing div */
+    display: none;
+    position: fixed;
+    top: 30vh;
+    bottom: 30vh;
+    left: 65vw;
+    width: 600px;
+    opacity: 0%;
+    z-index: 100;
+    transition: 0.5s ease;
+}
+
+.sending {
+    /* make send div visible */
+    opacity: 100%;
+    transition: 0.5s ease;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: left;
+}
+
+#sendConfirm {
+    /* send email button */
+    background-image: url('send.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    margin-top: 2rem;
+    z-index:100000;
+}
+
+/* CUSTOMIZATION SECTIONS */
+
+.headselect, .shirtselect, .pantsselect {
+    position: absolute;
+    left: 10vh;
+    width: 40vh;
+    height: 40vh;
+    /* background-color: blue; */
+    z-index: 10000000000;
+}
+
+.head, .shirt, .pants {
+    position: absolute;
+    left: calc(50vw - 30vh);
+    width: 60vh;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    transition: 0.5s ease;
+}
+.head {top: 15vh;}
+.shirt {top: 28vh;}
+.pants {top: 50vh;}
+
+/* ZOOMING */
+
+.bg {
+    height:110vh;
+    width:auto;
+    position:absolute;
+    left:0;
+    top:-5vh;
+    right: -40vw;
+    bottom: -5vh;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: left;
+    transition: 0.5s ease;
+}
+
+.mover {
+    /* div that zooms in and out and moves sideways */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s ease;
+}
+
+.moveover {
+    left: -15vw;
+    transition: 0.5s ease;
+}
+
+/* OPEN -> VISIBLE */
+
+.open {
+    opacity: 100%;
+    overflow: visible;
+    transition: 0.5s ease;
+    z-index: auto;
+}
+
+.exit .open {
+    opacity: 100%;
+    transition: 0.5s ease;
+}
+
+/* SPLIDE STUFF */
+
+.splide {
+    width: 100vw;
+    visibility: visible;
+    overflow-y: visible;
+    transition: 0.5s ease;
+}
+.splide__slide {
+    display: block;
+    width: var(--container);
+    /* background-color: rgba(100,100,100,.5);
+    border: solid 1px red; */
+    text-align: center;
+}
+.splide__slide img {
+    width: var(--container);
+    background-color: none;
+    transition: 0.5s ease;
+}
+
+/* .splide__arrow{
+    -ms-flex-align:center;
+    align-items:center;
+    background:none;
+    border:0;
+    border-radius:50%;
+    cursor:pointer;
+    display:-ms-flexbox;
+    display:flex;
+    height:4rem;
+    -ms-flex-pack:center;
+    justify-content:center;
+    opacity:.7;
+    padding:0;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:4rem;
+    z-index:1;
+}
+
+.splide__arrow svg{fill:var(--text);height:3rem;width:3rem}
+.splide__arrow:hover:not(:disabled){opacity:.9}
+.splide__arrow:disabled{opacity:.3}
+.splide__arrow:focus-visible{outline:3px solid #0bf;outline-offset:3px}
+.splide__arrow--prev{left:40vw;}
+.splide__arrow--prev svg{transform:scaleX(-1);}
+.splide__arrow--next{right:1em;} */
+
+.scaler {
+    width: 600px !important;
+    transition: 0.5s ease;
+}
