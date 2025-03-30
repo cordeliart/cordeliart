@@ -186,7 +186,7 @@ sendConfirm.addEventListener("click", () =>{
       Port: 465,
       Secure: true,
       Username: 'munsoninstallation@gmail.com',
-      // Password: 'vujr xjmj rtky wfya',
+      Password: 'vujr xjmj rtky wfya',
       To : address,
       From : "you@gmail.com",
       Subject : "Your Build-a-Munson",
