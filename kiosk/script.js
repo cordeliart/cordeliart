@@ -228,7 +228,7 @@ sendConfirm.addEventListener("click", () =>{
     var imgdata = imagedata.replace(/^data:image\/(png|jpg);base64,/, "");
     $.ajax({
       type: 'POST',
-      url: 'script/mail.php',
+      url: 'script/PHPMailer/mail.php',
       data: {address:address,
         imgdata: imgdata}
       // success: function (response) {
@@ -236,7 +236,6 @@ sendConfirm.addEventListener("click", () =>{
       // }
     })
   })
-
   
   console.log(address);
   
