@@ -20,10 +20,7 @@
     $mail->Password   = "vujr xjmj rtky wfya";        // SMTP account password
 
     $data = substr($contact_image_data, strpos($contact_image_data, ","));
-    $filename="munson.png"; 
-    $encoding = "base64"; 
-    $type = "image/png";
-    $mail->AddStringAttachment(base64_decode($data), $filename, $encoding, $type); 
+    $mail->AddStringAttachment(base64_decode($data), "munson.png", "base64", "image/png"); 
 
     $mail->SetFrom('munsoninstallation@gmail.com', 'Build a Munson'); // FROM
     // $mail->AddReplyTo('john.doe@gmail.com', 'John Doe'); // Reply TO

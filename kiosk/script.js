@@ -206,16 +206,14 @@ sendConfirm.addEventListener("click", () =>{
   html2canvas(body.querySelector("#capture")).then(canvas => {
     var imagedata = canvas.toDataURL('image/png');
     var imgdata = imagedata.replace(/^data:image\/png;base64,/,"");
+    console.log("did a thing");
     $.ajax({
-      type: 'post',
       url: 'mail.php',
       data: {
         address: address,
         imgdata: imgdata
-      }
-      // success: function (response) {
-      //   console.log(respnse);
-      // }
+      },
+      type: 'post'
     })
   })
   
