@@ -3,11 +3,12 @@
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
 
-    require 'src/Exception.php';
-    require 'src/PHPMailer.php';
-    require 'src/SMTP.php';
+    require 'script/PHPMailer/src/Exception.php';
+    require 'script/PHPMailer/src/PHPMailer.php';
+    require 'script/PHPMailer/src/SMTP.php';
 
     $email = $_POST['address'];
+    $contact_image_data=$_POST['imagedata'];
 
     $mail = new PHPMailer();
 
@@ -18,7 +19,6 @@
     $mail->Username   = "munsoninstallation@gmail.com"; // SMTP account username
     $mail->Password   = "vujr xjmj rtky wfya";        // SMTP account password
 
-    $contact_image_data=$_POST['imagedata'];
     $data = substr($contact_image_data, strpos($contact_image_data, ","));
     $filename="munson.png"; 
     $encoding = "base64"; 

@@ -17,7 +17,6 @@ const body = document.querySelector("body"),
   zoom = body.querySelector('.mover'),
   backer = body.querySelector('.backer');
 var munson;
-var address;
 
 // SPLIDE
 
@@ -202,35 +201,16 @@ backer.addEventListener('click', () =>{
 
 sendConfirm.addEventListener("click", () =>{
   // saves input
-  address = document.getElementById("emailadd").value;
+  var address = document.getElementById("emailadd").value;
 
-  // sends email
-
-  // Email.send({
-  //   // SecureToken: 'b3988c3f-6748-4eb9-969e-97b334726cb4',
-  //   Host: 's1.maildns.net',
-  //   Username: 'munsoninstallation@gmail.com',
-  //   Password: 'vujr xjmj rtky wfya',
-  //   To : address,
-  //   From : "munsoninstallation@gmail.com",
-  //   Subject : "Your Build-a-Munson",
-  //   Body : "Look at Munson go!!"
-  //     // Attachments : [
-  //     // {
-  //     //   name : "munson.png",
-  //     //   data : canvas.toDataURL()
-  //     // }]
-  // }).then(
-  //   message => alert(message)
-  // );
   html2canvas(body.querySelector("#capture")).then(canvas => {
     var imagedata = canvas.toDataURL('image/png');
     var imgdata = imagedata.replace(/^data:image\/png;base64,/,"");
     $.ajax({
       type: 'post',
-      url: 'script/PHPMailer/mail.php',
+      url: 'mail.php',
       data: {
-        address:address,
+        address: address,
         imgdata: imgdata
       }
       // success: function (response) {
