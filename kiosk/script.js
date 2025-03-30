@@ -14,16 +14,7 @@ const body = document.querySelector("body"),
   exiter1 = body.querySelector('.exiter1'),
   exiter2 = body.querySelector('.exiter2'),
   zoom = body.querySelector('.mover'),
-  backer = body.querySelector('.backer'),
-  credentials = {
-    Host: 'smtp.gmail.com',
-    Port: 587,
-    Secure: true,
-    Auth: {
-      User: 'munsoninstallation@gmail.com',
-      Pass: 'vujr xjmj rtky wfya',
-    }
-  };
+  backer = body.querySelector('.backer');
 var munson;
 var address;
 
@@ -185,10 +176,10 @@ sendConfirm.addEventListener("click", () =>{
       Host: 's1.maildns.net',
       Port: 465,
       Secure: true,
-      Username: 'munsoninstallation@gmail.com',
-      Password: 'vujr xjmj rtky wfya',
+      Username: 'bbsqeizz',
+      Password: 'WUad2@iV12m6H;',
       To : address,
-      From : "you@gmail.com",
+      From : "munsoninstallation@gmail.com",
       Subject : "Your Build-a-Munson",
       Body : "Look at Munson go!!",
       Attachments : [
