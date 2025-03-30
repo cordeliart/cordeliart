@@ -5,7 +5,6 @@
     --accent: #fa8d26;
     --blue: #00d4b4;
     --container: 400px;
-    /* section positioning */
 }
 
 html {
@@ -17,7 +16,6 @@ html {
 }
 
 img {
-    /* transition: .5s ease; */
     justify-content: center;
     align-content: center;
 }
@@ -43,9 +41,9 @@ h1 {
     transform:rotate(-10deg);
 }
 
-p {
-    font-size: 1.5rem;
-}
+p {font-size: 1.5rem;}
+
+/* EMAILING */
 
 input {
     /* only used in sender */
@@ -69,25 +67,6 @@ input {
     padding: 0;
     overflow-x: visible;
 }
-
-.exit {
-    /* back button on zoom-in */
-    position: fixed;
-    left: 48px;
-    bottom: 48px;
-    width: fit-content;
-    height: 2rem;
-    opacity: 0%;
-    transition: 0.5s ease;
-    z-index: 10000000000000;
-    background-image: url('exit.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    font-size:2rem;
-    color:var(--blue);
-}
-
-/* EMAILING */
 
 .camera {
     /* button to take sreenshot and open sender */
@@ -150,7 +129,6 @@ input {
     left: 10vh;
     width: 40vh;
     height: 40vh;
-    /* background-color: blue; */
     z-index: 10000000000;
 }
 
@@ -165,13 +143,15 @@ input {
     justify-content: center;
     transition: 0.5s ease;
 }
+
 .head {top: 15vh;}
 .shirt {top: 28vh;}
 .pants {top: 50vh;}
 
-/* ZOOMING */
+/* SLIDE OVER */
 
 .bg {
+    /* bg image (separate for zooming) */
     height:110vh;
     width:auto;
     position:absolute;
@@ -196,21 +176,8 @@ input {
 }
 
 .moveover {
+    /* mover moved */
     left: -15vw;
-    transition: 0.5s ease;
-}
-
-/* OPEN -> VISIBLE */
-
-.open {
-    opacity: 100%;
-    overflow: visible;
-    transition: 0.5s ease;
-    z-index: auto;
-}
-
-.exit .open {
-    opacity: 100%;
     transition: 0.5s ease;
 }
 
@@ -225,8 +192,6 @@ input {
 .splide__slide {
     display: block;
     width: var(--container);
-    /* background-color: rgba(100,100,100,.5);
-    border: solid 1px red; */
     text-align: center;
 }
 .splide__slide img {
@@ -235,34 +200,45 @@ input {
     transition: 0.5s ease;
 }
 
-/* .splide__arrow{
-    -ms-flex-align:center;
-    align-items:center;
-    background:none;
-    border:0;
-    border-radius:50%;
-    cursor:pointer;
-    display:-ms-flexbox;
-    display:flex;
-    height:4rem;
-    -ms-flex-pack:center;
-    justify-content:center;
-    opacity:.7;
-    padding:0;
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:4rem;
-    z-index:1;
+/* VISIBILITY, SCALING, ZOOM */
+
+.open {
+    opacity: 100%;
+    overflow: visible;
+    transition: 0.5s ease;
+    z-index: auto;
 }
 
-.splide__arrow svg{fill:var(--text);height:3rem;width:3rem}
-.splide__arrow:hover:not(:disabled){opacity:.9}
-.splide__arrow:disabled{opacity:.3}
-.splide__arrow:focus-visible{outline:3px solid #0bf;outline-offset:3px}
-.splide__arrow--prev{left:40vw;}
-.splide__arrow--prev svg{transform:scaleX(-1);}
-.splide__arrow--next{right:1em;} */
+.exit {
+    /* back button on zoom-in */
+    position: fixed;
+    left: 48px;
+    bottom: 48px;
+    width: fit-content;
+    height: 2rem;
+    opacity: 0%;
+    transition: 0.5s ease;
+    z-index: 10000000000000;
+    background-image: url('exit.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size:2rem;
+    color:var(--blue);
+}
+
+.exit .open {
+    opacity: 100%;
+    transition: 0.5s ease;
+}
+
+.exiter1, .exiter2 {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: none;
+    z-index: 100000000;
+}
 
 .scaler {
     width: 600px !important;
