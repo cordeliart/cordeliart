@@ -202,13 +202,6 @@ input {
 
 /* VISIBILITY, SCALING, ZOOM */
 
-.open {
-    opacity: 100%;
-    overflow: visible;
-    transition: 0.5s ease;
-    z-index: auto;
-}
-
 .exit {
     /* back button on zoom-in */
     position: fixed;
@@ -224,6 +217,13 @@ input {
     background-repeat: no-repeat;
     font-size:2rem;
     color:var(--blue);
+}
+
+.open {
+    opacity: 100%;
+    overflow: visible;
+    transition: 0.5s ease;
+    z-index: auto;
 }
 
 .exit .open {

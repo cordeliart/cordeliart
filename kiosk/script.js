@@ -168,25 +168,26 @@ backer.addEventListener('click', () =>{
 sendConfirm.addEventListener("click", () =>{
   // saves input
   address = document.getElementById("emailadd").value;
-  console.log(address);
 
   // sends email
-  html2canvas(body.querySelector("#capture")).then(canvas => {
-    Email.send({
-      SecureToken: 'b3988c3f-6748-4eb9-969e-97b334726cb4',
-      To : address,
-      From : "munsoninstallation@gmail.com",
-      Subject : "Your Build-a-Munson",
-      Body : "Look at Munson go!!"
-        // Attachments : [
-        // {
-        //   name : "munson.png",
-        //   data : canvas.toDataURL()
-        // }]
-    }).then(
-      message => alert(message)
-    );
-  })
+
+  Email.send({
+    SecureToken: 'b3988c3f-6748-4eb9-969e-97b334726cb4',
+    To : address,
+    From : "munsoninstallation@gmail.com",
+    Subject : "Your Build-a-Munson",
+    Body : "Look at Munson go!!"
+      // Attachments : [
+      // {
+      //   name : "munson.png",
+      //   data : canvas.toDataURL()
+      // }]
+  }).then(
+    message => alert(message)
+  );
+  // html2canvas(body.querySelector("#capture")).then(canvas => {
+  // })
+  console.log(address);
   
   // resets to screen
   zoom.classList.remove('moveover');
