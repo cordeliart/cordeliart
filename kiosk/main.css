@@ -124,15 +124,15 @@ input {
 
 /* CUSTOMIZATION SECTIONS */
 
-.headselect, .shirtselect, .pantsselect {
+.faceselect, .headselect, .shirtselect, .pantsselect {
     position: absolute;
     left: 10vh;
     width: 40vh;
     height: 40vh;
-    z-index: 10000000000;
+    z-index: 10000;
 }
 
-.head, .shirt, .pants {
+.face, .head, .shirt, .pants {
     position: absolute;
     left: calc(50vw - 30vh);
     width: 60vh;
@@ -144,7 +144,8 @@ input {
     transition: 0.5s ease;
 }
 
-.head {top: 15vh;}
+.face {top: 16vh;}
+.head {top: 7vh;}
 .shirt {top: 28vh;}
 .pants {top: 50vh;}
 

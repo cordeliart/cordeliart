@@ -1,4 +1,6 @@
 const body = document.querySelector("body"),
+  faceselect = body.querySelector(".faceselect"),
+  face = body.querySelector(".face"),
   headselect = body.querySelector(".headselect"),
   head = body.querySelector(".head"),
   shirtselect = body.querySelector(".shirtselect"),
@@ -38,14 +40,15 @@ const scaling = body.querySelectorAll('.slimg');
 
 function draw() {}
 
-headselect.addEventListener("click", () =>{
-  // click  hat
+faceselect.addEventListener("click", () =>{
+  // click  face
   close();
-  head.classList.add("open");
+  face.classList.add("open");
   exit.classList.add('open');
   camera.classList.add('hidden');
   exiter1.style.display = 'block';
   exiter2.style.display = 'block';
+  faceselect.style.display = 'none';
   headselect.style.display = 'none';
   shirtselect.style.display = 'none';
   pantsselect.style.display = 'none';
@@ -55,7 +58,32 @@ headselect.addEventListener("click", () =>{
     scaling[i].classList.add('scaler');
   }
 
-  head.style.top = '40vh';
+  face.style.top = '41.5vh';
+  head.style.top = '28vh';
+  shirt.style.top = '59.5vh';
+  pants.style.top = '92.5vh';
+})
+
+headselect.addEventListener("click", () =>{
+  // click  hat
+  close();
+  head.classList.add("open");
+  exit.classList.add('open');
+  camera.classList.add('hidden');
+  exiter1.style.display = 'block';
+  exiter2.style.display = 'block';
+  faceselect.style.display = 'none';
+  headselect.style.display = 'none';
+  shirtselect.style.display = 'none';
+  pantsselect.style.display = 'none';
+
+  bg.style.transform = 'scale(1.8) translate(15vh,25vh)';
+  for (var i = 0; i < scaling.length; ++i) {
+    scaling[i].classList.add('scaler');
+  }
+
+  face.style.top = '41.5vh';
+  head.style.top = '28vh';
   shirt.style.top = '59.5vh';
   pants.style.top = '92.5vh';
 })
@@ -68,6 +96,7 @@ shirtselect.addEventListener("click", () =>{
   camera.classList.add('hidden');
   exiter1.style.display = 'block';
   exiter2.style.display = 'block';
+  faceselect.style.display = 'none';
   headselect.style.display = 'none';
   shirtselect.style.display = 'none';
   pantsselect.style.display = 'none';
@@ -76,7 +105,8 @@ shirtselect.addEventListener("click", () =>{
   for (var i = 0; i < scaling.length; ++i) {
     scaling[i].classList.add('scaler');}
 
-  head.style.top = '10vh';
+  face.style.top = '11.5vh';
+  head.style.top = '-2vh';
   shirt.style.top = '29.5vh';
   pants.style.top = '62.5vh';
 })
@@ -88,6 +118,7 @@ pantsselect.addEventListener("click", () =>{
   exit.classList.add('open');
   camera.classList.add('hidden');
   exiter1.style.display = 'block';
+  faceselect.style.display = 'none';
   headselect.style.display = 'none';
   shirtselect.style.display = 'none';
   pantsselect.style.display = 'none';
@@ -96,7 +127,8 @@ pantsselect.addEventListener("click", () =>{
   for (var i = 0; i < scaling.length; ++i) {
     scaling[i].classList.add('scaler');}
 
-  head.style.top = '-23vh';
+  face.style.top = '-21.5vh';
+  head.style.top = '-35vh';
   shirt.style.top = '-3.5vh';
   pants.style.top = '29.5vh';
 })
@@ -128,16 +160,19 @@ function zoomOut() {
   for (var i = 0; i < scaling.length; ++i) {
     scaling[i].classList.remove('scaler');}
 
-  head.style.top = '15vh';
+  face.style.top = '16vh';
+  head.style.top = '7vh';
   shirt.style.top = '28vh';
   pants.style.top = '50vh';
   headselect.style.display = 'block';
   shirtselect.style.display = 'block';
   pantsselect.style.display = 'block';
+  faceselect.style.display = 'block';
 }
 
 function close() {
   // hide everything (from both zoom and camera move)
+  face.classList.remove("open");
   head.classList.remove("open");
   shirt.classList.remove("open");
   pants.classList.remove("open");
@@ -171,22 +206,38 @@ sendConfirm.addEventListener("click", () =>{
 
   // sends email
 
-  Email.send({
-    SecureToken: 'b3988c3f-6748-4eb9-969e-97b334726cb4',
-    To : address,
-    From : "munsoninstallation@gmail.com",
-    Subject : "Your Build-a-Munson",
-    Body : "Look at Munson go!!"
-      // Attachments : [
-      // {
-      //   name : "munson.png",
-      //   data : canvas.toDataURL()
-      // }]
-  }).then(
-    message => alert(message)
-  );
-  // html2canvas(body.querySelector("#capture")).then(canvas => {
-  // })
+  // Email.send({
+  //   // SecureToken: 'b3988c3f-6748-4eb9-969e-97b334726cb4',
+  //   Host: 's1.maildns.net',
+  //   Username: 'munsoninstallation@gmail.com',
+  //   Password: 'vujr xjmj rtky wfya',
+  //   To : address,
+  //   From : "munsoninstallation@gmail.com",
+  //   Subject : "Your Build-a-Munson",
+  //   Body : "Look at Munson go!!"
+  //     // Attachments : [
+  //     // {
+  //     //   name : "munson.png",
+  //     //   data : canvas.toDataURL()
+  //     // }]
+  // }).then(
+  //   message => alert(message)
+  // );
+  html2canvas(body.querySelector("#capture")).then(canvas => {
+    var imagedata = canvas.toDataURL('image/png');
+    var imgdata = imagedata.replace(/^data:image\/(png|jpg);base64,/, "");
+    $.ajax({
+      type: 'POST',
+      url: 'script/mail.php',
+      data: {address:address,
+        imgdata: imgdata}
+      // success: function (response) {
+      //   console.log(respnse);
+      // }
+    })
+  })
+
+  
   console.log(address);
   
   // resets to screen
@@ -194,7 +245,3 @@ sendConfirm.addEventListener("click", () =>{
   sender.classList.remove('sending');
   camera.classList.remove('hidden');
 })
-
-// cancel.addEventListener("click", () =>{
-//   sender.classList.remove('open');
-// })
