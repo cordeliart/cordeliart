@@ -9,7 +9,6 @@ const body = document.querySelector("body"),
   sender = body.querySelector('.sender'),
   bg = body.querySelector('.bg'),
   sendConfirm = sender.querySelector('#sendConfirm'),
-  // cancel = body.querySelector('#cancel'),
   exit = body.querySelector('.exit'),
   exiter1 = body.querySelector('.exiter1'),
   exiter2 = body.querySelector('.exiter2'),
@@ -169,20 +168,17 @@ backer.addEventListener('click', () =>{
 sendConfirm.addEventListener("click", () =>{
   // saves input
   address = document.getElementById("emailadd").value;
+  console.log('address');
 
   // sends email
-  html2canvas(document.querySelector("#capture")).then(canvas => {
+  html2canvas(body.querySelector("#capture")).then(canvas => {
     Email.send({
-      Host: 's1.maildns.net',
-      Port: 465,
-      Secure: true,
-      Username: 'bbsqeizz',
-      Password: 'WUad2@iV12m6H;',
+      SecureToken: 'b3988c3f-6748-4eb9-969e-97b334726cb4',
       To : address,
       From : "munsoninstallation@gmail.com",
       Subject : "Your Build-a-Munson",
       Body : "Look at Munson go!!",
-      Attachments : [
+        Attachments : [
         {
           name : "munson.png",
           data : canvas.toDataURL()
