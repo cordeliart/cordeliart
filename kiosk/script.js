@@ -168,7 +168,7 @@ backer.addEventListener('click', () =>{
 sendConfirm.addEventListener("click", () =>{
   // saves input
   address = document.getElementById("emailadd").value;
-  console.log('address');
+  console.log(address);
 
   // sends email
   html2canvas(body.querySelector("#capture")).then(canvas => {
@@ -177,12 +177,12 @@ sendConfirm.addEventListener("click", () =>{
       To : address,
       From : "munsoninstallation@gmail.com",
       Subject : "Your Build-a-Munson",
-      Body : "Look at Munson go!!",
-        Attachments : [
-        {
-          name : "munson.png",
-          data : canvas.toDataURL()
-        }]
+      Body : "Look at Munson go!!"
+        // Attachments : [
+        // {
+        //   name : "munson.png",
+        //   data : canvas.toDataURL()
+        // }]
     }).then(
       message => alert(message)
     );
