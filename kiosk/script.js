@@ -204,14 +204,14 @@ sendConfirm.addEventListener("click", () =>{
   var address = document.getElementById("emailadd").value;
 
   html2canvas(body.querySelector("#capture")).then(canvas => {
-    var imagedata = canvas.toDataURL('image/png');
-    var imgdata = imagedata.replace(/^data:image\/png;base64,/,"");
+    // var imagedata = canvas.toDataURL('image/png');
+    // var imgdata = imagedata.replace(/^data:image\/png;base64,/,"");
     console.log("did a thing");
     $.ajax({
       url: 'mail.php',
       data: {
         address: address,
-        imgdata: imgdata
+        // imgdata: imgdata
       },
       type: 'post'
     })

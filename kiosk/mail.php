@@ -8,7 +8,7 @@
     require 'script/PHPMailer/src/SMTP.php';
 
     $email = $_POST['address'];
-    $contact_image_data=$_POST['imagedata'];
+    //$contact_image_data=$_POST['imagedata'];
 
     $mail = new PHPMailer();
 
@@ -19,8 +19,8 @@
     $mail->Username   = "munsoninstallation@gmail.com"; // SMTP account username
     $mail->Password   = "vujr xjmj rtky wfya";        // SMTP account password
 
-    $data = substr($contact_image_data, strpos($contact_image_data, ","));
-    $mail->AddStringAttachment(base64_decode($data), "munson.png", "base64", "image/png"); 
+    //$data = substr($contact_image_data, strpos($contact_image_data, ","));
+    //$mail->AddStringAttachment(base64_decode($data), "munson.png", "base64", "image/png"); 
 
     $mail->SetFrom('munsoninstallation@gmail.com', 'Build a Munson'); // FROM
     // $mail->AddReplyTo('john.doe@gmail.com', 'John Doe'); // Reply TO
