@@ -23,7 +23,7 @@ h1 {
     font-weight: 700;
     color: var(--accent);
     max-width: 10ch;
-    line-height: 2.1rem;
+    line-height: 95%;
     margin-bottom: 0.35rem;
 }
 
@@ -44,7 +44,7 @@ h3 {
 h4 {
     font-size: 8rem;
     font-weight: 400;
-    line-height: 8rem;
+    line-height: 100%;
     margin: 0 0 4rem 0;
 }
 
@@ -55,11 +55,22 @@ h5 {
     letter-spacing: 4px;
 }
 
+h6 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 130%;
+    color: var(--accent);
+}
+
 p {
     font-size: 1.2rem;
     font-weight: 300;
-    line-height: 1.8rem;
+    line-height: 150%;
     max-width: 80ch;
+}
+
+p span {
+    font-family: monospace;
 }
 
 a {
@@ -81,7 +92,7 @@ a:hover {
 }
 
 .left {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: calc(100vw - calc(max(340px,25vw) + 6rem));
     top: 0;
@@ -108,11 +119,13 @@ a:hover {
     content: ">";
     z-index: 100;
     clip-path: polygon(0px 0px, 0 2rem, 4rem 2rem, 4rem 6rem, 0rem 6rem, 0rem 6rem);
+    padding: none;
 }
 
 .nav {
     box-sizing: border-box;
     background-color: var(--fade);
+    backdrop-filter: blur(8px);
     width: 100%;
     height: 100%;
     display: flex;
@@ -138,6 +151,35 @@ a:hover {
     transition: .5s ease;
 }
 
+.dropdown {
+    width: 100%;
+    background-color: var(--fade);
+    box-sizing: border-box;
+    margin: 2rem 0 2rem 0;
+    padding: 1rem;
+}
+
+.dropdown p {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.dropdown p:first-of-type {
+    margin-top: 2rem;
+}
+
+.box2 {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    flex-flow: row wrap;
+}
+
+.box2 > * {
+    width: 45%;
+    box-sizing: content-box;
+}
+
 #big {
     z-index: -10;
     position: absolute;
@@ -148,4 +190,26 @@ a:hover {
     overflow: hidden;
 }
 
-/*@ 700px switch nav*/
+@media only screen and (max-width: 1200px) {
+    .left {
+        left: -600px;
+        right: calc(100vw - 5rem);
+        transition: .5s ease;
+    }
+    .left.close {
+        left: 0;
+        right: calc(100vw - calc(max(340px,25vw) + 6rem));    
+    }
+    .toggle {
+        margin-top: 2rem;
+    }
+    .right {
+        margin: 0 auto 0 auto;
+        width: 100%;
+        max-width: 80%;
+        transition: .5s ease;
+    }
+    h4 {
+        font-size: 4rem;
+    }
+}
