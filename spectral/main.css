@@ -1,0 +1,111 @@
+:root {
+    --light: #E7EFF9;
+    --darkish: #7983bd;
+    --dark: #180d38;
+    --accent: #DEFF23;
+    --body-size: 1.1rem;
+    --header-size: 1.7rem;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Golos Text', sans serif; /*400 to 900*/
+    font-weight: 300;
+}
+
+html {
+    background-color: var(--light);
+}
+
+h1 {
+    font-size: var(--header-size);
+    color: var(--light);
+    line-height: var(--header-size);
+    margin-top: 3rem;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 8rem;
+    line-height: 8rem;
+    margin-top: 4rem;
+}
+
+h3 {
+    font-size: var(--header-size);
+    font-weight: 700;
+    /* letter-spacing: 4px; */
+    /* text-transform: uppercase; */
+    color: var(--darkish);
+    margin: 0 0 4rem 0;
+}
+
+p {
+    font-size: var(--body-size);
+    color: var(--dark);
+    margin: var(--body-size) 0 var(--body-size) 0;
+    line-height: var(--header-size);
+}
+
+span {
+    font-weight: 700;
+}
+
+.menu {
+    position: fixed;
+    background-color: var(--dark);
+    color: var(--light);
+    z-index: 10;
+    height: 100%;
+    width: fit-content;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.menu h1 {
+    max-width: 10ch;
+}
+
+h1:first-of-type {
+    margin-top: 0;
+}
+
+.menu p {
+    color: var(--darkish);
+    max-width: 27ch;
+    margin: .5rem 0 0 0;
+    line-height: 130%;
+}
+
+.content {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto 0 auto;
+    padding: 4rem 0 12rem 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--darkish);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #180d3875;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark);
+}
