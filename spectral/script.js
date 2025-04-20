@@ -182,13 +182,13 @@ function sketchInt(p) {
         // canvas
         myHeight = p.windowHeight;
         myWidth = p.windowWidth;
-        scalar = p.min(myWidth,myHeight)/5
+        scalar = p.min(myWidth,myHeight)/8;
         p.myCanvas = p.createCanvas(myWidth, myHeight, p.WEBGL);
         p.myCanvas.position(0,0);
         p.myCanvas.parent("#canvasInt");
     
         // styling
-        p.strokeWeight(1.5);
+        p.strokeWeight(1);
         p.ellipseMode(p.CENTER);
         p.noFill();
     
@@ -200,7 +200,6 @@ function sketchInt(p) {
         count0 = count;
         p.drawing();
     }
-    p.draw = function () {}
 
     // ----------------------------------------------------------------------------------------------------------------
     // MAIN FUNCTIONS
@@ -239,6 +238,18 @@ function sketchInt(p) {
             invCoords.x[i] = inv[0]*unitCircle.x[i] + inv[1]*unitCircle.y[i];
             invCoords.y[i] = inv[2]*unitCircle.x[i] + inv[3]*unitCircle.y[i];
         }
+        
+        var updateMat = document.getElementById("intMat");
+        updateMat.innerHTML = "$$\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2]*100)/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}$$";
+        MathJax.typesetPromise([updateMat]).then(() => {});
+
+        var updateEigs1 = document.getElementById("intEigs1");
+        updateEigs1.innerHTML = "$$\\scriptsize{\\lambda_1="+String(Math.round(eigenvals[0]*100)/100)+", u_1 = \\langle "+String(Math.round(eigenvecs[0]*100)/100)+", "+String(Math.round(eigenvecs[2]*100)/100)+"\\rangle}$$";
+        MathJax.typesetPromise([updateEigs1]).then(() => {});
+
+        var updateEigs2 = document.getElementById("intEigs2");
+        updateEigs2.innerHTML = "$$\\scriptsize{\\lambda_1="+String(Math.round(eigenvals[3]*100)/100)+", u_1 = \\langle "+String(Math.round(eigenvecs[1]*100)/100)+", "+String(Math.round(eigenvecs[3]*100)/100)+"\\rangle}$$";
+        MathJax.typesetPromise([updateEigs2]).then(() => {});
     }
     
     p.drawing = function () {
@@ -247,22 +258,22 @@ function sketchInt(p) {
     
         // BLUE ORIGINAL
         if (varOrig.querySelector(".checkLine").checked) {
-            p.stroke(0, 0, 250);
+            p.stroke(101,106,255);
             for (i = 0; i < count; i += 2) {
                 vector(unitCircle.x[i],unitCircle.y[i]); // original
                 vector(newCoords.x[i],newCoords.y[i],unitCircle.x[i],unitCircle.y[i]); // to displacement
             }
         }
         if (varOrig.querySelector(".checkCir").checked) {
-            p.stroke(0, 0, 250);
+            p.stroke(101,106,255);
             p.ellipse(0,0,2*scalar,2*scalar,p.min(count0,50)); // ellipse
         }
     
         // GREEN NEW
         if (varNew.querySelector(".checkLine").checked) {
-            p.stroke(200, 255, 30);
+            p.stroke(222,255,35);
             p.push();
-                p.fill(200, 255, 30);
+                p.fill(222,255,35);
                 for (i = 0; i < count; i += 2) {
                     vector(newCoords.x[i],newCoords.y[i],-1*newCoords.x[i],-1*newCoords.y[i]);
                     // vector(newCoords.x[i],newCoords.y[i]); // lines
@@ -271,7 +282,7 @@ function sketchInt(p) {
             p.pop();
         }
         if (varNew.querySelector(".checkCir").checked) {
-            p.stroke(200, 255, 30);
+            p.stroke(222,255,35);
             p.beginShape();
             for (i = 0; i < count0; i += 2) { p.vertex(permNew.x[i],-1*permNew.y[i]); } // ellipse
             p.endShape(p.CLOSE);
@@ -279,23 +290,42 @@ function sketchInt(p) {
     
         // PINK INVERSE
         if (varInv.querySelector(".checkLine").checked) {
-            p.stroke(200, 0, 100);
+            p.stroke(231,239,249);
             for (i = 0; i < count; i += 2) { vector(invCoords.x[i],invCoords.y[i],unitCircle.x[i],unitCircle.y[i]); } // lines
         }
         if (varInv.querySelector(".checkCir").checked) {
-            p.stroke(200, 0, 100);
+            p.stroke(231,239,249);
             p.beginShape();
             for (i = 0; i < count0; i += 2) { p.vertex(permInv.x[i],-1*permInv.y[i]); } // ellipse
             p.endShape(p.CLOSE);
+            // 19,6,90
         }
     
         // WHITE EIGENS
         if (varEigs.querySelector(".checkLine").checked) {
-            p.stroke(255);
+            p.stroke(222,255,35);
             p.push();
-                p.strokeWeight(6);
+                p.strokeWeight(4);
                 vector(eigenvals[0]*p.cos(deg1)*scalar,eigenvals[0]*p.sin(deg1)*scalar);
                 vector(eigenvals[3]*p.cos(deg2)*scalar,eigenvals[3]*p.sin(deg2)*scalar);
+            p.pop();
+        }
+    }
+    p.draw = function () {
+        p.ellipse(eigenvecs[0]*scalar/2,-1*eigenvecs[2]*scalar/2,10);
+        p.ellipse(eigenvecs[1]*scalar/2,-1*eigenvecs[3]*scalar/2,10);
+        if (p.dist(eigenvecs[0]*scalar,eigenvecs[2]*scalar,p.mouseX-myWidth/2,p.mouseY-myHeight/2) <= 20) {
+            background("red");
+        }
+    }
+    
+
+    p.mousePressed = function() {
+        if (p.dist(eigenvecs[1]*scalar,eigenvecs[3]*scalar,p.mouseX-p.windowWidth/2,p.mouseY-p.windowHeight/2) <= 20) {
+            background("red");
+            p.push();
+            p.fill(255,255,255);
+            p.ellipse(p.mouseX-p.windowWidth/2,p.mouseY-p.windowHeight/2,20);
             p.pop();
         }
     }
@@ -304,9 +334,9 @@ function sketchInt(p) {
         // draws line from (x0,y0) (center of canvas by default) to (x,y)
         p.line(x0,-1*y0,x,-1*y);
     }
-    function windowResized() {
-        resizeCanvas(windowWidth,windowHeight);
-        drawing();
+    p.windowResized = function() {
+        p.resizeCanvas(p.windowWidth,p.windowHeight);
+        p.initialize();
     }
 }
 
