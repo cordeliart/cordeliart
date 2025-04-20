@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
+        <!-- <link rel="stylesheet" href="interact.css"> -->
         <!-- <link rel="icon" href="images/tab.png"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,38 +17,430 @@
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630"> -->
+
+        <style>
+            .title {
+                font-size: calc(var(--headerSize) * 2.5);
+                font-weight: 900;
+                color: var(--accent) !important;
+                margin: 0 0 3rem 0;
+                letter-spacing: -.35rem;
+            }
+        </style>
     </head>
 
     <body>
-        <div class="menu">
-            <!-- <div class="nav"> -->
-                <p style="margin-bottom:3rem;">SPECTRAL</p>
-                <div style="padding-left:1.5rem; border-left: solid 8px var(--accent);">
+        <div class="menu hidden">
+            <div class="minimizer"></div>
+            <p class="title">SPECTRAL</p>
+            <div style="padding-left:1.5rem; border-left: solid 8px var(--accent);">
+                <div class="menuItem menuBasics">
                     <h1>The Basics</h1>
                     <p>If you're new to matrices or need a refresher. Vectors, matrices, span, and more.</p>
-        
+                </div>
+            
+                <div class="menuItem menuMatrix">
                     <h1>Matrices as Transformations</h1>
                     <p>Visualizing eigenvalues and eigenvectors.</p>
-        
+                </div>
+            
+                <div class="menuItem menuInteract">
                     <h1>Interact</h1>
                     <p>Warp and shift in 2D and 3D.</p>
                 </div>
-            <!-- </div> -->
+            </div>
         </div>
 
-        <div class="content">
-            <h2>The Basics</h2>
-            <h3>Vectors, linear combinations, span, and bare-bones matrix algebra.</h3>
-            <p><span>vector</span> — a thing with magnitude (length) and direction (...well, direction)</p>
-            <p>components</p>
-            <p>----- > <span>set</span> — if you have a bunch, you can put them in a set</p>
-            <p><span>linear combination</span> — scaling & adding vectors</p>
-            <p><span>span</span> — all possible linear combinations of a set</p>
-            <p><span>matrices</span> - calculating matrices (not important)</p>
-            <p>the IMPORTANT thing, though, is that matrices are linear operations!! so A(x+y) = Ax + Ay, A(kx) = kAx</p>
+        <div class="content basics">
+            <div class="margins">
+                <h2>The Basics</h2>
+                <h3>Vectors, linear combinations, span, and bare-bones matrix algebra. Scroll to begin.</h3>
+            </div>
+
+            <div class="margins scrollDot" id="0">
+                <h4>Vectors</h4>
+                <div class="snapscroll" style="background-image: url(images/vector1.svg);">
+                    <div class="dotter">
+                        <div class="dot circled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="gradientTop"></div>
+                    <img src="images/vector1a.svg" class="smallSection" class="1">
+                    <div class="gradientBottom"></div>
+                    <img src="images/vector1-2.svg" class="overlay">
+                    <img src="images/vector1-2a.svg" class="smallSection" class="2">
+                    <img src="images/vector1-2b.svg" class="smallSection" class="3">
+                    <img src="images/vector1-2c.svg" class="smallSection" class="4">
+                    <div class="filler"></div>
+                </div>
+            </div>
+
+            <div class="margins accent">
+                <h4>Linear Combinations</h4>
+                <div class="box2">
+                    <div>
+                        <p>If you have a collection of vectors, you call them a <span>set</span>. The only restriction here is no duplicates.</p>
+                        <img src="images/set.svg">
+                    </div>
+                    <div>
+                        <p>Another important term is a <span>linear combination</span>: a vector produced scaling and/or adding vectors.</p>
+                        <img src="images/lc.svg">
+                    </div>
+                </div>
+                <p>The <span>span</span> of a set is ALL possible linear combinations of its vectors. As an example, the span of a singular vector is a line (scaling up and down to infinity).</p>
+                <img src="images/spanx.svg">
+                <p>So what about the span of two vectors? A plane? Not always. That depends on a little something called linear independence.</p>
+            </div>
+
+            <div class="margins">
+                <h4>Linear Independence</h4>
+                <div class="box2">
+                    <p>These two vectors are <span>linearly independent</span>, so the span is a plane...</p>
+                    <img src="images/spanli.svg" style="max-width: 350px;">
+                    <p>...but these two are not. They are <span>linearly dependent</span> because y is a linear combination of x (specifically, y is a scaled copy of x, and vice versa).</p>
+                    <img src="images/spanld.svg" style="max-width: 350px;">
+                </div>
+
+                <p style="margin-top: 3rem;">So what exactly is linear independence? Basically, vectors in a set are <span>not redundant</span>.</p>
+
+                <p>There are a few ways to think about it:</p>
+                <ul style="margin-bottom: 3rem;">
+                    <li><p>the number of vectors matches the dimension of the span (in the first example, 2 vectors making a 2-D plane = linearly independent)</p></li>
+                    <li><p>each vector brings a new direction to the set (in the second example, y does not bring a new direction to x = NOT linearly independent)</p></li>
+                </ul>
+            </div>
+
+            <div class="margins accent" style="background-color: var(--darkish); color: var(--text);">
+                <p style="color: var(--light);">The super formal definition is that the only linear combination of the vectors that equals zero is if and only if <span>ALL</span> the coefficients are zero.</p>
+                <p>$$0=c_1v_1+x_2v_2+...+c_nv_n$$</p>
+            </div>
+
+            <div class="margins">
+                <h4>Matrices</h4>
+                <div class="box2">
+                    <div>
+                        <p>A <span>matrix</span> is a grid with m rows and n columns of <span>elements</span> (not components), labeled by their row, then their column.</p>
+                            
+                        <p>For our sake, a matrix is a <span>function</span> that acts on a vector. Input a vector, output a vector. For our sake, the calculations are not important.</p>
+                    </div>
+                    <div>
+                        <p style="color:var(--darkish);">
+                            $$A_{m\times n} = \begin{bmatrix}
+                            a_{1,1} & a_{1,2} & ... & a_{1,n} \\
+                            a_{2,1} & a_{2,2} & \\
+                            \vdots & & \ddots \\
+                            a_{m,1} &&& a_{m,n}
+                            \end{bmatrix}
+                            $$
+                        </p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <input id="learn" type="checkbox">
+                    <label for="learn">› &nbsp Want to learn the calculations anyways?</label>
+                    <div class="dropped">
+                        <p>First off, the height of your vector <span>must</span> match the width of your matrix. Otherwise everything breaks.</p>
+                        <p>The process for each row:</p>
+                        <ol>
+                            <li><p>multiply the first A element by the first x component</p></li>
+                            <li><p>multiply the second A element by the second x component</p></li>
+                            <li><p>multiply the third A element by the third x component</p></li>
+                            <li><p>...you get the idea</p></li>
+                            <li><p>then add each row up and you're done!</p></li>
+                        </ol>
+                        <p>So you put in a vector of size n, and output a vector of size m.</p>
+                        
+                        <div style="color:var(--darkish);">
+                            $$A{\color{black}x} = \begin{bmatrix}
+                                a_{1,1} & a_{1,2} & ... & a_{1,n} \\
+                                a_{2,1} & a_{2,2} & \\ \\
+                                \vdots & & \ddots \\ \\
+                                a_{m,1} &&& a_{m,n}
+                            \end{bmatrix}
+                            {\color{black}\begin{bmatrix}
+                                x_1 \\ x_2 \\ \vdots \\ x_n
+                            \end{bmatrix}}
+                            =
+                            \begin{bmatrix}
+                                a_{1,1}{\color{black}x_1} \, +\, a_{1,2}{\color{black}x_2} \, +\, ... & +\, a_{1,n}{\color{black}x_n} \\
+                                a_{2,1}{\color{black}x_1} \, +\, a_{2,2}{\color{black}x_2} \, +\, ...& \\
+                                \vdots \quad\quad\quad\quad\quad\quad &\\
+                                a_{m,1}{\color{black}x_1} \, +\, ... \quad\quad\quad\quad & +\, a_{m,n}{\color{black}x_n}
+                            \end{bmatrix}
+                            $$
+                        </div>
+                        <p>Need a more concrete example? Here you go!</p>
+                        <div style="color:var(--darkish);">
+                            $$A = \begin{bmatrix} 1 & 3 \\ 2 & 0 \\ 4 & -1\end{bmatrix}
+                            \quad\quad\quad
+                            {\color{black}x = \begin{bmatrix} 5\\6\end{bmatrix}}
+                            $$
+                        </div>
+                        <div style="color:var(--darkish); margin-top: -5rem;">
+                            $$A{\color{black}x} = \begin{bmatrix} 1 & 3 \\ 2 & 0 \\ 4 & -1\end{bmatrix}
+                            {\color{black}\begin{bmatrix} 5\\6\end{bmatrix}}
+                            = \begin{bmatrix} 1{\color{black}(5)} + 3{\color{black}(6)} \\ 2{\color{black}(5)} + 0{\color{black}(6)} \\ 4{\color{black}(5)} + -1{\color{black}(6)}\end{bmatrix}
+                            = \begin{bmatrix}23\\10\\14\end{bmatrix}
+                            $$
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Linearity</h4>
+
+                <p>The important thing, though, is that matrices are <span>linear operations</span>! Hence, the name linear algebra.</p>
+                <p>That means addition and scalar multiplication are <span>distributive</span>, so:</p>
+                <div style="color:var(--darkish);">$$ A(x+y) = Ax + Ay $$</div>
+                <div style="color:var(--darkish); margin-top: -5rem;">$$ A(kx) = kAx $$</div>
+
+                <p>Yippee! This is a super useful property that doesn't happen very often. (For example, the function f(x) = x<sup>2</sup> is not linear, because f(2x) ≠ 2f(x).)</p>
+
+                <p>And that's it for the basics!</p>
+
+                <div class="next">
+                    <p>Take me to the next section -></p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="margins" style="display: flex; flex-flow: row; justify-content: space-between;">
+                    <div>
+                        <p style="font-weight: 900;">S P E C T R A L</p>
+                        <p>Thanks for reading :)</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p>Math Design Capstone | Lena Pang © 2025</p>
+                        <p>Created using p5, MathJax, and some<br>good old linear algebra.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- <script src="script.js"></script> -->
+        <div class="content matrix selected">
+            <div class="margins">
+                <h2>Matrices as Transformations</h2>
+                <h3>Consider: a ball. Now consider: matrix warps ball. Let me explain.</h3>
+                
+                <!-- <p>Matrices stretch vectors in a certain direction. Let's look at some examples in 2D.</p> -->
 
+                <h4>Working with One Vector</h4>
+
+                <div class="box2">
+                    <div>
+                        <p>The <span>identity matrix</span> (0 everywhere except 1s on the diagonal) does nothing to the vector. Useless.</p>
+                        <!-- <div style="color: var(--darkish);">
+                            $$
+                            I = \begin{bmatrix}
+                            1 & 0 \\
+                            0 & 1
+                            \end{bmatrix}
+                            $$
+                        </div> -->
+                        
+                        <p id="vec1replace" style="color: var(--darkish);">$$
+                            \begin{bmatrix}1 & 0 \\0& 1\end{bmatrix}
+                            {\color{black}\begin{bmatrix}v_1 \\v_2 \end{bmatrix}}
+                            = \begin{bmatrix}{\color{black}v_1} \\{\color{black}v_2} \end{bmatrix}
+                            $$
+                        </p>
+
+                        <p>Now try moving the dot around.</p>
+                        <p>By scaling the 1s, we can manipulate how the matrix transforms our vector.</p>
+                    </div>
+                    <div>
+                        <div id="vector1" style="width: calc(var(--contentWidth)/2); height: calc(var(--contentWidth)/2); margin: -3rem 0 -3rem 0;">
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <input id="learn3" type="checkbox">
+                    <label for="learn3">› &nbsp Show me the calculations!</label>
+                    <div class="dropped">
+                        <div id="vec1calc" style="color: var(--darkish);">
+                            $$
+                            I{\color{black}v} = \begin{bmatrix}
+                            1 & 0 \\
+                            0 & 1
+                            \end{bmatrix}{\color{black}\begin{bmatrix}
+                            v_1 \\
+                            v_2
+                            \end{bmatrix}}
+                            = \begin{bmatrix}
+                            1{\color{black}(v_1)} + 0{\color{black}(v_2)} \\
+                            0{\color{black}(v_1)} + 1{\color{black}(v_2)}
+                            \end{bmatrix}
+                            {\color{black}=\begin{bmatrix}
+                            v_1 \\
+                            v_2
+                            \end{bmatrix}=v}
+                            $$
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accent" style="padding-bottom: 0rem;">
+                <div class="margins">
+                    <div class="box2">
+                        <img src="images/ball.svg" style="width: 38%;max-width: 400px;">
+                        <div style="width:60%;max-width: 100%;">
+                            <h4 style="font-size: calc(2*var(--headerSize)); max-width: 15ch; margin-top: .5rem;">The Ball: a New Perspective</h4>
+                            <p>AKA, the unit circle.</p>
+                            <p style="margin-top:3rem;">This includes all the vectors with magnitude 1 in every single direction (in 2D).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="margins">
+                <h4>Working with Everything (in 2D)</h4>
+                <p>We've been working mostly with one vector made of two components.</p>
+                <p>Now, we're going to use those components (specifically, their directions) to look at how a matrix affects <span>all</span> vectors.</p>
+                <div class="row">
+                    <div>
+                        <p>Scaling</p>
+                    </div>
+                    <dotlottie-player
+                        src="https://www.cordeliart.com/spectral/images/scale.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100%; height: auto;"
+                        loop
+                        autoplay
+                    ></dotlottie-player>
+
+                    <div>
+                        <p>Flipping</p>
+                    </div>
+                    <dotlottie-player
+                        src="https://www.cordeliart.com/spectral/images/flip.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100%; height: auto;"
+                        loop
+                        autoplay
+                    ></dotlottie-player>
+
+                    <div>
+                        <p>Rotating</p>
+                    </div>
+                    <dotlottie-player
+                        src="https://www.cordeliart.com/spectral/images/rotate.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100%; height: auto;"
+                        loop
+                        autoplay
+                    ></dotlottie-player>
+
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="margins" style="display: flex; flex-flow: row; justify-content: space-between;">
+                    <div>
+                        <p style="font-weight: 900;">S P E C T R A L</p>
+                        <p>Thanks for reading :)</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p>Math Design Capstone | Lena Pang © 2025</p>
+                        <p>Created using p5, MathJax, and some<br>good old linear algebra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content interact" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
+            <div id="canvasInt">
+                <div class="values">
+                    <div class="grids">
+                        <div style="width: 100%; max-width: 100%;"><h5>Matrix</h5></div>
+                        <div style="color:var(--light);">
+                            $$\begin{bmatrix}
+                            a & b \\
+                            c & d
+                            \end{bmatrix}$$
+                        </div>
+                        <div class="line"></div>
+                        <div style="color:var(--light);">
+                            $$\scriptsize{\lambda_1= k, u_1 = \langle v_1, v_2\rangle}$$
+                        </div>
+                        <div style="color:var(--light);">
+                            $$\scriptsize{\lambda_2= k, u_2 = \langle v_1, v_2\rangle}$$
+                        </div>
+                        <!-- <div style="margin-top: -1rem; display: flex;flex-flow: row wrap; gap: 0.5rem; padding: 1rem; justify-content: center;">
+                            <input type="text" id="mat0">
+                            <input type="text" id="mat1">
+                            <input type="text" id="mat2">
+                            <input type="text" id="mat3">
+                        </div>
+
+                        <div style="display: flex;flex-flow: row wrap; margin: 0 -.5rem 0 -.5rem; gap: 0.5rem; justify-content: center;">
+                            <p style="width:fit-content;">$$\scriptsize{\lambda_1=}$$</p>
+                            <input type="text">
+                            <p style="width:fit-content;">$$\scriptsize{v_1=}$$</p>
+                            <input type="text">
+                            <p style="width:fit-content;">$$\scriptsize{\lambda_2=}$$</p>
+                            <input type="text">
+                            <p style="width:fit-content;">$$\scriptsize{v_2=}$$</p>
+                            <input type="text">
+                        </div> -->
+                    </div>
+
+                    <div class="grids">
+                        <h5 id="col1" style="width:47%; text-align: left;">Circles</h5>
+                        <h5 id="col2" style="width:47%; text-align: right;">Lines</h5>
+    
+                        <div id="varOrig" class="row">
+                            <input type="checkbox" checked class="checkCir">
+                            <p>unit circle</p>
+                            <input type="checkbox" checked class="checkLine">
+                        </div>
+                        
+                        <div id="varNew" class="row">
+                            <input type="checkbox" checked class="checkCir">
+                            <p>transformed</p>
+                            <input type="checkbox" checked class="checkLine">
+                        </div>
+    
+                        <div id="varInv" class="row">
+                            <input type="checkbox" checked class="checkCir">
+                            <p>inverse</p>
+                            <input type="checkbox" checked class="checkLine">
+                        </div>
+    
+                        <div id="varEigs" class="row">
+                            <input type="checkbox" style="opacity:0;">
+                            <p>eigenvectors</p>
+                            <input type="checkbox" checked class="checkLine">
+                        </div>
+    
+                        <div class="line"></div>
+    
+                        <h5>Number of Lines</h5>
+                        <input type="range" min="8" max="150" value="100" class="slider" id="lineCount">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>
+            window.MathJax = {
+                loader: {load: ['[tex]/color']},
+                tex: {packages: {'[+]': ['color']}}
+            };
+            window.MathJax = {
+                loader: {load: ['[tex]/textmacros']},
+                tex: {packages: {'[+]': ['textmacros']}}
+            };
+        </script>
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+        <script src="script.js"></script>
     </body>
 </html>

@@ -1,15 +1,4 @@
-var dimen;
-var eigenvecs;
-var eigenvals;
-var matrix;
-var inv;
-var xs;
-var ys;
-var grad;
-var scalar;
-var timer;
-var x0;
-var y0;
+var dimen, eigenvecs, eigenvals, matrix, inv, xs, ys, grad, scalar, timer, x0, y0;
 
 function setup() {
     let myCanvas = createCanvas(windowWidth,windowHeight);
