@@ -114,6 +114,9 @@ var eigenvecs, eigenvals, deg1, deg2, // eigenstuff
     unitCircle, newCoords, invCoords,
     permUnit, permNew, permInv; // COORD CLASS INSTANCES
 
+var eig1x, eig2x, eig1y, eig2y, drag1, drag2;
+var myFont;
+
 function sketchInt(p) {
     checks.forEach(element => {
         element.querySelector(".checkCir").onclick = function(){ faded(element); }
@@ -173,11 +176,7 @@ function sketchInt(p) {
     
     var slider = document.getElementById("lineCount"),
         count = slider.value;
-    
-    slider.oninput = function(){
-        count = slider.value;
-        initialize();
-    }
+
     p.setup = function () {
         // canvas
         myHeight = p.windowHeight;
@@ -193,43 +192,49 @@ function sketchInt(p) {
         p.noFill();
     
         // start
-        p.initialize();
-        permUnit = unitCircle;
-        permNew = newCoords;
-        permInv = invCoords;
+        eig1x = 300;
+        eig1y = 120;
+        eig2x = 20;
+        eig2y = 100;
+        eigenvals = [0,0,0,0];
+
+        unitCircle = new Coords();
+        for (i = 0; i < count; i++) {
+            amount = i/count*2*p.PI;
+            unitCircle.x[i] = 100*p.cos(amount);
+            unitCircle.y[i] = 100*p.sin(amount);
+        }
+
         count0 = count;
-        p.drawing();
+        p.recalc();
     }
 
     // ----------------------------------------------------------------------------------------------------------------
     // MAIN FUNCTIONS
 
-    p.initialize = function() {
-        // create Coords
+    slider.oninput = function(){
+        count = 2*Math.round(slider.value/2);
+
         unitCircle = new Coords();
         for (i = 0; i < count; i++) {
             amount = i/count*2*p.PI;
-            // amount = map(i,0,count,0,2*PI);
-            unitCircle.x[i] = scalar*p.cos(amount);
-            unitCircle.y[i] = scalar*p.sin(amount);
+            unitCircle.x[i] = 100*p.cos(amount);
+            unitCircle.y[i] = 100*p.sin(amount);
         }
-        newCoords = new Coords();
-        invCoords = new Coords();
-        p.setPoints();
-        p.drawing();
+        p.recalc();
     }
 
-    p.setPoints = function() {
-        // shift
-        eigenvecs = [2.2,-2,2,12];
-        eigenvals = [4,0,0,1];
-        // eigenvals[3] = ((frameCount)%200*0.01) + 1;
-    
-        // calculate matrices
+    p.recalc = function() {
+        newCoords = new Coords();
+        invCoords = new Coords();
+
+        // calc scalars and normalize
+        eigenvals[0] = norm([eig1x/100,eig1y/100]);
+        eigenvals[3] = norm([eig2x/100,eig2y/100]);
+        eigenvecs = [eig1x/100/eigenvals[0],eig2x/100/eigenvals[3],eig1y/100/eigenvals[0],eig2y/100/eigenvals[3]]
+
         myMatrix = matrixMult(eigenvecs,matrixMult(eigenvals,matrixInv(eigenvecs)));
         inv = matrixInv(myMatrix);
-        deg1 = p.atan(eigenvecs[2]/eigenvecs[0]);
-        deg2 = p.atan(eigenvecs[3]/eigenvecs[1]);
     
         // add transformed to coords
         for (i = 0; i < count; i += 2) {
@@ -239,8 +244,11 @@ function sketchInt(p) {
             invCoords.y[i] = inv[2]*unitCircle.x[i] + inv[3]*unitCircle.y[i];
         }
         
+        var updateLines = document.getElementById("numLines");
+        updateLines.innerHTML = "# of lines: "+String(count);
+        
         var updateMat = document.getElementById("intMat");
-        updateMat.innerHTML = "$$\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2]*100)/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}$$";
+        updateMat.innerHTML = "$$\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2])/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}$$";
         MathJax.typesetPromise([updateMat]).then(() => {});
 
         var updateEigs1 = document.getElementById("intEigs1");
@@ -248,8 +256,10 @@ function sketchInt(p) {
         MathJax.typesetPromise([updateEigs1]).then(() => {});
 
         var updateEigs2 = document.getElementById("intEigs2");
-        updateEigs2.innerHTML = "$$\\scriptsize{\\lambda_1="+String(Math.round(eigenvals[3]*100)/100)+", u_1 = \\langle "+String(Math.round(eigenvecs[1]*100)/100)+", "+String(Math.round(eigenvecs[3]*100)/100)+"\\rangle}$$";
+        updateEigs2.innerHTML = "$$\\scriptsize{\\lambda_2="+String(Math.round(eigenvals[3]*100)/100)+", u_2 = \\langle "+String(Math.round(eigenvecs[1]*100)/100)+", "+String(Math.round(eigenvecs[3]*100)/100)+"\\rangle}$$";
         MathJax.typesetPromise([updateEigs2]).then(() => {});
+
+        p.drawing();
     }
     
     p.drawing = function () {
@@ -266,7 +276,7 @@ function sketchInt(p) {
         }
         if (varOrig.querySelector(".checkCir").checked) {
             p.stroke(101,106,255);
-            p.ellipse(0,0,2*scalar,2*scalar,p.min(count0,50)); // ellipse
+            p.ellipse(0,0,200,200,p.min(count0,50)); // ellipse
         }
     
         // GREEN NEW
@@ -274,21 +284,22 @@ function sketchInt(p) {
             p.stroke(222,255,35);
             p.push();
                 p.fill(222,255,35);
-                for (i = 0; i < count; i += 2) {
-                    vector(newCoords.x[i],newCoords.y[i],-1*newCoords.x[i],-1*newCoords.y[i]);
-                    // vector(newCoords.x[i],newCoords.y[i]); // lines
+                for (i = 0; i < count/2; i += 1) {
+                    vector(newCoords.x[i],newCoords.y[i]);
+                    vector(-1*newCoords.x[i],-1*newCoords.y[i]); // lines
                     p.ellipse(newCoords.x[i],-1*newCoords.y[i],6); // dots
+                    p.ellipse(-1*newCoords.x[i],newCoords.y[i],6); // dots
                 }
             p.pop();
         }
         if (varNew.querySelector(".checkCir").checked) {
             p.stroke(222,255,35);
             p.beginShape();
-            for (i = 0; i < count0; i += 2) { p.vertex(permNew.x[i],-1*permNew.y[i]); } // ellipse
+            for (i = 0; i < count; i += 2) { p.vertex(newCoords.x[i],-1*newCoords.y[i]); } // ellipse
             p.endShape(p.CLOSE);
         }
     
-        // PINK INVERSE
+        // WHITE INVERSE
         if (varInv.querySelector(".checkLine").checked) {
             p.stroke(231,239,249);
             for (i = 0; i < count; i += 2) { vector(invCoords.x[i],invCoords.y[i],unitCircle.x[i],unitCircle.y[i]); } // lines
@@ -296,47 +307,66 @@ function sketchInt(p) {
         if (varInv.querySelector(".checkCir").checked) {
             p.stroke(231,239,249);
             p.beginShape();
-            for (i = 0; i < count0; i += 2) { p.vertex(permInv.x[i],-1*permInv.y[i]); } // ellipse
+            for (i = 0; i < count0; i += 2) { p.vertex(invCoords.x[i],-1*invCoords.y[i]); } // ellipse
             p.endShape(p.CLOSE);
             // 19,6,90
         }
     
-        // WHITE EIGENS
+        // EIGENVECTORS
         if (varEigs.querySelector(".checkLine").checked) {
             p.stroke(222,255,35);
             p.push();
+                p.fill(231,239,249);
                 p.strokeWeight(4);
-                vector(eigenvals[0]*p.cos(deg1)*scalar,eigenvals[0]*p.sin(deg1)*scalar);
-                vector(eigenvals[3]*p.cos(deg2)*scalar,eigenvals[3]*p.sin(deg2)*scalar);
+                vector(eig1x,eig1y);
+                vector(eig2x,eig2y);
+                p.ellipse(eig1x,-1*eig1y,16);
+                p.ellipse(eig2x,-1*eig2y,16);
             p.pop();
         }
     }
+
     p.draw = function () {
-        p.ellipse(eigenvecs[0]*scalar/2,-1*eigenvecs[2]*scalar/2,10);
-        p.ellipse(eigenvecs[1]*scalar/2,-1*eigenvecs[3]*scalar/2,10);
-        if (p.dist(eigenvecs[0]*scalar,eigenvecs[2]*scalar,p.mouseX-myWidth/2,p.mouseY-myHeight/2) <= 20) {
-            background("red");
+        if (drag1) {
+            eig1x = p.mouseX-myWidth/2;
+            eig1y = -1*(p.mouseY-myHeight/2);
+            p.recalc();
+        }
+        if (drag2) {
+            eig2x = p.mouseX-myWidth/2;
+            eig2y = -1*(p.mouseY-myHeight/2);
+            p.recalc();
         }
     }
-    
 
     p.mousePressed = function() {
-        if (p.dist(eigenvecs[1]*scalar,eigenvecs[3]*scalar,p.mouseX-p.windowWidth/2,p.mouseY-p.windowHeight/2) <= 20) {
-            background("red");
-            p.push();
-            p.fill(255,255,255);
-            p.ellipse(p.mouseX-p.windowWidth/2,p.mouseY-p.windowHeight/2,20);
-            p.pop();
+        if (varEigs.querySelector(".checkLine").checked) {
+            if (p.dist(eig1x,-1*eig1y,p.mouseX-myWidth/2,p.mouseY-myHeight/2) <= 20) {
+                drag1 = true;
+            }
+            if (p.dist(eig2x,-1*eig2y,p.mouseX-myWidth/2,p.mouseY-myHeight/2) <= 20) {
+                drag2 = true;
+            }
         }
     }
-    
+    p.mouseReleased = function() {
+        drag1 = false;
+        drag2 = false;
+    }
+    norm = function(vec) {
+        var norm = 0;
+        for (i = 0; i < 2; i ++) {
+            norm += vec[i]**2;
+        }
+        return norm**.5;
+    }
     function vector(x, y, x0 = 0, y0 = 0) {
         // draws line from (x0,y0) (center of canvas by default) to (x,y)
         p.line(x0,-1*y0,x,-1*y);
     }
     p.windowResized = function() {
         p.resizeCanvas(p.windowWidth,p.windowHeight);
-        p.initialize();
+        p.recalc();
     }
 }
 

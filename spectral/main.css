@@ -129,6 +129,7 @@ img {
     box-sizing: border-box;
     padding: 4rem;
     transition: .5s ease;
+    background-image: none;
 } .menu p {
     color: var(--darkish);
     margin: .5rem 0 0 0;
@@ -137,6 +138,7 @@ img {
     left: 0;
     right: 0;
     padding-left: 40vw;
+    background-image: url("images/");
 } .hidden { /* collapsed nav */
     left: -28rem;
     right: calc(100vw - 2rem);
@@ -416,10 +418,10 @@ input[type=range] { /* slider */
     right: 3rem;
     bottom: 3rem;
     display: flex;
-    flex-flow: column;
+    flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .grids { /* menus */
@@ -428,7 +430,7 @@ input[type=range] { /* slider */
     z-index: 20;
     padding: 1.5rem;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     justify-content: space-around;
     align-items: center;
     gap: .5rem;
@@ -447,9 +449,9 @@ input[type=range] { /* slider */
 }
 
 .line { /* menu divider */
-    width: 150%;
-    max-width: 150%;
-    margin: 1rem -1.5rem 1rem -1.5rem;
+    width: 110%;
+    max-width: 110%;
+    margin: 1rem -.5rem 1rem -.5rem;
     height: 2px;
     background-color: var(--dark);
 }

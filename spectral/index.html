@@ -9,7 +9,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
-        <!-- <link rel="stylesheet" href="interact.css"> -->
         <!-- <link rel="icon" href="images/tab.png"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,7 +29,7 @@
     </head>
 
     <body>
-        <div class="menu hidden">
+        <div class="menu full">
             <div class="minimizer"></div>
             <p class="title">SPECTRAL</p>
             <div style="padding-left:1.5rem; border-left: solid 8px var(--accent);">
@@ -370,29 +369,33 @@
             </div>
         </div>
 
-        <div class="content interact selected" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
+        <div class="content interact" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
             <div id="canvasInt">
                 <div class="values">
-                    <div class="grids">
-                        <div style="width: 100%; max-width: 100%;"><h5>Matrix</h5></div>
-                        <div id="intMat" style="color:var(--light);">
+                    <div class="grids" style="width:fit-content";>
+                        <div style="width: 100%; max-width: 200%;"><h5>Matrix</h5></div>
+                        <div id="intMat" style="color:var(--light); margin:0;padding:0;">
                             $$\begin{bmatrix}
                             a & b \\
                             c & d
                             \end{bmatrix}$$
                         </div>
                         <div class="line"></div>
-                        <div id="intEigs1" style="color:var(--light);">
-                            $$\scriptsize{\lambda_1= k, u_1 = \langle v_1, v_2\rangle}$$
-                        </div>
-                        <div id="intEigs2" style="color:var(--light);">
-                            $$\scriptsize{\lambda_2= k, u_2 = \langle v_1, v_2\rangle}$$
+                        <div style="width: 100%; text-align: center;">
+                            <div id="intEigs1" style="color:var(--light); width: fit-content; margin: 0 auto .5rem auto;">
+                                $$\scriptsize{\lambda_1= k, u_1 = \langle v_1, v_2\rangle}$$
+                            </div>
+                            <div id="intEigs2" style="color:var(--light); width: fit-content; margin: 0 auto 0 auto;">
+                                $$\scriptsize{\lambda_2= k, u_2 = \langle v_1, v_2\rangle}$$
+                            </div>
                         </div>
                     </div>
 
                     <div class="grids">
-                        <h5 id="col1" style="width:47%; text-align: left;">Circle</h5>
-                        <h5 id="col2" style="width:47%; text-align: right;">Lines</h5>
+                        <div class="row">
+                            <h5 id="col1" style="width:47%; text-align: left;">Circle</h5>
+                            <h5 id="col2" style="width:47%; text-align: right;">Lines</h5>
+                        </div>
     
                         <div id="varOrig" class="row">
                             <input type="checkbox" checked class="checkCir">
@@ -420,8 +423,8 @@
     
                         <div class="line"></div>
     
-                        <h5>Number of Lines</h5>
-                        <input type="range" min="8" max="150" value="100" class="slider" id="lineCount">
+                        <h5 id="numLines"># of Lines: </h5>
+                        <input type="range" min="60" max="150" value="100" class="slider" id="lineCount">
                     </div>
                 </div>
             </div>

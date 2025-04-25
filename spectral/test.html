@@ -8,20 +8,24 @@
     </head>
 
     <body>
-        <div style="width:800px">
-            <dotlottie-player
-                src="https://www.cordeliart.com/spectral/images/matrix1c.json"
-                background="transparent"
-                speed="1"
-                style="width: 100%; height: auto"
-                loop
-                autoplay
-            ></dotlottie-player>
-
+        <div class="content interact selected" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
+            <div id="canvasInt">
+            </div>
         </div>
 
-        <!-- <script src="script.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>
+            window.MathJax = {
+                loader: {load: ['[tex]/color']},
+                tex: {packages: {'[+]': ['color']}}
+            };
+            window.MathJax = {
+                loader: {load: ['[tex]/textmacros']},
+                tex: {packages: {'[+]': ['textmacros']}}
+            };
+        </script>
         <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-
+        <script src="script2.js"></script>
     </body>
 </html>
