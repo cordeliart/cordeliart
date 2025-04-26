@@ -25,47 +25,37 @@ scrollSections.forEach(section => {
     
     section.dots.forEach(adot => {
         adot.addEventListener("click", () =>{
-        section.activeId = section.adot.num;
-        // clear old
-        for(var j = 0; j < section.dotCount; j++) {
-            section.dots[j].classList.remove("circled");
-        }
-        // var scrollsec = document.getElementByID(i);
-        // scrollsec.scrollIntoView({ block: "end" });
-        // switch to new
-        section.dots[section.activeId].classList.add("circled");
+            for(var iRemove = 0; iRemove < section.dotCount; iRemove++) {
+                section.dots[iRemove].classList.remove("circled");
+            }
+            console.log(adot.num);
+            section.activeId = adot.num;
+            // console.log(section.adot.num);
+            // clear old
+            // for(var j = 0; j < section.dotCount; j++) {
+            //     section.dots[j].classList.remove("circled");
+            // }
+            document.getElementById(adot.num+1).scrollIntoView({behavior: "smooth", block: "center"});
+            // // switch to new
+            section.dots[section.activeId].classList.add("circled");
         })
     })
 
     // SCROLL DIRECTION
-    section.addEventListener("scroll", () => {
-        if((section.getBoundingClientRect()).top > section.scrollPos) {
-            section.scrollDir = "up";
-        } else { section.scrollDir = "down"; }
-        section.scrollPos = (section.getBoundingClientRect()).top;
-    })
+    section.addEventListener("scroll", () => {})
     
     // CHECK SCROLL
-    section.addEventListener("scrollsnapchange", () =>{
-        // SCROLLING DOWN
-        if (section.scrollDir == "down" && section.activeId < section.dotCount) {
-            for(var iDown = 0; iDown < section.dotCount; iDown++) {
-                section.dots[iDown].classList.remove("circled");
-            }
-            section.activeId += 1;
-            section.dots[section.activeId].classList.add("circled");
+    section.addEventListener("scrollsnapchange", (event) =>{
+        for(var iRemove = 0; iRemove < section.dotCount; iRemove++) {
+            section.dots[iRemove].classList.remove("circled");
         }
-        // SCROLLING UP
-        if (section.scrollDir == "up") {
-            for(var iUp = 0; iUp < section.dotCount; iUp++) {
-                section.dots[iUp].classList.remove("circled");
-            }
-            section.activeId -= 1;
-            section.dots[section.activeId].classList.add("circled");
-        }
-        section.scrollPos = (section.getBoundingClientRect()).top;
+        newId = event.snapTargetBlock.id-1;
+        if (newId > section.activeId && section.activeId < section.dotCount) { section.activeId += 1; } // SCROLL DOWN
+        if (newId < section.activeId && section.activeId >= 1 ) { section.activeId -= 1; } // SCROLL UP
+        section.dots[section.activeId].classList.add("circled");
     })
 })
+
 minimizer.addEventListener("click", () =>{
     menu.classList.toggle("hidden");
 })
@@ -87,6 +77,12 @@ menuMatrix.addEventListener("click", () =>{
     mmatrix.classList.add("selected");
     minteract.classList.remove("selected");    
 })
+function nexter() {
+    mbasics.classList.remove("selected");
+    mmatrix.classList.add("selected");
+    minteract.classList.remove("selected");
+    window.scrollTo({top: 0, behavior: "instant"});
+}
 menuInteract.addEventListener("click", () =>{
     if (menu.classList.contains("full")) {
         menu.classList.remove("full");
@@ -95,6 +91,19 @@ menuInteract.addEventListener("click", () =>{
     mbasics.classList.remove("selected");
     mmatrix.classList.remove("selected");
     minteract.classList.add("selected");
+})
+
+// INTERACT POPUP
+
+const popup = body.querySelector(".popup"),
+    opener = body.querySelector(".tips"),
+    closer = body.querySelector("#close");
+
+opener.addEventListener("click", () =>{
+    popup.style.display = "flex";
+})
+closer.addEventListener("click", () =>{
+    popup.style.display = "none";
 })
 
 // INTERACT -------------------------
@@ -248,7 +257,7 @@ function sketchInt(p) {
         updateLines.innerHTML = "# of lines: "+String(count);
         
         var updateMat = document.getElementById("intMat");
-        updateMat.innerHTML = "$$\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2])/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}$$";
+        updateMat.innerHTML = "$$\\small{\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2])/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}}$$";
         MathJax.typesetPromise([updateMat]).then(() => {});
 
         var updateEigs1 = document.getElementById("intEigs1");
@@ -400,48 +409,7 @@ class Coords {
 
 // VECTORS -------------------------
 
-var x1, y1;
-
-// function sketchId(p) {
-//     // p.variable = ;
-//     p.setup = function () {
-//         // canvas
-//         p.dimen = p.min(.8*p.windowWidth/2,1000/2);
-//         p.myCanvas = p.createCanvas(p.dimen, p.dimen);
-//         p.myCanvas.parent("#vecId");
-//         p.colorMode(p.RGB,255,255,255,1);
-//         p.frameRate(10);
-//         p.textSize(24);
-//         p.textAlign(p.CENTER, p.CENTER)
-    
-//         // styling
-//         p.ellipseMode(p.CENTER);
-//         p.noFill();
-
-//         x1 = p.dimen*3/4;
-//         y1 = p.dimen*1/3;
-
-//         // GRID
-//         p.background(231,239,249,1);
-//         p.stroke(12,8,36,1);
-//         p.strokeWeight(1.5);
-//         p.line(p.dimen/2,1/6*p.dimen,p.dimen/2,5/6*p.dimen);
-//         p.line(1/6*p.dimen,p.dimen/2,5/6*p.dimen,p.dimen/2);
-//         // ORIGINAL
-//         p.line(x1,p.dimen/2,x1,y1);
-//         p.line(p.dimen/2,y1,x1,y1);
-//         p.strokeWeight(4);
-//         p.line(p.dimen/2,p.dimen/2,p.dimen*3/4,p.dimen*1/3);
-//         p.fill(231,239,249,1);
-//         p.ellipse(p.dimen*3/4,p.dimen*1/3,10);
-
-//         p.push();
-//         p.noStroke();
-//         p.text("v₁",(x1-p.dimen/2)*1/2+p.dimen/2,p.dimen/2-15);
-//         p.text("v₂",p.dimen/2+15,(-1*y1-p.dimen/2)*(-1)/2);
-//         p.pop();
-//     }
-// }
+var x1, y1, clickCheck;
 
 function sketchVec1(p) {
     // p.variable = ;
@@ -453,7 +421,8 @@ function sketchVec1(p) {
         p.colorMode(p.RGB,255,255,255,1);
         p.frameRate(10);
         p.textSize(24);
-        p.textAlign(p.CENTER, p.CENTER)
+        p.textAlign(p.CENTER, p.CENTER);
+        clickCheck = false;
     
         // styling
         p.ellipseMode(p.CENTER);
@@ -494,6 +463,7 @@ function sketchVec1(p) {
         p.fill(101,106,255,1);
         p.text("v₁",(x1/2+p.dimen/4),p.dimen/2-12);
         p.text("v₂",p.dimen/2+15,(y1/2+p.dimen/4));
+        if (!clickCheck) { p.textSize(12); p.text("DRAG ME",x1,y1-15); }
         p.pop();
 
         if (p.dragging1) {
@@ -504,7 +474,7 @@ function sketchVec1(p) {
     }
 
     p.mousePressed = function() {
-        if (p.dist(x1,y1,p.mouseX,p.mouseY) < 15) { p.dragging1 = true; }
+        if (p.dist(x1,y1,p.mouseX,p.mouseY) < 15) { p.dragging1 = true; clickCheck = true;}
     }
 
     p.mouseReleased = function() {
@@ -528,5 +498,4 @@ function replacer(x,y) {
 // CALL CANVAS FUNCTIONS
 
 new p5(sketchInt);
-// new p5(sketchId);
 new p5(sketchVec1);

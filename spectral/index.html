@@ -35,7 +35,7 @@
             <div style="padding-left:1.5rem; border-left: solid 8px var(--accent);">
                 <div class="menuItem menuBasics">
                     <h1>The Basics</h1>
-                    <p>If you're new to matrices or need a refresher. Vectors, matrices, span, and more.</p>
+                    <p>If you're new to linear algebra or need a refresher. Vectors, matrices, span, and more.</p>
                 </div>
             
                 <div class="menuItem menuMatrix">
@@ -56,7 +56,7 @@
                 <h3>Vectors, linear combinations, span, and bare-bones matrix algebra. Scroll to begin.</h3>
             </div>
 
-            <div class="margins scrollDot" id="0">
+            <div class="margins /*scrollDot*/" id="0">
                 <h4>Vectors</h4>
                 <div class="snapscroll" style="background-image: url(images/vector1.svg);">
                     <div class="dotter">
@@ -66,12 +66,12 @@
                         <div class="dot"></div>
                     </div>
                     <div class="gradientTop"></div>
-                    <img src="images/vector1a.svg" class="smallSection" class="1">
+                    <img src="images/vector1a.svg" class="smallSection" id="1">
                     <div class="gradientBottom"></div>
                     <img src="images/vector1-2.svg" class="overlay">
-                    <img src="images/vector1-2a.svg" class="smallSection" class="2">
-                    <img src="images/vector1-2b.svg" class="smallSection" class="3">
-                    <img src="images/vector1-2c.svg" class="smallSection" class="4">
+                    <img src="images/vector1-2a.svg" class="smallSection" id="2">
+                    <img src="images/vector1-2b.svg" class="smallSection" id="3">
+                    <img src="images/vector1-2c.svg" class="smallSection" id="4">
                     <div class="filler"></div>
                 </div>
             </div>
@@ -111,9 +111,9 @@
                 </ul>
             </div>
 
-            <div class="margins accent" style="background-color: var(--darkish); color: var(--text);">
-                <p style="color: var(--light);">The super formal definition is that the only linear combination of the vectors that equals zero is if and only if <span>ALL</span> the coefficients are zero.</p>
-                <p>$$0=c_1v_1+x_2v_2+...+c_nv_n$$</p>
+            <div class="margins accent" style="background-color: var(--darkish); margin-top:-3rem;">
+                <p>The super formal definition is that the only linear combination of the vectors that equals zero is if and only if <span>ALL</span> the coefficients are zero.</p>
+                <!-- <p style="margin:-1rem 40vw 0 -2rem; padding: 0;">$$0=c_1v_1+x_2v_2+...+c_nv_n$$</p> -->
             </div>
 
             <div class="margins">
@@ -199,7 +199,7 @@
 
                 <p>And that's it for the basics!</p>
 
-                <div class="next">
+                <div class="next" onclick="nexter()">
                     <p>Take me to the next section -></p>
                 </div>
             </div>
@@ -372,13 +372,15 @@
         <div class="content interact" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
             <div id="canvasInt">
                 <div class="values">
-                    <div class="grids" style="width:fit-content";>
+                    <div class="tips">?</div>
+
+                    <div class="grids" style="width: 16rem;">
                         <div style="width: 100%; max-width: 200%;"><h5>Matrix</h5></div>
                         <div id="intMat" style="color:var(--light); margin:0;padding:0;">
-                            $$\begin{bmatrix}
+                            $$\small{\begin{bmatrix}
                             a & b \\
                             c & d
-                            \end{bmatrix}$$
+                            \end{bmatrix}}$$
                         </div>
                         <div class="line"></div>
                         <div style="width: 100%; text-align: center;">
@@ -391,7 +393,7 @@
                         </div>
                     </div>
 
-                    <div class="grids">
+                    <div class="grids" style="width: 11rem;">
                         <div class="row">
                             <h5 id="col1" style="width:47%; text-align: left;">Circle</h5>
                             <h5 id="col2" style="width:47%; text-align: right;">Lines</h5>
@@ -428,6 +430,19 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="popup">
+                <div style="width: min(50vw, 800px);">
+                    <h3 style="color:var(--light);">What am I looking at?</h3>
+                    <p>This is the ball, but fancier:</p>
+                    <div class="row">
+                        <p style="width: 30%;"><span style="color:var(--accent);">green lines</span> = transformed vectors</p>
+                        <p style="width: 30%;"><span style="color:var(--darkish);">blue lines</span> = connect to unit circle vectors</p>
+                        <p style="width: 30%;"><span style="color:var(--light);">white lines</span> = inverse (applied to unit circle)</p>
+                    </div>
+                    <p>Drag around the eigenvectors to manipulate the matrix—you'll notice that the eigenvectors will always be parallel to the blue unit circle lines.</p>
+                </div>
+                <div id="close">Close</div>
             </div>
         </div>
 
