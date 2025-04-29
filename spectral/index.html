@@ -29,7 +29,7 @@
     </head>
 
     <body>
-        <div class="menu full">
+        <div class="menu hidden">
             <div class="minimizer"></div>
             <p class="title">SPECTRAL</p>
             <div style="padding-left:1.5rem; border-left: solid 8px var(--accent);">
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="content basics">
+        <div class="content basics selected">
             <div class="margins">
                 <h2>The Basics</h2>
                 <h3>Vectors, linear combinations, span, and bare-bones matrix algebra. Scroll to begin.</h3>
@@ -58,6 +58,7 @@
 
             <div class="margins /*scrollDot*/" id="0">
                 <h4>Vectors</h4>
+
                 <div class="snapscroll" style="background-image: url(images/vector1.svg);">
                     <div class="dotter">
                         <div class="dot circled"></div>
@@ -66,14 +67,22 @@
                         <div class="dot"></div>
                     </div>
                     <div class="gradientTop"></div>
-                    <img src="images/vector1a.svg" class="smallSection" id="1">
+                    <img src="images/vector1a.svg" class="smallSection" id="1" alt="vector definition">
                     <div class="gradientBottom"></div>
-                    <img src="images/vector1-2.svg" class="overlay">
-                    <img src="images/vector1-2a.svg" class="smallSection" id="2">
-                    <img src="images/vector1-2b.svg" class="smallSection" id="3">
-                    <img src="images/vector1-2c.svg" class="smallSection" id="4">
+                    <img src="images/vector1-2.svg" class="overlay" alt="v1 and v2">
+                    <img src="images/vector1-2a.svg" class="smallSection" id="2" alt="components">
+                    <img src="images/vector1-2b.svg" class="smallSection" id="3" alt="components in two dimensions">
+                    <img src="images/vector1-2c.svg" class="smallSection" id="4" alt="components in n dimensions">
                     <div class="filler"></div>
                 </div>
+            </div>
+            <div class="margins snapalt">
+                <img src="images/fig1.svg">
+                <img src="images/fig2.svg">
+                <div> $$ v = \begin{bmatrix} v_1 \\ v_2\end{bmatrix}$$ </div>
+                <p>In simple 2D, you can think of the components as the x-component and y-component...</p>
+                <div> $$ v = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix}$$ </div>
+                <p>...but we can also go to as many dimensions as we want.</p>
             </div>
 
             <div class="margins accent">
@@ -81,15 +90,15 @@
                 <div class="box2">
                     <div>
                         <p>If you have a collection of vectors, you call them a <span>set</span>. The only restriction here is no duplicates.</p>
-                        <img src="images/set.svg">
+                        <img src="images/set.svg" alt="set example">
                     </div>
                     <div>
                         <p>Another important term is a <span>linear combination</span>: a vector produced scaling and/or adding vectors.</p>
-                        <img src="images/lc.svg">
+                        <img src="images/lc.svg" alt="linear combination examples">
                     </div>
                 </div>
                 <p>The <span>span</span> of a set is ALL possible linear combinations of its vectors. As an example, the span of a singular vector is a line (scaling up and down to infinity).</p>
-                <img src="images/spanx.svg">
+                <img src="images/spanx.svg" alt="span of vector x" style="max-width: 700px; margin: 0 auto 0 auto;">
                 <p>So what about the span of two vectors? A plane? Not always. That depends on a little something called linear independence.</p>
             </div>
 
@@ -97,9 +106,9 @@
                 <h4>Linear Independence</h4>
                 <div class="box2">
                     <p>These two vectors are <span>linearly independent</span>, so the span is a plane...</p>
-                    <img src="images/spanli.svg" style="max-width: 350px;">
+                    <img src="images/spanli.svg" style="max-width: 350px;" alt="span of 2 linearly independent vectors">
                     <p>...but these two are not. They are <span>linearly dependent</span> because y is a linear combination of x (specifically, y is a scaled copy of x, and vice versa).</p>
-                    <img src="images/spanld.svg" style="max-width: 350px;">
+                    <img src="images/spanld.svg" style="max-width: 350px;" alt="span of 2 linearly dependent vectors">
                 </div>
 
                 <p style="margin-top: 3rem;">So what exactly is linear independence? Basically, vectors in a set are <span>not redundant</span>.</p>
@@ -111,9 +120,11 @@
                 </ul>
             </div>
 
-            <div class="margins accent" style="background-color: var(--darkish); margin-top:-3rem;">
-                <p>The super formal definition is that the only linear combination of the vectors that equals zero is if and only if <span>ALL</span> the coefficients are zero.</p>
-                <!-- <p style="margin:-1rem 40vw 0 -2rem; padding: 0;">$$0=c_1v_1+x_2v_2+...+c_nv_n$$</p> -->
+            <div class="margins accent" style="margin-top:-3rem;">
+                <div class="row">
+                    <p style="max-width: 50ch;">The super formal definition is that a linear combination of the vectors equals zero is if and only if <span>ALL</span> the coefficients are zero.</p>
+                    <div style="margin: -1.2rem 0 -1.1rem 0;">$$0=c_1v_1+x_2v_2+...+c_nv_n$$</div>
+                </div>
             </div>
 
             <div class="margins">
@@ -200,7 +211,7 @@
                 <p>And that's it for the basics!</p>
 
                 <div class="next" onclick="nexter()">
-                    <p>Take me to the next section -></p>
+                    <p>Matrices as Transformations -></p>
                 </div>
             </div>
 
@@ -223,22 +234,13 @@
                 <h2>Matrices as Transformations</h2>
                 <h3>Consider: a ball. Now consider: matrix warps ball. Let me explain.</h3>
                 
-                <!-- <p>Matrices stretch vectors in a certain direction. Let's look at some examples in 2D.</p> -->
+                <p>Matrices stretch vectors in a certain direction. Let's look at some examples in 2D.</p>
 
                 <h4>Working with One Vector</h4>
 
                 <div class="box2">
                     <div>
                         <p>The <span>identity matrix</span> (0 everywhere except 1s on the diagonal) does nothing to the vector. Useless.</p>
-                        <!-- <div style="color: var(--darkish);">
-                            $$
-                            I = \begin{bmatrix}
-                            1 & 0 \\
-                            0 & 1
-                            \end{bmatrix}
-                            $$
-                        </div> -->
-                        
                         <p id="vec1replace" style="color: var(--darkish);">$$
                             \begin{bmatrix}1 & 0 \\0& 1\end{bmatrix}
                             {\color{black}\begin{bmatrix}v_1 \\v_2 \end{bmatrix}}
@@ -287,8 +289,7 @@
                         <img src="images/ball.svg" style="width: 38%;max-width: 400px;">
                         <div style="width:60%;max-width: 100%;">
                             <h4 style="font-size: calc(2*var(--headerSize)); max-width: 15ch; margin-top: .5rem;">The Ball: a New Perspective</h4>
-                            <p>AKA, the unit circle.</p>
-                            <p style="margin-top:3rem;">This includes all the vectors with magnitude 1 in every single direction (in 2D).</p>
+                            <p>AKA, the unit circle. This includes all the vectors with magnitude 1 in every single direction (in 2D).</p>
                         </div>
                     </div>
                 </div>
@@ -297,11 +298,11 @@
             <div class="margins">
                 <h4>Working with Everything (in 2D)</h4>
                 <p>We've been working mostly with one vector made of two components.</p>
-                <p>Now, we're going to use those components (specifically, their directions) to look at how a matrix affects <span>all</span> vectors.</p>
+                <p>Now, we're going to think of every vector as a linear combination of the components to see how a matrix affects <span>all</span> vectors.</p>
                 <div class="row">
                     <div>
                         <p style="text-align:center;"><span>Scaling</span></p>
-                        <p style="margin: -4rem 0 -4rem 0;">$$
+                        <p style="margin: -2.5rem 0 -4rem 0;">$$
                             \begin{bmatrix}
                             k_1 & 0 \\ 0 & k_2
                             \end{bmatrix}
@@ -318,7 +319,7 @@
 
                     <div>
                         <p style="text-align:center;"><span>Rotating</span></p>
-                        <p style="margin: -4rem 0 -4rem 0;">$$
+                        <p style="margin: -2.5rem 0 -4rem 0;">$$
                             \begin{bmatrix}
                             \cos\theta & -\sin\theta \\
                             \sin\theta & \cos\theta
@@ -336,7 +337,7 @@
 
                     <div>
                         <p style="text-align:center;"><span>Reflecting</span></p>
-                        <p style="margin: -4rem 0 -4rem 0;">$$
+                        <p style="margin: -2.5rem 0 -4rem 0;">$$
                             \begin{bmatrix}
                             -1 & 0 \\ 
                             0 & 1
@@ -352,7 +353,67 @@
                         ></dotlottie-player>
                     </div>
                 </div>
+
+                <h4>Eigenvectors & Eigenvalues</h4>
                 <p>Of course, we can combine all of these into one. Take a look at this matrix transformation:</p>
+
+                <dotlottie-player
+                    src="https://www.cordeliart.com/spectral/images/all.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100%; max-width: 500px; height: auto; margin: 0 auto 0 auto;"
+                    loop
+                    autoplay
+                ></dotlottie-player>
+
+                <p>You might notice that the bold vectors stay pointing in the same direction, even after they are transformed. They're only scaled up and down.</p>
+                <p>These are called <span>eigenvectors</span> <i>u<sub>i</sub></i>. The amount they're scaled is called an <span>eigenvalue</span> <i>λ<sub>i</sub></i>. Because the matrix <i>A</i> applied to <i>u<sub>i</sub></i> is the same as scaling <i>u<sub>i</sub></i> by <i>λ<sub>i</sub></i>, we can say:</p>
+                <div>$$ Au_i = \lambda_1 u_i $$</div>
+
+
+                <div class="dropdown" style="margin: 0 0 5rem 0;">
+                    <input id="learn4" type="checkbox">
+                    <label for="learn4">› &nbsp Exercise: What are the eigenvectors in the examples above?</label>
+                    <div class="dropped">
+                        <p>We let the horizontal axis direction be <i>"v<sub>1</sub>"</i> and the vertical axis direction be <i>"v<sub>2</sub>"</i></p>
+                        <p><span>Scaling</span>: eigenvectors are <i>v<sub>1</sub></i> (with eigenvalue <i>k<sub>1</sub></i>) and <i>v<sub>2</sub></i> (with eigenvalue <i>k<sub>2</sub></i>)</p>
+                        <p><span>Rotating</span>: eigenvectors are complex!</p>
+                        <p><span>Reflecting</span>: eigenvectors are <i>v<sub>1</sub></i> (with eigenvalue 1 because it stays exactly the same) and <i>v<sub>2</sub></i> (with eigenvalue -1 because it's flipped)</p>
+                    </div>
+                </div>
+
+                <p>Every vector <i>v<sub>i</sub></i> can be written as a liner combination of the eigenvectors. That means we can write the transformation of every vector <i>Av<sub>i</sub></i> as a linear combination of the transformed eigenvectors. This is what allows us to warp the unit circle in the way we did above.</p>
+                <div style="margin-bottom: -3.5rem;">$$ v_i= c_1u_1 + c_2u_2 + ... + c_nu_n$$</div>
+                <div>$$ Av_i= A(c_1u_1 + c_2u_2 + ... + c_nu_n) = c_1Au_1 + c_2Au_2 + ... c_nAu_n$$</div>
+
+                <h4>Eigendecomposition</h4>
+                <p>Each matrix can be decomposed into 3 matrices using it's eigenvectors and eigenvalues:</p>
+                <div>
+                    $$ A = QDQ^T=\begin{bmatrix}
+                    \uparrow & \uparrow & ... & \uparrow \\
+                    u_1 & u_2 & ... & u_n \\
+                    \downarrow & \downarrow & ... & \downarrow \\
+                    \end{bmatrix} \begin{bmatrix}
+                    \lambda_1 & 0 & ... & 0\\
+                    0 & \lambda_2 \\
+                    \vdots &  & \ddots \\
+                    0 & & & \lambda_b \\
+                    \end{bmatrix} \begin{bmatrix}
+                    \leftarrow & u_1 & \rightarrow \\
+                    \leftarrow & u_2 & \rightarrow \\
+                    & \vdots \\
+                    \leftarrow & u_n & \rightarrow \\
+                    \end{bmatrix}
+                    $$
+                </div>
+                <p><i>D</i> is a matrix with the eigenvalues along the diagonal and zeroes everywhere else.</p>
+                <p><i>Q</i> is a matrix with the normalized eigenvectors as its columns. (<i>Q<sup>T</sup></i> is the tranpose of <i>Q</i>, meaning flipped along the diagonal.)</p>
+
+                <p style="margin-top:8rem;">Now, those are big words, complicated matrices, and weird symbols. So I've created an interactive experience where you can click and drag eigenvectors, and see how it changes the matrix in real time.</p>
+
+                <div class="next" onclick="nexter1()">
+                    <p>Interact in 2D -></p>
+                </div>
             </div>
 
             <div class="footer">
@@ -432,6 +493,7 @@
             </div>
             
             <div class="popup">
+                <img src="images/labels.svg" style="position:fixed; width: 55rem; height: auto; right:0; bottom:0;">
                 <div style="width: min(50vw, 800px);">
                     <h3 style="color:var(--light);">What am I looking at?</h3>
                     <p>This is the ball, but fancier:</p>

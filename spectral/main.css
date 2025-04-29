@@ -85,7 +85,8 @@ span {
 .MathJax {
     width: 100% !important;
     font-size: min(2.2vw, var(--headerSize)) !important;
-    padding: 3rem 0 3rem 0 !important;
+    padding: 1.7rem 0 1.7rem 0 !important;
+    scale: .9;
     /* text-align: left !important; */
 }
 
@@ -209,6 +210,10 @@ img {
 /* ----------------------------------------------------------------------------------------------- */
 /* SNAP SCROLLS */
 
+.snapalt {
+    display: none;
+}
+
 .snapscroll { /* snap scroll div */
     position: relative;
     display: block;
@@ -329,6 +334,11 @@ img {
     justify-content: space-between;
     align-items: center;
 } .box2 > * { max-width: 45%; }
+
+.inlineEq {
+    text-align: center;
+    padding: 1rem 0 1rem 0;
+}
 
 /* ----------------------------------------------------------------------------------------------- */
 /* SCROLLBAR */
@@ -502,7 +512,7 @@ input[type=range] { /* slider */
     align-items: center;
     overflow: hidden;
     background-color: rgba(0,0,9,.97);
-    z-index: 100;
+    z-index: 19;
     transition: .5s ease;
 } .popup p {
     color: var(--light);
@@ -515,4 +525,19 @@ input[type=range] { /* slider */
 } #close:hover {
     background-color: #656aff9c;
     transition: 0.5s ease;
+}
+
+@media only screen and (max-width: 850px) {
+    img { margin: 0 auto 0 auto; }
+    .snapscroll { display: none; }
+    .snapalt { display: block; }
+    .box2 { display: block; }
+    .box2 > * { max-width: 100%; }
+    .row { display: block; }
+    .row > * { max-width: 100%; }
+    .MathJax { scale: 1.5; }
+}
+
+@media only screen and (max-width: 550px) {
+    .MathJax { scale: 2; }
 }

@@ -83,6 +83,12 @@ function nexter() {
     minteract.classList.remove("selected");
     window.scrollTo({top: 0, behavior: "instant"});
 }
+function nexter1() {
+    mbasics.classList.remove("selected");
+    mmatrix.classList.remove("selected");
+    minteract.classList.add("selected");
+    window.scrollTo({top: 0, behavior: "instant"});
+}
 menuInteract.addEventListener("click", () =>{
     if (menu.classList.contains("full")) {
         menu.classList.remove("full");
@@ -101,9 +107,11 @@ const popup = body.querySelector(".popup"),
 
 opener.addEventListener("click", () =>{
     popup.style.display = "flex";
+    opener.style.opacity = "20%";
 })
 closer.addEventListener("click", () =>{
     popup.style.display = "none";
+    opener.style.opacity = "100%";
 })
 
 // INTERACT -------------------------
@@ -203,8 +211,8 @@ function sketchInt(p) {
         // start
         eig1x = 300;
         eig1y = 120;
-        eig2x = 20;
-        eig2y = 100;
+        eig2x = 30;
+        eig2y = 70;
         eigenvals = [0,0,0,0];
 
         unitCircle = new Coords();
@@ -257,7 +265,7 @@ function sketchInt(p) {
         updateLines.innerHTML = "# of lines: "+String(count);
         
         var updateMat = document.getElementById("intMat");
-        updateMat.innerHTML = "$$\\small{\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2])/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}}$$";
+        updateMat.innerHTML = "$$\\small{\\begin{bmatrix}"+String(Math.round(myMatrix[0]*100)/100)+"&"+String(Math.round(myMatrix[1]*100)/100)+"\\\\"+String(Math.round(myMatrix[2]*100)/100)+"&"+String(Math.round(myMatrix[3]*100)/100)+"\\end{bmatrix}}$$";
         MathJax.typesetPromise([updateMat]).then(() => {});
 
         var updateEigs1 = document.getElementById("intEigs1");
