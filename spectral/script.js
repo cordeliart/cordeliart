@@ -90,6 +90,9 @@ menuMatrix.addEventListener("click", () =>{
     mmatrix.classList.add("selected");
     minteract.classList.remove("selected");    
     minimizer.classList.add("minhover");
+    labels.forEach(element => {
+        element.style.display = "none";
+    })
 })
 function nexter1() {
     mbasics.classList.remove("selected");
@@ -134,7 +137,7 @@ var varOrig = document.getElementById("varOrig"),
     varEigs = document.getElementById("varEigs"),
     showCircles = document.getElementById("col1"),
     showLines = document.getElementById("col2");
-var checks = [varOrig, varNew, varInv];
+var checks = [varOrig, varNew, varInv, varEigs];
 
 var eigenvecs, eigenvals, deg1, deg2, // eigenstuff
     myMatrix, inv, // matrices
@@ -147,6 +150,10 @@ var eig1x, eig2x, eig1y, eig2y, drag1, drag2;
 var myFont;
 
 function sketchInt(p) {
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // MENU CHECKBOXES
+
     checks.forEach(element => {
         element.querySelector(".checkCir").onclick = function(){ faded(element); }
         element.querySelector(".checkLine").onclick = function(){ faded(element); }
@@ -171,16 +178,6 @@ function sketchInt(p) {
         else { element.style.opacity = "100%"; }
         p.drawing();
     }
-    varEigs.querySelector(".checkLine").checked = true;
-    varEigs.onclick = function(){
-        if (varEigs.querySelector(".checkLine").checked) { varEigs.style.opacity = "100%"; } else { varEigs.style.opacity = "50%"; }
-        p.drawing();
-    }
-    varEigs.querySelector("p").onclick = function(){
-        varEigs.querySelector(".checkLine").checked = !varEigs.querySelector(".checkLine").checked;
-        if (varEigs.querySelector(".checkLine").checked) { varEigs.style.opacity = "100%"; } else { varEigs.style.opacity = "50%"; }
-        p.drawing();
-    }
     showCircles.addEventListener("click", function(){
         par = !varOrig.querySelector(".checkCir").checked;
         checks.forEach(element => {
@@ -195,8 +192,6 @@ function sketchInt(p) {
             element.querySelector(".checkLine").checked = par;
             faded(element);
         })
-        varEigs.querySelector(".checkLine").checked = par;
-        if (varEigs.querySelector(".checkLine").checked) { varEigs.style.opacity = "100%"; } else { varEigs.style.opacity = "50%"; }
         p.drawing();
     })
     
@@ -205,7 +200,6 @@ function sketchInt(p) {
     
     var slider = document.getElementById("lineCount"),
         count = slider.value;
-
     p.setup = function () {
         // canvas
         myHeight = p.windowHeight;
@@ -237,10 +231,6 @@ function sketchInt(p) {
         count0 = count;
         p.recalc();
     }
-
-    // ----------------------------------------------------------------------------------------------------------------
-    // MAIN FUNCTIONS
-
     slider.oninput = function(){
         count = 2*Math.round(slider.value/2);
 
@@ -252,6 +242,9 @@ function sketchInt(p) {
         }
         p.recalc();
     }
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // MAIN FUNCTIONS
 
     p.recalc = function() {
         newCoords = new Coords();
@@ -352,6 +345,11 @@ function sketchInt(p) {
                 p.ellipse(eig1x,-1*eig1y,16);
                 p.ellipse(eig2x,-1*eig2y,16);
             p.pop();
+        }
+        if (varEigs.querySelector(".checkCir").checked) {
+            p.stroke(222,255,35);
+            var len = 2*p.max( Math.sqrt(eig1x**2 + eig1y**2), Math.sqrt(eig2x**2 + eig2y**2) );
+            p.ellipse(0,0,len,len,50);
         }
     }
 

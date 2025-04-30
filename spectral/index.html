@@ -370,9 +370,10 @@
                 <p>You might notice that the bold vectors stay pointing in the same direction, even after they are transformed. They're only scaled up and down.</p>
                 <p>These are called <span>eigenvectors</span> <i>u<sub>i</sub></i>. The amount they're scaled is called an <span>eigenvalue</span> <i>λ<sub>i</sub></i>. Because the matrix only scales <i>u<sub>i</sub></i> by <i>λ<sub>i</sub></i>, we can say:</p>
                 <div>$$ Au_i = \lambda_1 u_i $$</div>
+                <p>The <span>spectral radius</span> of a matrix is the largest eigenvalue magnitude (absolute value).</p>
 
 
-                <div class="dropdown" style="margin: 0 0 5rem 0;">
+                <div class="dropdown" style="margin: 5rem 0 5rem 0;">
                     <input id="learn4" type="checkbox">
                     <label for="learn4">› &nbsp Exercise: What are the eigenvectors in the examples above?</label>
                     <div class="dropped">
@@ -409,6 +410,7 @@
                 </div>
                 <p><i>D</i> is a matrix with the eigenvalues along the diagonal and zeroes everywhere else.</p>
                 <p><i>Q</i> is a matrix with the normalized eigenvectors as its columns. (<i>Q<sup>T</sup></i> is the tranpose of <i>Q</i>, meaning flipped along the diagonal.)</p>
+                <p>This decomposition is how the vectors and ellipses on the next page are calculated.</p>
 
                 <p style="margin-top:8rem;">Now, those are big words, complicated matrices, and weird symbols. So I've created an interactive experience where you can click and drag eigenvectors, and see how it changes the matrix in real time.</p>
 
@@ -482,7 +484,7 @@
                     </div>
 
                     <div id="varEigs" class="row">
-                        <input type="checkbox" style="opacity:0;">
+                        <input type="checkbox" checked class="checkCir">
                         <p>eigenvectors</p>
                         <input type="checkbox" checked class="checkLine">
                     </div>
