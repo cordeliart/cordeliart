@@ -10,7 +10,8 @@ const body = document.querySelector("body"),
     mmatrix = body.querySelector(".matrix"),
     minteract = body.querySelector(".interact");
 var active = false;
-var scrollSections = body.querySelectorAll(".snapscroll")
+var scrollSections = body.querySelectorAll(".snapscroll");
+var labels = body.querySelectorAll(".label"), firstClick = 0;
 
 scrollSections.forEach(section => {
     // DOT ARRAY for each dot container
@@ -69,6 +70,9 @@ menuBasics.addEventListener("click", () =>{
     mmatrix.classList.remove("selected");
     minteract.classList.remove("selected");
     minimizer.classList.add("minhover");
+    labels.forEach(element => {
+        element.style.display = "none";
+    })
 })
 function nexter() {
     mbasics.classList.remove("selected");
@@ -102,6 +106,9 @@ menuInteract.addEventListener("click", () =>{
     mbasics.classList.remove("selected");
     mmatrix.classList.remove("selected");
     minteract.classList.add("selected");
+    labels.forEach(element => {
+        element.style.display = "none";
+    })
 })
 
 // INTERACT POPUP
@@ -203,7 +210,7 @@ function sketchInt(p) {
         // canvas
         myHeight = p.windowHeight;
         myWidth = p.windowWidth;
-        scalar = p.min(myWidth,myHeight)/8;
+        scalar = p.min(myWidth,myHeight)*.1;
         p.myCanvas = p.createCanvas(myWidth, myHeight, p.WEBGL);
         p.myCanvas.position(0,0);
         p.myCanvas.parent("#canvasInt");
@@ -214,17 +221,17 @@ function sketchInt(p) {
         p.noFill();
     
         // start
-        eig1x = 300;
-        eig1y = 120;
-        eig2x = 30;
-        eig2y = 70;
+        eig1x = 3*scalar;
+        eig1y = 1.2*scalar;
+        eig2x = .3*scalar;
+        eig2y = .7*scalar;
         eigenvals = [0,0,0,0];
 
         unitCircle = new Coords();
         for (i = 0; i < count; i++) {
             amount = i/count*2*p.PI;
-            unitCircle.x[i] = 100*p.cos(amount);
-            unitCircle.y[i] = 100*p.sin(amount);
+            unitCircle.x[i] = scalar*p.cos(amount);
+            unitCircle.y[i] = scalar*p.sin(amount);
         }
 
         count0 = count;
@@ -240,8 +247,8 @@ function sketchInt(p) {
         unitCircle = new Coords();
         for (i = 0; i < count; i++) {
             amount = i/count*2*p.PI;
-            unitCircle.x[i] = 100*p.cos(amount);
-            unitCircle.y[i] = 100*p.sin(amount);
+            unitCircle.x[i] = scalar*p.cos(amount);
+            unitCircle.y[i] = scalar*p.sin(amount);
         }
         p.recalc();
     }
@@ -251,9 +258,9 @@ function sketchInt(p) {
         invCoords = new Coords();
 
         // calc scalars and normalize
-        eigenvals[0] = norm([eig1x/100,eig1y/100]);
-        eigenvals[3] = norm([eig2x/100,eig2y/100]);
-        eigenvecs = [eig1x/100/eigenvals[0],eig2x/100/eigenvals[3],eig1y/100/eigenvals[0],eig2y/100/eigenvals[3]]
+        eigenvals[0] = norm([eig1x/scalar,eig1y/scalar]);
+        eigenvals[3] = norm([eig2x/scalar,eig2y/scalar]);
+        eigenvecs = [eig1x/scalar/eigenvals[0],eig2x/scalar/eigenvals[3],eig1y/scalar/eigenvals[0],eig2y/scalar/eigenvals[3]]
 
         myMatrix = matrixMult(eigenvecs,matrixMult(eigenvals,matrixInv(eigenvecs)));
         inv = matrixInv(myMatrix);
@@ -298,7 +305,7 @@ function sketchInt(p) {
         }
         if (varOrig.querySelector(".checkCir").checked) {
             p.stroke(101,106,255);
-            p.ellipse(0,0,200,200,p.min(count0,50)); // ellipse
+            p.ellipse(0,0,2*scalar,2*scalar,p.min(count0,50)); // ellipse
         }
     
         // GREEN NEW
@@ -390,6 +397,7 @@ function sketchInt(p) {
         myHeight = p.windowHeight;
         myWidth = p.windowWidth;
         p.resizeCanvas(p.windowWidth,p.windowHeight);
+        scalar = p.min(myWidth,myHeight)*.1;
         p.recalc();
     }
 }

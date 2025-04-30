@@ -90,12 +90,12 @@ span {
     /* text-align: left !important; */
 }
 
-.caption {
-    font-size: .8rem;
-    font-style: italic;
-    color: var(--darkish);
-    text-align: center;
-    margin: -.5rem 0 2rem 0;
+.title {
+    font-size: calc(var(--headerSize) * 2);
+    font-weight: 500;
+    color: var(--accent) !important;
+    margin: 0 0 3rem 0;
+    letter-spacing: .3rem;
 }
 
 a {
@@ -113,6 +113,43 @@ img {
 }
 
 /* ----------------------------------------------------------------------------------------------- */
+
+.opener1, .opener2, .opener3, .opener4 { /* opening animation */
+    position: fixed;
+    z-index: 100000;
+    background: url("images/og.svg");
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+    background-color: var(--accent);
+    background-attachment: fixed;
+    top: 0;
+    bottom: 0;
+    animation-name: slideout;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-outl;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+} .opener1 {
+    left: 0;
+    right: 75vw;
+    background-position: 0% 50%;
+    animation-delay: 2s;
+} .opener2 {
+    left: 25vw;
+    right: 50vw;
+    background-position: 25% 50%;
+    animation-delay: 2.3s;
+} .opener3 {
+    left: 50vw;
+    right: 25vw;
+    background-position: -50% 50%;
+    animation-delay: 2.6s;
+} .opener4 {
+    left: 75vw;
+    right: 0;
+    background-position: -75% 50%;
+    animation-delay: 2.9s;
+}
 
 .menu { /* sidebar navigation */
     position: fixed;
@@ -550,4 +587,9 @@ input[type=range] { /* slider */
 
 @media only screen and (max-width: 550px) {
     .MathJax { scale: 2; }
+}
+
+@keyframes slideout {
+    0% { top: 0; bottom: 0;}
+    100% { top: 100vh; bottom: -100vh;}
 }
