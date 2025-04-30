@@ -210,7 +210,7 @@ function sketchInt(p) {
         // canvas
         myHeight = p.windowHeight;
         myWidth = p.windowWidth;
-        scalar = p.min(myWidth,myHeight)*.1;
+        scalar = p.min(myWidth,myHeight)*.15;
         p.myCanvas = p.createCanvas(myWidth, myHeight, p.WEBGL);
         p.myCanvas.position(0,0);
         p.myCanvas.parent("#canvasInt");
@@ -292,7 +292,7 @@ function sketchInt(p) {
     }
     
     p.drawing = function () {
-        p.background(0, 0, 30);
+        p.background(12, 8, 36);
         timer = 0;
     
         // BLUE ORIGINAL
@@ -397,7 +397,7 @@ function sketchInt(p) {
         myHeight = p.windowHeight;
         myWidth = p.windowWidth;
         p.resizeCanvas(p.windowWidth,p.windowHeight);
-        scalar = p.min(myWidth,myHeight)*.1;
+        // scalar = p.min(myWidth,myHeight)*.15;
         p.recalc();
     }
 }
