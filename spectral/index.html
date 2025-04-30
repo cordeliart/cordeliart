@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8">
         <title>SPECTRAL</title>
-        <!-- <meta name="description" content="Multmedia designer based in the United States.">
-        <meta name="keywords" content="designer, multimedia, graphic design, portfolio"> -->
+        <meta name="description" content="Explore the world of matrices.">
+        <meta name="keywords" content="linear algebra, interactive, matrix">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
-        <!-- <link rel="icon" href="images/tab.png"> -->
+        <link rel="icon" href="images/tab.svg">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- <meta property="og:image" content="https://www.cordeliart.com/images/og.png"/>
+        <meta property="og:image" content="https://www.cordeliart.com/spectral/images/og.png"/>
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630"> -->
+        <meta property="og:image:height" content="630">
 
         <style>
             .title {
@@ -29,8 +29,11 @@
     </head>
 
     <body>
-        <div class="menu hidden">
-            <div class="minimizer"></div>
+        <div class="menu full">
+            <div class="minimizer minhover">
+                <p style="color: var(--accent); font-size: var(--body-size); font-weight: 600; line-height: 1rem; margin: 0; padding: 0; letter-spacing: 2px;">MENU</p>
+                <img src="images/tablogo.svg" style="width: 3.5rem; height: auto; margin-right: .25rem; margin-left: 1rem;">
+            </div>
             <p class="title">SPECTRAL</p>
             <div style="padding-left:1.5rem; border-left: solid 8px var(--accent);">
                 <div class="menuItem menuBasics">
@@ -40,17 +43,17 @@
             
                 <div class="menuItem menuMatrix">
                     <h1>Matrices as Transformations</h1>
-                    <p>Visualizing eigenvalues and eigenvectors.</p>
+                    <p>The ball: visualizing eigenvalues and eigenvectors.</p>
                 </div>
             
                 <div class="menuItem menuInteract">
                     <h1>Interact</h1>
-                    <p>Warp and shift in 2D and 3D.</p>
+                    <p>Warp and shift in 2D.</p>
                 </div>
             </div>
         </div>
 
-        <div class="content basics selected">
+        <div class="content basics">
             <div class="margins">
                 <h2>The Basics</h2>
                 <h3>Vectors, linear combinations, span, and bare-bones matrix algebra. Scroll to begin.</h3>
@@ -201,8 +204,7 @@
 
                 <h4>Linearity</h4>
 
-                <p>The important thing, though, is that matrices are <span>linear operations</span>! Hence, the name linear algebra.</p>
-                <p>That means addition and scalar multiplication are <span>distributive</span>, so:</p>
+                <p>The important thing, though, is that matrices are <span>linear operations</span>! Hence, the name linear algebra. That means vector addition and scalar multiplication can be moved through the operator:</p>
                 <div style="color:var(--darkish);">$$ A(x+y) = Ax + Ay $$</div>
                 <div style="color:var(--darkish); margin-top: -5rem;">$$ A(kx) = kAx $$</div>
 
@@ -298,7 +300,7 @@
             <div class="margins">
                 <h4>Working with Everything (in 2D)</h4>
                 <p>We've been working mostly with one vector made of two components.</p>
-                <p>Now, we're going to think of every vector as a linear combination of the components to see how a matrix affects <span>all</span> vectors.</p>
+                <p>Now, we're going to think of every vector as a linear combination of the components to see how a matrix stretches <span>all</span> vectors.</p>
                 <div class="row">
                     <div>
                         <p style="text-align:center;"><span>Scaling</span></p>
@@ -367,7 +369,7 @@
                 ></dotlottie-player>
 
                 <p>You might notice that the bold vectors stay pointing in the same direction, even after they are transformed. They're only scaled up and down.</p>
-                <p>These are called <span>eigenvectors</span> <i>u<sub>i</sub></i>. The amount they're scaled is called an <span>eigenvalue</span> <i>λ<sub>i</sub></i>. Because the matrix <i>A</i> applied to <i>u<sub>i</sub></i> is the same as scaling <i>u<sub>i</sub></i> by <i>λ<sub>i</sub></i>, we can say:</p>
+                <p>These are called <span>eigenvectors</span> <i>u<sub>i</sub></i>. The amount they're scaled is called an <span>eigenvalue</span> <i>λ<sub>i</sub></i>. Because the matrix only scales <i>u<sub>i</sub></i> by <i>λ<sub>i</sub></i>, we can say:</p>
                 <div>$$ Au_i = \lambda_1 u_i $$</div>
 
 
@@ -382,7 +384,7 @@
                     </div>
                 </div>
 
-                <p>Every vector <i>v<sub>i</sub></i> can be written as a liner combination of the eigenvectors. That means we can write the transformation of every vector <i>Av<sub>i</sub></i> as a linear combination of the transformed eigenvectors. This is what allows us to warp the unit circle in the way we did above.</p>
+                <p>Every vector <i>v<sub>i</sub></i> can be written as a liner combination of the eigenvectors. That means we can write the transformation of every vector <i>Av<sub>i</sub></i> as a linear combination of the transformed eigenvectors. <span>This is what allows us to warp the unit circle in the way we did above.</span></p>
                 <div style="margin-bottom: -3.5rem;">$$ v_i= c_1u_1 + c_2u_2 + ... + c_nu_n$$</div>
                 <div>$$ Av_i= A(c_1u_1 + c_2u_2 + ... + c_nu_n) = c_1Au_1 + c_2Au_2 + ... c_nAu_n$$</div>
 
@@ -432,63 +434,64 @@
 
         <div class="content interact" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
             <div id="canvasInt">
-                <div class="values">
-                    <div class="tips">?</div>
+            </div>
+            
+            <div class="values">
+                <div class="tips">?</div>
 
-                    <div class="grids" style="width: 16rem;">
-                        <div style="width: 100%; max-width: 200%;"><h5>Matrix</h5></div>
-                        <div id="intMat" style="color:var(--light); margin:0;padding:0;">
-                            $$\small{\begin{bmatrix}
-                            a & b \\
-                            c & d
-                            \end{bmatrix}}$$
+                <div class="grids" style="width: 16rem;">
+                    <div style="width: 100%; max-width: 200%;"><h5>Matrix</h5></div>
+                    <div id="intMat" style="color:var(--light); margin:0;padding:0;">
+                        $$\small{\begin{bmatrix}
+                        a & b \\
+                        c & d
+                        \end{bmatrix}}$$
+                    </div>
+                    <div class="line"></div>
+                    <div style="width: 100%; text-align: center;">
+                        <div id="intEigs1" style="color:var(--light); width: fit-content; margin: 0 auto .5rem auto;">
+                            $$\scriptsize{\lambda_1= k, u_1 = \langle v_1, v_2\rangle}$$
                         </div>
-                        <div class="line"></div>
-                        <div style="width: 100%; text-align: center;">
-                            <div id="intEigs1" style="color:var(--light); width: fit-content; margin: 0 auto .5rem auto;">
-                                $$\scriptsize{\lambda_1= k, u_1 = \langle v_1, v_2\rangle}$$
-                            </div>
-                            <div id="intEigs2" style="color:var(--light); width: fit-content; margin: 0 auto 0 auto;">
-                                $$\scriptsize{\lambda_2= k, u_2 = \langle v_1, v_2\rangle}$$
-                            </div>
+                        <div id="intEigs2" style="color:var(--light); width: fit-content; margin: 0 auto 0 auto;">
+                            $$\scriptsize{\lambda_2= k, u_2 = \langle v_1, v_2\rangle}$$
                         </div>
                     </div>
+                </div>
 
-                    <div class="grids" style="width: 11rem;">
-                        <div class="row">
-                            <h5 id="col1" style="width:47%; text-align: left;">Circle</h5>
-                            <h5 id="col2" style="width:47%; text-align: right;">Lines</h5>
-                        </div>
-    
-                        <div id="varOrig" class="row">
-                            <input type="checkbox" checked class="checkCir">
-                            <p>unit circle</p>
-                            <input type="checkbox" checked class="checkLine">
-                        </div>
-                        
-                        <div id="varNew" class="row">
-                            <input type="checkbox" checked class="checkCir">
-                            <p>transformed</p>
-                            <input type="checkbox" checked class="checkLine">
-                        </div>
-    
-                        <div id="varInv" class="row">
-                            <input type="checkbox" checked class="checkCir">
-                            <p>inverse</p>
-                            <input type="checkbox" checked class="checkLine">
-                        </div>
-    
-                        <div id="varEigs" class="row">
-                            <input type="checkbox" style="opacity:0;">
-                            <p>eigenvectors</p>
-                            <input type="checkbox" checked class="checkLine">
-                        </div>
-    
-                        <div class="line"></div>
-    
-                        <h5 id="numLines"># of Lines: </h5>
-                        <input type="range" min="60" max="150" value="100" class="slider" id="lineCount">
+                <div class="grids" style="width: 11rem;">
+                    <div class="row">
+                        <h5 id="col1" style="width:47%; text-align: left;">Circle</h5>
+                        <h5 id="col2" style="width:47%; text-align: right;">Lines</h5>
                     </div>
+
+                    <div id="varOrig" class="row">
+                        <input type="checkbox" checked class="checkCir">
+                        <p>unit circle</p>
+                        <input type="checkbox" checked class="checkLine">
+                    </div>
+                    
+                    <div id="varNew" class="row">
+                        <input type="checkbox" checked class="checkCir">
+                        <p>transformed</p>
+                        <input type="checkbox" checked class="checkLine">
+                    </div>
+
+                    <div id="varInv" class="row">
+                        <input type="checkbox" checked class="checkCir">
+                        <p>inverse</p>
+                        <input type="checkbox" checked class="checkLine">
+                    </div>
+
+                    <div id="varEigs" class="row">
+                        <input type="checkbox" style="opacity:0;">
+                        <p>eigenvectors</p>
+                        <input type="checkbox" checked class="checkLine">
+                    </div>
+
+                    <div class="line"></div>
+
+                    <h5 id="numLines"># of Lines: </h5>
+                    <input type="range" min="60" max="150" value="100" class="slider" id="lineCount">
                 </div>
             </div>
             

@@ -58,6 +58,7 @@ scrollSections.forEach(section => {
 
 minimizer.addEventListener("click", () =>{
     menu.classList.toggle("hidden");
+    minimizer.classList.toggle("minhover");
 })
 menuBasics.addEventListener("click", () =>{
     if (menu.classList.contains("full")) {
@@ -67,7 +68,15 @@ menuBasics.addEventListener("click", () =>{
     mbasics.classList.add("selected");
     mmatrix.classList.remove("selected");
     minteract.classList.remove("selected");
+    minimizer.classList.add("minhover");
 })
+function nexter() {
+    mbasics.classList.remove("selected");
+    mmatrix.classList.add("selected");
+    minteract.classList.remove("selected");
+    window.scrollTo({top: 0, behavior: "instant"});
+    minimizer.classList.add("minhover");
+}
 menuMatrix.addEventListener("click", () =>{
     if (menu.classList.contains("full")) {
         menu.classList.remove("full");
@@ -76,18 +85,14 @@ menuMatrix.addEventListener("click", () =>{
     mbasics.classList.remove("selected");
     mmatrix.classList.add("selected");
     minteract.classList.remove("selected");    
+    minimizer.classList.add("minhover");
 })
-function nexter() {
-    mbasics.classList.remove("selected");
-    mmatrix.classList.add("selected");
-    minteract.classList.remove("selected");
-    window.scrollTo({top: 0, behavior: "instant"});
-}
 function nexter1() {
     mbasics.classList.remove("selected");
     mmatrix.classList.remove("selected");
     minteract.classList.add("selected");
     window.scrollTo({top: 0, behavior: "instant"});
+    minimizer.classList.add("minhover");
 }
 menuInteract.addEventListener("click", () =>{
     if (menu.classList.contains("full")) {
@@ -382,6 +387,8 @@ function sketchInt(p) {
         p.line(x0,-1*y0,x,-1*y);
     }
     p.windowResized = function() {
+        myHeight = p.windowHeight;
+        myWidth = p.windowWidth;
         p.resizeCanvas(p.windowWidth,p.windowHeight);
         p.recalc();
     }
