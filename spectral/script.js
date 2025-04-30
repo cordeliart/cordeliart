@@ -292,7 +292,7 @@ function sketchInt(p) {
     }
     
     p.drawing = function () {
-        p.background(12, 8, 36);
+        p.background(0,0,8);
         timer = 0;
     
         // BLUE ORIGINAL
