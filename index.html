@@ -16,21 +16,6 @@
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
-
-        <style>
-        .leftfix {
-            opacity: 0%;
-            animation: colorize 2s ease-in-out;
-            /*animation-delay: 1.7s;*/
-            animation-fill-mode: forwards;
-        }
-        .right {
-            opacity: 0;
-            animation: colorize 2s ease-in-out;
-            /*--animation-delay: 2.5s;*/
-            animation-fill-mode: forwards;
-        }
-    </style>
     </head>
     
     <body>
@@ -188,21 +173,14 @@
         </div>
 
         <script>
-            const loader = document.querySelector('.loader');
-            const left = document.querySelector('.leftfix');
-            const right = document.querySelector('.right');
             window.onload = function () {
                 if (!('firstLoad' in localStorage)) {
-                    loader.style.display = 'block';
+                    document.querySelector('.loader').style.display = 'none';
+                    document.querySelector('.leftfix').style.animationDelay = '0s';
+                    document.querySelector('.right').style.animationDelay = '0s';
+                }
+                else {
                     localStorage.setItem("firstLoad", true);
-                    
-                    left.style.animationDelay = '1.7s';
-                    right.style.animationDelay = '2.5s';
-                } else {
-                    loader.style.display = 'none';
-
-                    left.style.animationDelay = '0';
-                    right.style.animationDelay = '0';
                 }
             }
         </script>
