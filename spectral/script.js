@@ -118,15 +118,18 @@ menuInteract.addEventListener("click", () =>{
 
 const popup = body.querySelector(".popup"),
     opener = body.querySelector(".tips"),
-    closer = body.querySelector("#close");
+    closer = body.querySelector("#close"),
+    popupbg = body.querySelector(".popupbg");
 
 opener.addEventListener("click", () =>{
     popup.style.display = "flex";
     opener.style.opacity = "20%";
+    popupbg.style.display = "block";
 })
 closer.addEventListener("click", () =>{
     popup.style.display = "none";
     opener.style.opacity = "100%";
+    popupbg.style.display = "none";
 })
 
 // INTERACT -------------------------
@@ -335,6 +338,11 @@ function sketchInt(p) {
         }
     
         // EIGENVECTORS
+        if (varEigs.querySelector(".checkCir").checked) {
+            p.stroke(222,255,35);
+            var len = 2*p.max( Math.sqrt(eig1x**2 + eig1y**2), Math.sqrt(eig2x**2 + eig2y**2) );
+            p.ellipse(0,0,len,len,50);
+        }
         if (varEigs.querySelector(".checkLine").checked) {
             p.stroke(222,255,35);
             p.push();
@@ -345,11 +353,6 @@ function sketchInt(p) {
                 p.ellipse(eig1x,-1*eig1y,16);
                 p.ellipse(eig2x,-1*eig2y,16);
             p.pop();
-        }
-        if (varEigs.querySelector(".checkCir").checked) {
-            p.stroke(222,255,35);
-            var len = 2*p.max( Math.sqrt(eig1x**2 + eig1y**2), Math.sqrt(eig2x**2 + eig2y**2) );
-            p.ellipse(0,0,len,len,50);
         }
     }
 

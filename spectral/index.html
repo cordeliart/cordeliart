@@ -204,8 +204,8 @@
                 <h4>Linearity</h4>
 
                 <p>The important thing, though, is that matrices are <span>linear operations</span>! Hence, the name linear algebra. That means vector addition and scalar multiplication can be moved through the operator:</p>
-                <div style="color:var(--darkish);">$$ A(x+y) = Ax + Ay $$</div>
-                <div style="color:var(--darkish); margin-top: -5rem;">$$ A(kx) = kAx $$</div>
+                <div style="color:var(--darkish); margin-bottom: -3.5rem;">$$ A(x+y) = Ax + Ay $$</div>
+                <div style="color:var(--darkish);">$$ A(kx) = kAx $$</div>
 
                 <p>Yippee! This is a super useful property that doesn't happen very often. (For example, the function f(x) = x<sup>2</sup> is not linear, because f(2x) ≠ 2f(x).)</p>
 
@@ -436,6 +436,8 @@
         <div class="content interact" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;">
             <div id="canvasInt">
             </div>
+
+            <div class="popupbg"></div>
             
             <div class="values">
                 <div class="tips">?</div>
@@ -497,7 +499,6 @@
             </div>
             
             <div class="popup">
-                <img src="images/labels.svg" style="position:fixed; width: 55rem; height: auto; right:0; bottom:0;">
                 <div style="width: min(50vw, 800px);">
                     <h3 style="color:var(--light);">What am I looking at?</h3>
                     <p>This is the ball, but fancier:</p>
@@ -508,8 +509,14 @@
                     </div>
                     <p>Drag around the eigenvectors to manipulate the matrix—you'll notice that the eigenvectors will always be parallel to the blue unit circle lines.</p>
                 </div>
+                <img src="images/labels.svg" id="layover">
                 <div id="close">Close</div>
             </div>
+        </div>
+
+        <div class="error">
+            <img src="images/error.svg">
+            <p style="margin-top: 3rem;">Oh no, your window is too small! Please view on laptop or desktop.</p>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>

@@ -26,6 +26,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, a, input {
 html {
     background-color: var(--light);
     color: var(--text);
+    overflow-x: hidden;
 }
 
 h1 {
@@ -86,7 +87,7 @@ span {
     width: 100% !important;
     font-size: min(2.2vw, var(--headerSize)) !important;
     padding: 1.7rem 0 1.7rem 0 !important;
-    scale: .9;
+    scale: 1;
     /* text-align: left !important; */
 }
 
@@ -113,6 +114,24 @@ img {
 }
 
 /* ----------------------------------------------------------------------------------------------- */
+
+.error {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 2rem;
+    background-color: var(--dark);
+    box-sizing: border-box;
+    z-index: 100000000000;
+} .error p {
+    font-size: var(--body-size);
+    color: var(--accent);
+}
 
 .opener1, .opener2, .opener3, .opener4 { /* opening animation */
     position: fixed;
@@ -213,6 +232,10 @@ img {
     margin-left: 2rem;
     transition: .5s ease;
     cursor: pointer;
+}
+
+.label {
+    transition: 0.5s ease;
 }
 
 /* ----------------------------------------------------------------------------------------------- */
@@ -472,7 +495,7 @@ input[type=range] { /* slider */
     cursor: pointer;
 }
 
-.values { /* container for the menus */
+.values { /* flex container for the menus */
     position: absolute;
     right: 3rem;
     bottom: 3rem;
@@ -481,30 +504,10 @@ input[type=range] { /* slider */
     justify-content: flex-end;
     align-items: flex-end;
     gap: 2rem;
-    z-index: 10;
-}
-
-.tips {
-    display: block;
-    height: 2.5rem;
-    width: 2.5rem;
-    border: 2px solid var(--light);
-    border-radius: 2rem;
-    z-index: 20;
-    padding: none;
-    text-align: center;
-    font-size: 1.7rem;
-    color:var(--light);
-    line-height: 2.38rem;
-    transition: .5s ease;
-} .tips:hover {
-    background-color: var(--darkish);
-    transition: .5s ease;
 }
 
 .grids { /* menus */
     background-color: rgba(16,17,63,.6);
-    z-index: 10;
     padding: 1.5rem;
     display: flex;
     flex-flow: column;
@@ -530,21 +533,27 @@ input[type=range] { /* slider */
     height: 2px;
     background-color: var(--light);
     opacity: 10%;
-}
-
-.row { /* flex row */
+} .row { /* flex row */
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-}
-
-.column { /* flex column */
+} .column { /* flex column */
     display: flex;
     flex-flow: column;
     gap: .2rem;
 }
 
+.popupbg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgba(0,0,9,.97);
+    transition: .5s ease;
+}
 .popup {
     position: fixed;
     top: 0;
@@ -557,21 +566,48 @@ input[type=range] { /* slider */
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: rgba(0,0,9,.97);
-    z-index: 19;
     transition: .5s ease;
 } .popup p {
     color: var(--light);
+}
+
+.tips { /* help symbol */
+    display: block;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 2px solid var(--light);
+    border-radius: 2rem;
+    padding: none;
+    text-align: center;
+    font-size: 1.7rem;
+    color:var(--light);
+    line-height: 2.38rem;
+    transition: .5s ease;
+} .tips:hover {
+    background-color: var(--darkish);
+    transition: .5s ease;
+} #layover { /* svg label layover */
+    display: block;
+    position: fixed;
+    width: 55rem;
+    height: auto;
+    right:0;
+    bottom:0;
 }
 
 #close {
     background-color: var(--darkish);
     padding: 1rem;
     transition: 0.5s ease;
-    z-index: 100;
+    z-index: 100 !important;
 } #close:hover {
     background-color: #656aff9c;
     transition: 0.5s ease;
+}
+
+@keyframes slideout {
+    0% { top: 0; bottom: 0;}
+    100% { top: 100vh; bottom: -100vh;}
 }
 
 @media only screen and (max-width: 850px) {
@@ -582,14 +618,14 @@ input[type=range] { /* slider */
     .box2 > * { max-width: 100%; }
     .row { display: block; }
     .row > * { max-width: 100%; }
-    .MathJax { scale: 1.5; }
+    .MathJax { scale: 1.7; }
+    .label { display: none; }
 }
 
-@media only screen and (max-width: 550px) {
-    .MathJax { scale: 2; }
-}
-
-@keyframes slideout {
-    0% { top: 0; bottom: 0;}
-    100% { top: 100vh; bottom: -100vh;}
+@media only screen and (max-width: 700px){
+    .error {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
 }
