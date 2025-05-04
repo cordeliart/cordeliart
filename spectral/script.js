@@ -277,12 +277,20 @@ function sketchInt(p) {
         MathJax.typesetPromise([updateMat]).then(() => {});
 
         var updateEigs1 = document.getElementById("intEigs1");
-        updateEigs1.innerHTML = "$$\\scriptsize{\\lambda_1="+String(Math.round(eigenvals[0]*100)/100)+", u_1 = \\langle "+String(Math.round(eigenvecs[0]*100)/100)+", "+String(Math.round(eigenvecs[2]*100)/100)+"\\rangle}$$";
+        updateEigs1.innerHTML = "$$\\scriptsize{\\lambda_1="+String(Math.round(eigenvals[0]*100)/100)+",\\quad \\vec{u_1} = \\begin{bmatrix} "+String(Math.round(eigenvecs[0]*100)/100)+"\\\\ "+String(Math.round(eigenvecs[2]*100)/100)+"\\end{bmatrix}}$$";
         MathJax.typesetPromise([updateEigs1]).then(() => {});
 
         var updateEigs2 = document.getElementById("intEigs2");
-        updateEigs2.innerHTML = "$$\\scriptsize{\\lambda_2="+String(Math.round(eigenvals[3]*100)/100)+", u_2 = \\langle "+String(Math.round(eigenvecs[1]*100)/100)+", "+String(Math.round(eigenvecs[3]*100)/100)+"\\rangle}$$";
+        updateEigs2.innerHTML = "$$\\scriptsize{\\lambda_2="+String(Math.round(eigenvals[3]*100)/100)+",\\quad \\vec{u_2} = \\begin{bmatrix} "+String(Math.round(eigenvecs[1]*100)/100)+"\\\\ "+String(Math.round(eigenvecs[3]*100)/100)+"\\end{bmatrix}}$$";
         MathJax.typesetPromise([updateEigs2]).then(() => {});
+
+        // var updateEigs1 = document.getElementById("intEigs1");
+        // updateEigs1.innerHTML = "$$\\scriptsize{\\lambda_1="+String(Math.round(eigenvals[0]*100)/100)+", u_1 = [ "+String(Math.round(eigenvecs[0]*100)/100)+", "+String(Math.round(eigenvecs[2]*100)/100)+"]^T}$$";
+        // MathJax.typesetPromise([updateEigs1]).then(() => {});
+
+        // var updateEigs2 = document.getElementById("intEigs2");
+        // updateEigs2.innerHTML = "$$\\scriptsize{\\lambda_2="+String(Math.round(eigenvals[3]*100)/100)+", u_2 = [ "+String(Math.round(eigenvecs[1]*100)/100)+", "+String(Math.round(eigenvecs[3]*100)/100)+"]^T}$$";
+        // MathJax.typesetPromise([updateEigs2]).then(() => {});
 
         p.drawing();
     }

@@ -19,13 +19,13 @@
     </head>
 
     <body>
-        <div>
+        <!-- <div>
             <div class="opener1"></div>
             <div class="opener2"></div>
             <div class="opener3"></div>
             <div class="opener4"></div>
-        </div>
-        <div class="menu full">
+        </div> -->
+        <div class="menu hidden">
             <div class="minimizer minhover">
                 <p style="color: var(--accent); font-size: var(--body-size); font-weight: 600; line-height: 1rem; margin: 0; padding: 0; letter-spacing: 2px;">MENU</p>
                 <img src="images/tablogo.svg" style="width: 3.5rem; height: auto; margin-right: .25rem; margin-left: 1rem;">
@@ -81,9 +81,9 @@
             <div class="margins snapalt">
                 <img src="images/fig1.svg">
                 <img src="images/fig2.svg">
-                <div> $$ v = \begin{bmatrix} v_1 \\ v_2\end{bmatrix}$$ </div>
+                <div class="bigEq">$$ \vec{v} = \begin{bmatrix} v_1 \\ v_2\end{bmatrix}$$ </div>
                 <p>In simple 2D, you can think of the components as the x-component and y-component...</p>
-                <div> $$ v = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix}$$ </div>
+                <div class="bigEq">$$ \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix}$$ </div>
                 <p>...but we can also go to as many dimensions as we want.</p>
             </div>
 
@@ -92,10 +92,12 @@
                 <div class="box2">
                     <div>
                         <p>If you have a collection of vectors, you call them a <span>set</span>. The only restriction here is no duplicates.</p>
+                        <div class="bigEq" style="color:var(--light);">$$\{\vec{v},\vec{x},\vec{y},\vec{z}\}$$</div>
                         <img src="images/set.svg" alt="set example">
                     </div>
                     <div>
                         <p>Another important term is a <span>linear combination</span>: a vector produced scaling and/or adding vectors.</p>
+                        <div class="bigEq" style="color:var(--light);">$$ c_1\vec{x} + c_2\vec{y} + ... + c_n\vec{z}$$</div>
                         <img src="images/lc.svg" alt="linear combination examples">
                     </div>
                 </div>
@@ -109,7 +111,7 @@
                 <div class="box2">
                     <p>These two vectors are <span>linearly independent</span>, so the span is a plane...</p>
                     <img src="images/spanli.svg" style="max-width: 350px;" alt="span of 2 linearly independent vectors">
-                    <p>...but these two are not. They are <span>linearly dependent</span> because y is a linear combination of x (specifically, y is a scaled copy of x, and vice versa).</p>
+                    <p>...but these two are not. They are <span>linearly dependent</span> because \(\vec{y}\) is a linear combination of \(\vec{x}\) (specifically, \(\vec{y}\) is a scaled copy of \(\vec{x}\), and vice versa).</p>
                     <img src="images/spanld.svg" style="max-width: 350px;" alt="span of 2 linearly dependent vectors">
                 </div>
 
@@ -118,14 +120,14 @@
                 <p>There are a few ways to think about it:</p>
                 <ul style="margin-bottom: 3rem;">
                     <li><p>the number of vectors matches the dimension of the span (in the first example, 2 vectors making a 2-D plane = linearly independent)</p></li>
-                    <li><p>each vector brings a new direction to the set (in the second example, y does not bring a new direction to x = NOT linearly independent)</p></li>
+                    <li><p>each vector brings a new direction to the set (in the second example, \(\vec{y}\) does not bring a new direction to \(\vec{x}\) = NOT linearly independent)</p></li>
                 </ul>
             </div>
 
             <div class="margins accent" style="margin-top:-3rem;">
                 <div class="row">
                     <p style="max-width: 50ch;">The super formal definition is that a linear combination of the vectors equals zero is if and only if <span>ALL</span> the coefficients are zero.</p>
-                    <div style="margin: -1.2rem 0 -1.1rem 0;">$$0=c_1v_1+x_2v_2+...+c_nv_n$$</div>
+                    <div class="bigEq" style="color:var(--light);">$$0= c_1\vec{x} + c_2\vec{y} + ... + c_n\vec{z}$$</div>
                 </div>
             </div>
 
@@ -133,20 +135,18 @@
                 <h4>Matrices</h4>
                 <div class="box2">
                     <div>
-                        <p>A <span>matrix</span> is a grid with m rows and n columns of <span>elements</span> (not components), labeled by their row, then their column.</p>
+                        <p>A <span>matrix</span> is a grid with \(m\) rows and \(n\) columns of <span>elements</span> (not components), labeled by their row, then their column.</p>
                             
                         <p>For our sake, a matrix is a <span>function</span> that acts on a vector. Input a vector, output a vector. For our sake, the calculations are not important.</p>
                     </div>
-                    <div>
-                        <p style="color:var(--darkish);">
-                            $$A_{m\times n} = \begin{bmatrix}
-                            a_{1,1} & a_{1,2} & ... & a_{1,n} \\
-                            a_{2,1} & a_{2,2} & \\
-                            \vdots & & \ddots \\
-                            a_{m,1} &&& a_{m,n}
-                            \end{bmatrix}
-                            $$
-                        </p>
+                    <div class="bigEq">
+                        $$A_{m\times n} = \begin{bmatrix}
+                        a_{1,1} & a_{1,2} & ... & a_{1,n} \\
+                        a_{2,1} & a_{2,2} & \\
+                        \vdots & & \ddots \\
+                        a_{m,1} &&& a_{m,n}
+                        \end{bmatrix}
+                        $$
                     </div>
                 </div>
 
@@ -157,16 +157,16 @@
                         <p>First off, the height of your vector <span>must</span> match the width of your matrix. Otherwise everything breaks.</p>
                         <p>The process for each row:</p>
                         <ol>
-                            <li><p>multiply the first A element by the first x component</p></li>
-                            <li><p>multiply the second A element by the second x component</p></li>
-                            <li><p>multiply the third A element by the third x component</p></li>
+                            <li><p>multiply the first \(A\) element by the first \(\vec{x}\) component</p></li>
+                            <li><p>multiply the second \(A\) element by the second \(\vec{x}\) component</p></li>
+                            <li><p>multiply the third \(A\) element by the third \(\vec{x}\) component</p></li>
                             <li><p>...you get the idea</p></li>
                             <li><p>then add each row up and you're done!</p></li>
                         </ol>
-                        <p>So you put in a vector of size n, and output a vector of size m.</p>
+                        <p>So you put in a vector of size \(n\), and output a vector of size \(m\).</p>
                         
-                        <div style="color:var(--darkish);">
-                            $$A{\color{black}x} = \begin{bmatrix}
+                        <div class="bigEq">
+                            $$A{\color{black}\vec{x}} = \begin{bmatrix}
                                 a_{1,1} & a_{1,2} & ... & a_{1,n} \\
                                 a_{2,1} & a_{2,2} & \\ \\
                                 \vdots & & \ddots \\ \\
@@ -185,14 +185,14 @@
                             $$
                         </div>
                         <p>Need a more concrete example? Here you go!</p>
-                        <div style="color:var(--darkish);">
+                        <div class="bigEq">
                             $$A = \begin{bmatrix} 1 & 3 \\ 2 & 0 \\ 4 & -1\end{bmatrix}
                             \quad\quad\quad
-                            {\color{black}x = \begin{bmatrix} 5\\6\end{bmatrix}}
+                            {\color{black}\vec{x} = \begin{bmatrix} 5\\6\end{bmatrix}}
                             $$
                         </div>
-                        <div style="color:var(--darkish); margin-top: -5rem;">
-                            $$A{\color{black}x} = \begin{bmatrix} 1 & 3 \\ 2 & 0 \\ 4 & -1\end{bmatrix}
+                        <div class="bigEq">
+                            $$A{\color{black}\vec{x}} = \begin{bmatrix} 1 & 3 \\ 2 & 0 \\ 4 & -1\end{bmatrix}
                             {\color{black}\begin{bmatrix} 5\\6\end{bmatrix}}
                             = \begin{bmatrix} 1{\color{black}(5)} + 3{\color{black}(6)} \\ 2{\color{black}(5)} + 0{\color{black}(6)} \\ 4{\color{black}(5)} + -1{\color{black}(6)}\end{bmatrix}
                             = \begin{bmatrix}23\\10\\14\end{bmatrix}
@@ -204,10 +204,10 @@
                 <h4>Linearity</h4>
 
                 <p>The important thing, though, is that matrices are <span>linear operations</span>! Hence, the name linear algebra. That means vector addition and scalar multiplication can be moved through the operator:</p>
-                <div style="color:var(--darkish); margin-bottom: -3.5rem;">$$ A(x+y) = Ax + Ay $$</div>
-                <div style="color:var(--darkish);">$$ A(kx) = kAx $$</div>
+                <div class="bigEq">$$ A({\color{black}\vec{x}+\vec{y}}) = A{\color{black}\vec{x}} + A{\color{black}\vec{y}} $$</div>
+                <div class="bigEq">$$ A({\color{black}k}\vec{x}) = {\color{black}k}A\vec{x} $$</div>
 
-                <p>Yippee! This is a super useful property that doesn't happen very often. (For example, the function f(x) = x<sup>2</sup> is not linear, because f(2x) ≠ 2f(x).)</p>
+                <p>Yippee! This is a super useful property that doesn't happen very often. For example, the easy function \(f(x) = x^2\) is not linear, because \(f(2x) ≠ 2f(x)\).</p>
 
                 <p>And that's it for the basics!</p>
 
@@ -230,7 +230,7 @@
             </div>
         </div>
 
-        <div class="content matrix">
+        <div class="content matrix selected">
             <div class="margins">
                 <h2>Matrices as Transformations</h2>
                 <h3>Consider: a ball. Now consider: matrix warps ball. Let me explain.</h3>
@@ -241,16 +241,16 @@
 
                 <div class="box2">
                     <div>
-                        <p>The <span>identity matrix</span> (0 everywhere except 1s on the diagonal) does nothing to the vector. Useless.</p>
-                        <p id="vec1replace" style="color: var(--darkish);">$$
+                        <p>The <span>identity matrix</span> (\(0\) everywhere except \(1\)s on the diagonal) does nothing to the vector. Useless.</p>
+                        <div id="vec1replace" class="bigEq">$$
                             \begin{bmatrix}1 & 0 \\0& 1\end{bmatrix}
                             {\color{black}\begin{bmatrix}v_1 \\v_2 \end{bmatrix}}
                             = \begin{bmatrix}{\color{black}v_1} \\{\color{black}v_2} \end{bmatrix}
                             $$
-                        </p>
+                        </div>
 
                         <p>Now try moving the dot around.</p>
-                        <p>By scaling the 1s, we can manipulate how the matrix transforms our vector.</p>
+                        <p>By scaling the \(1\)s, we can manipulate how the matrix transforms our vector.</p>
                     </div>
                     <div>
                         <div id="vector1" style="width: calc(var(--contentWidth)/2); height: calc(var(--contentWidth)/2); margin: -3rem 0 -3rem 0;">
@@ -261,9 +261,9 @@
                     <input id="learn3" type="checkbox">
                     <label for="learn3">› &nbsp Show me the calculations!</label>
                     <div class="dropped">
-                        <div id="vec1calc" style="color: var(--darkish);">
+                        <div id="vec1calc" class="bigEq">
                             $$
-                            I{\color{black}v} = \begin{bmatrix}
+                            I{\color{black}\vec{v}} = \begin{bmatrix}
                             1 & 0 \\
                             0 & 1
                             \end{bmatrix}{\color{black}\begin{bmatrix}
@@ -277,7 +277,7 @@
                             {\color{black}=\begin{bmatrix}
                             v_1 \\
                             v_2
-                            \end{bmatrix}=v}
+                            \end{bmatrix}=\vec{v}}
                             $$
                         </div>
                     </div>
@@ -290,7 +290,7 @@
                         <img src="images/ball.svg" style="width: 38%;max-width: 400px;">
                         <div style="width:60%;max-width: 100%;">
                             <h4 style="font-size: calc(2*var(--headerSize)); max-width: 15ch; margin-top: .5rem;">The Ball: a New Perspective</h4>
-                            <p>AKA, the unit circle. This includes all the vectors with magnitude 1 in every single direction (in 2D).</p>
+                            <p>AKA, the unit circle. This includes all the vectors with magnitude \(1\) in every single direction (in 2D).</p>
                         </div>
                     </div>
                 </div>
@@ -303,11 +303,11 @@
                 <div class="row">
                     <div>
                         <p style="text-align:center;"><span>Scaling</span></p>
-                        <p style="margin: -2.5rem 0 -4rem 0;">$$
+                        <div class="bigEq">$$
                             \begin{bmatrix}
                             k_1 & 0 \\ 0 & k_2
                             \end{bmatrix}
-                        $$</p>
+                        $$</div>
                         <dotlottie-player
                             src="https://www.cordeliart.com/spectral/images/scale.json"
                             background="transparent"
@@ -320,12 +320,12 @@
 
                     <div>
                         <p style="text-align:center;"><span>Rotating</span></p>
-                        <p style="margin: -2.5rem 0 -4rem 0;">$$
+                        <div class="bigEq">$$
                             \begin{bmatrix}
                             \cos\theta & -\sin\theta \\
                             \sin\theta & \cos\theta
                             \end{bmatrix}
-                        $$</p>
+                        $$</div>
                         <dotlottie-player
                             src="https://www.cordeliart.com/spectral/images/rotate.json"
                             background="transparent"
@@ -338,12 +338,12 @@
 
                     <div>
                         <p style="text-align:center;"><span>Reflecting</span></p>
-                        <p style="margin: -2.5rem 0 -4rem 0;">$$
+                        <div class="bigEq">$$
                             \begin{bmatrix}
                             -1 & 0 \\ 
                             0 & 1
                             \end{bmatrix}
-                        $$</p>
+                        $$</div>
                         <dotlottie-player
                             src="https://www.cordeliart.com/spectral/images/flip.json"
                             background="transparent"
@@ -368,8 +368,8 @@
                 ></dotlottie-player>
 
                 <p>You might notice that the bold vectors stay pointing in the same direction, even after they are transformed. They're only scaled up and down.</p>
-                <p>These are called <span>eigenvectors</span> <i>u<sub>i</sub></i>. The amount they're scaled is called an <span>eigenvalue</span> <i>λ<sub>i</sub></i>. Because the matrix only scales <i>u<sub>i</sub></i> by <i>λ<sub>i</sub></i>, we can say:</p>
-                <div>$$ Au_i = \lambda_1 u_i $$</div>
+                <p>These are called <span>eigenvectors</span> \(\vec{u}\). The amount they're scaled is called an <span>eigenvalue</span> \(\lambda\). Because the matrix just scales \(\vec{u}\) by \(\lambda\), we can say:</p>
+                <div class="bigEq">$$ A\vec{u} = \lambda \vec{u} $$</div>
                 <p>The <span>spectral radius</span> of a matrix is the largest eigenvalue magnitude (absolute value).</p>
 
 
@@ -377,39 +377,40 @@
                     <input id="learn4" type="checkbox">
                     <label for="learn4">› &nbsp Exercise: What are the eigenvectors in the examples above?</label>
                     <div class="dropped">
-                        <p>We let the horizontal axis direction be <i>"v<sub>1</sub>"</i> and the vertical axis direction be <i>"v<sub>2</sub>"</i></p>
-                        <p><span>Scaling</span>: eigenvectors are <i>v<sub>1</sub></i> (with eigenvalue <i>k<sub>1</sub></i>) and <i>v<sub>2</sub></i> (with eigenvalue <i>k<sub>2</sub></i>)</p>
-                        <p><span>Rotating</span>: eigenvectors are complex!</p>
-                        <p><span>Reflecting</span>: eigenvectors are <i>v<sub>1</sub></i> (with eigenvalue 1 because it stays exactly the same) and <i>v<sub>2</sub></i> (with eigenvalue -1 because it's flipped)</p>
+                        <p>We let the horizontal axis direction be \(\vec{v_1}\) and the vertical axis direction be \(\vec{v_2}\)</p>
+                        <p><span>Scaling</span>: Eigenvectors are \(\vec{v_1}\) (with eigenvalue \(k_1\)) and \(\vec{v_2}\) (with eigenvalue \(k_2\))</p>
+                        <p><span>Rotating</span>: Because all vectors are rotating, it may seem like no vector can be an eigenvector—but that just means the eigenvectors complex numbers! So we can't visualize them on our real axis.</p>
+                        <p><span>Reflecting</span>: Eigenvectors are \(\vec{v_1}\) (with eigenvalue \(1\) because it stays exactly the same) and \(\vec{v_2}\) (with eigenvalue \(-1\) because it's flipped)</p>
                     </div>
                 </div>
 
-                <p>Every vector <i>v<sub>i</sub></i> can be written as a liner combination of the eigenvectors. That means we can write the transformation of every vector <i>Av<sub>i</sub></i> as a linear combination of the transformed eigenvectors. <span>This is what allows us to warp the unit circle in the way we did above.</span></p>
-                <div style="margin-bottom: -3.5rem;">$$ v_i= c_1u_1 + c_2u_2 + ... + c_nu_n$$</div>
-                <div>$$ Av_i= A(c_1u_1 + c_2u_2 + ... + c_nu_n) = c_1Au_1 + c_2Au_2 + ... c_nAu_n$$</div>
+                <p>Every vector \(v\) can be written as a liner combination of the eigenvectors. In other words, we can think of each eigenvector as our "componnents."</p>
+                <p>That means we can write the transformation of every vector \(Av\) as a linear combination of the transformed eigenvectors. <span>This is what allows us to warp the unit circle in the way we did above.</span></p>
+                <div class="bigEq">$$ {\color{black}\vec{v}= c_1\vec{u_1} + c_2\vec{u_2} + ... + c_n\vec{u_n}}$$</div>
+                <div class="bigEq">$$ A{\color{black}\vec{v}} = A({\color{black}c_1\vec{u_1} + c_2\vec{u_2} + ... + c_n\vec{u_n}}) = {\color{black}c_1}A{\color{black}\vec{u_1}} + {\color{black}c_2}A{\color{black}\vec{u_2}} + ... + {\color{black}c_n}A{\color{black}\vec{u_n}}$$</div>
 
                 <h4>Eigendecomposition</h4>
                 <p>Each matrix can be decomposed into 3 matrices using it's eigenvectors and eigenvalues:</p>
-                <div>
-                    $$ A = QDQ^T=\begin{bmatrix}
+                <div class="bigEq">
+                    $$ A_{n\times n} = QDQ^T=\begin{bmatrix}
                     \uparrow & \uparrow & ... & \uparrow \\
-                    u_1 & u_2 & ... & u_n \\
+                    \vec{u}_1 & \vec{u}_2 & ... & \vec{u}_n \\
                     \downarrow & \downarrow & ... & \downarrow \\
                     \end{bmatrix} \begin{bmatrix}
                     \lambda_1 & 0 & ... & 0\\
                     0 & \lambda_2 \\
                     \vdots &  & \ddots \\
-                    0 & & & \lambda_b \\
+                    0 & & & \lambda_n \\
                     \end{bmatrix} \begin{bmatrix}
-                    \leftarrow & u_1 & \rightarrow \\
-                    \leftarrow & u_2 & \rightarrow \\
+                    \leftarrow & \vec{u}_1 & \rightarrow \\
+                    \leftarrow & \vec{u}_2 & \rightarrow \\
                     & \vdots \\
-                    \leftarrow & u_n & \rightarrow \\
+                    \leftarrow & \vec{u}_n & \rightarrow \\
                     \end{bmatrix}
                     $$
                 </div>
-                <p><i>D</i> is a matrix with the eigenvalues along the diagonal and zeroes everywhere else.</p>
-                <p><i>Q</i> is a matrix with the normalized eigenvectors as its columns. (<i>Q<sup>T</sup></i> is the tranpose of <i>Q</i>, meaning flipped along the diagonal.)</p>
+                <p>\(D\) is a matrix with the eigenvalues along the diagonal and zeroes everywhere else.</p>
+                <p>\(Q\) is a matrix with the normalized eigenvectors as its columns. (\(Q^T\) is the tranpose of \(Q\), meaning flipped along the diagonal.)</p>
                 <p>This decomposition is how the vectors and ellipses on the next page are calculated.</p>
 
                 <p style="margin-top:8rem;">Now, those are big words, complicated matrices, and weird symbols. So I've created an interactive experience where you can click and drag eigenvectors, and see how it changes the matrix in real time.</p>
@@ -444,7 +445,7 @@
 
                 <div class="grids" style="width: 16rem;">
                     <div style="width: 100%; max-width: 200%;"><h5>Matrix</h5></div>
-                    <div id="intMat" style="color:var(--light); margin:0;padding:0;">
+                    <div id="intMat" class="bigEq" style="color:var(--light);">
                         $$\small{\begin{bmatrix}
                         a & b \\
                         c & d
@@ -452,11 +453,11 @@
                     </div>
                     <div class="line"></div>
                     <div style="width: 100%; text-align: center;">
-                        <div id="intEigs1" style="color:var(--light); width: fit-content; margin: 0 auto .5rem auto;">
-                            $$\scriptsize{\lambda_1= k, u_1 = \langle v_1, v_2\rangle}$$
+                        <div id="intEigs1" class="bigEq" style="color:var(--light);">
+                            $$\lambda_1= k, \vec{u_1} = \langle v_1, v_2\rangle$$
                         </div>
-                        <div id="intEigs2" style="color:var(--light); width: fit-content; margin: 0 auto 0 auto;">
-                            $$\scriptsize{\lambda_2= k, u_2 = \langle v_1, v_2\rangle}$$
+                        <div id="intEigs2" class="bigEq" style="color:var(--light);">
+                            $$\lambda_2= k, \vec{u_2} = \langle v_1, v_2\rangle$$
                         </div>
                     </div>
                 </div>
@@ -480,9 +481,9 @@
                     </div>
 
                     <div id="varInv" class="row">
-                        <input type="checkbox" checked class="checkCir">
+                        <input type="checkbox" unchecked class="checkCir">
                         <p>inverse</p>
-                        <input type="checkbox" checked class="checkLine">
+                        <input type="checkbox" unchecked class="checkLine">
                     </div>
 
                     <div id="varEigs" class="row">
