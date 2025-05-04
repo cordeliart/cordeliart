@@ -108,7 +108,7 @@ img {
 /* ----------------------------------------------------------------------------------------------- */
 
 .bigEq {
-    font-size: min(2.3vw, var(--headerSize)) !important;
+    font-size: min(2.1vw, var(--headerSize)) !important;
     color: var(--darkish);
 }
 
