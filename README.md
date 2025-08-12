@@ -1,4 +1,4 @@
 - Hi, I'm @cordeliart / Lena Pang.
-- I'm interested in design (graphic, interactive, multimedia, you name it), math, learning languages (my current endeavor is Japanese), and traveling!
-- I'm currently studying for my BFA in New Media Design and my BS in Applied Mathematics at the Rochester Institute of Technology in New York.
+- I am a multimedia problem solver. I solve visual & interactive problems with intuitive, accessible, and beautiful designs; I solve number & abstract problems with out-of-the-box, creative, beautiful solutions.
+- This is my portfolio.
 - How to reach me: www.cordeliart.com (this respository!) or lenacordeliart@gmail.com.
