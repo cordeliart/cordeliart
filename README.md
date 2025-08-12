@@ -1,4 +1,4 @@
 - Hi, I'm @cordeliart / Lena Pang.
 - I am a multimedia problem solver. I solve visual & interactive problems with intuitive, accessible, and beautiful designs; I solve number & abstract problems with out-of-the-box, creative, beautiful solutions.
 - This is my portfolio.
-- How to reach me: www.cordeliart.com (this respository!) or lenacordeliart@gmail.com.
+- How to reach me: www.cordeliart.com (this respository!) or lena@cordeliart.com.
