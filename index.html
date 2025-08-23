@@ -16,6 +16,19 @@
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
+
+        <script>
+            window.onload = function () {
+                if (!('firstLoad' in localStorage)) {
+                    document.querySelector('.loader').style.display = 'none';
+                    document.querySelector('.leftfix').style.animationDelay = '0s';
+                    document.querySelector('.right').style.animationDelay = '0s';
+                }
+                else {
+                    localStorage.setItem("firstLoad", true);
+                }
+            }
+        </script>
     </head>
     
     <body>
@@ -48,7 +61,19 @@
         <div class="right">
             <div class="gallery">
 
-                 <div class="container">
+                <div class="container">
+                   <a href="capstone.html">
+                    <img src="images/capstone/home2.gif" class="image" alt="spectral cover">
+                   <div class="overlay">
+                       <h2>Spectral (Math-Design Capstone)</h2>
+                       <h3>Spring 2025</h3>
+                       <h3>HTML, CSS, JavaScript (p5js, MathJax)</h3>
+                       <h4>creative coding, web dev, linear algebra</h4>
+                   </div>
+                   </a>
+               </div>
+
+                 <!-- <div class="container">
                     <a href="sound.html">
                     <img src="images/sound/home.png" class="image" alt="art of sound cover">
                     <div class="overlay">
@@ -58,7 +83,7 @@
                         <h4>sound visualization, creative coding</h4>
                     </div>
                     </a>
-                </div>
+                </div> -->
 
                 <div class="container">
                     <a href="scanner.html">
@@ -168,21 +193,8 @@
                     </a>
                 </div>
 
-                <h6>Lena Pang © 2025<br>Thanks for reading :)</h6>
+                <h6 style="width: 100%;">Lena Pang © 2025<br>Thanks for reading :)</h6>
             </div>
         </div>
-
-        <script>
-            window.onload = function () {
-                if (!('firstLoad' in localStorage)) {
-                    document.querySelector('.loader').style.display = 'none';
-                    document.querySelector('.leftfix').style.animationDelay = '0s';
-                    document.querySelector('.right').style.animationDelay = '0s';
-                }
-                else {
-                    localStorage.setItem("firstLoad", true);
-                }
-            }
-        </script>
     </body>
 </html>
