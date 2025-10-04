@@ -1,0 +1,68 @@
+/* HTML is the structure of your page. CSS (aka Cascading Style Sheet) is the ✨style✨.
+Cascading means the file is read by the computer from top to bottom, so anything lower
+will override anything higher. */
+
+/* VARIABLES */
+:root {
+    --text: #13141F;
+    --bg: #d9dde4;
+    --accent: #058003;
+}
+
+/* suggested edits ---------------------------------------------------------------------------------- */
+
+/* html, body, h1, h2, h3, h4, h5, h6, p, span {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    line-height: 150%;
+    box-sizing: border-box;
+} */
+
+/* CSS TAGS ---------------------------------------------------------------------------------- */
+
+html {
+    /* background-color: var(--bg); */
+}
+
+body {
+    /* width: 90%; */
+    /* max-width: 1200px; */
+}
+
+/* all text */
+h1, h2, h3, h4, h5, h6, p, span {
+    /* color: var(--text); */
+}
+
+/* headers */
+h1 {}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+/* body text */
+p {}
+
+span {}
+
+/* links */
+a {}
+
+/* links on hover */
+a:hover {}
+
+
+
+/* CUSTOM TAGS ---------------------------------------------------------------------------------- */
+
+/* .className {} classes are used for repeating things */
+
+/* #idName {} each id should only be used once! */
